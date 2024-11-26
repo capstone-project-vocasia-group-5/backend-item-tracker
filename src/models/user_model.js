@@ -138,18 +138,17 @@ const validateUser = {
         .messages({
           "string.pattern.base":
             RES.PASSWORD_MUST_CONTAINT_ONLY_LETTERS_AND_NUMBERS,
+          "string.min": RES.PASSWORD_MUST_CONTAINT_AT_LEAST_6_CHARACTERS,
+          "any.required": RES.PLEASE_PROVIDE_VALID_PASSWORD,
         }),
       // image_url: joi.string().allow(null),
       // role: joi.string().valid("user", "admin").default("user"),
       phone_number: joi
         .string()
         .required()
-        .min(10)
-        .max(15)
-        .pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)
+        .pattern(/^\+?62[0-9]{8,13}$/)
         .messages({
-          "string.empty": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
-          "string.pattern.base": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
+          "string.pattern.base": RES.PHONE_NUMBER_MUST_START_WITH,
           "any.required": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
         }),
     });
@@ -157,11 +156,36 @@ const validateUser = {
   },
   update: (user) => {
     const schema = joi.object({
-      name: joi.string().min(3).max(50),
+      name: joi.string().min(3).max(50).messages({
+        "string.min": RES.NAME_SHOULD_HAVE_MINIMUM_3_CHARACTERS,
+        "string.max": RES.NAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS,
+        "any.required": RES.PLEASE_PROVIDE_VALID_NAME,
+      }),
+      username: joi.string().min(3).max(50).messages({
+        "string.min": RES.USERNAME_SHOULD_HAVE_MINIMUM_3_CHARACTERS,
+        "string.max": RES.USERNAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS,
+        "any.required": RES.PLEASE_PROVIDE_VALID_USERNAME,
+      }),
+      email: joi.string().email().messages({
+        "any.required": RES.PLEASE_PROVIDE_VALID_EMAIL,
+      }),
       phone_number: joi
         .string()
-        .pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im),
-      image_url: joi.string().allow(null),
+        .pattern(/^\+?62[0-9]{8,13}$/)
+        .messages({
+          "string.pattern.base": RES.PHONE_NUMBER_MUST_START_WITH,
+          "any.required": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
+        }),
+      password: joi
+        .string()
+        .min(6)
+        .pattern(new RegExp("^[a-zA-Z0-9]{6,30}$"))
+        .messages({
+          "string.pattern.base":
+            RES.PASSWORD_MUST_CONTAINT_ONLY_LETTERS_AND_NUMBERS,
+          "string.min": RES.PASSWORD_MUST_CONTAINT_AT_LEAST_6_CHARACTERS,
+          "any.required": RES.PLEASE_PROVIDE_VALID_PASSWORD,
+        }),
     });
     return schema.validate(user, { abortEarly: false });
   },
@@ -247,7 +271,7 @@ userSchema.pre("save", async function (next) {
 // Indexes
 userSchema.index({ email: 1, deleted_at: 1, is_verified: 1, role: 1 });
 userSchema.index({ email: 1, deleted_at: 1 }, { unique: true });
-userSchema.index({ deleted_at: 1 });
+userSchema.index({ deleted_at: 1, is_verified: 1, role: 1 });
 
 const User = mongoose.model("User", userSchema);
 

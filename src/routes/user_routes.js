@@ -3,6 +3,7 @@ const userRoutes = express.Router();
 const userController = require("../controllers/user_controller");
 const auth = require("../middlewares/auth");
 const CFG = require("../config/const");
+const { uploadMultiple } = require("../middlewares/multers");
 
 /**
  * @swagger
@@ -11,20 +12,12 @@ const CFG = require("../config/const");
  *   description: API for managing users
  */
 
-
 /**
  * @swagger
- * /users/{id}:
+ * /users:
  *   get:
  *     tags: [Users]
- *     summary: Get user by ID
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: User ID
+ *     summary: Get user by id
  *     responses:
  *       200:
  *         description: User data retrieved successfully
@@ -35,7 +28,7 @@ const CFG = require("../config/const");
  *       404:
  *         description: User not found
  */
-userRoutes.get("/users/:id", auth.authenticateUser, userController.getUserById);
+userRoutes.get("/users", auth.authenticateUser, userController.getUser);
 
 /**
  * @swagger
@@ -64,17 +57,10 @@ userRoutes.get(
 
 /**
  * @swagger
- * /users/{id}:
+ * /users:
  *   patch:
  *     tags: [Users]
  *     summary: Update a user
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: User ID
  *     requestBody:
  *       required: true
  *       content:
@@ -88,7 +74,8 @@ userRoutes.get(
  *         description: User not found
  */
 userRoutes.patch(
-  "/users/:id",
+  "/users",
+  uploadMultiple,
   auth.authenticateUser,
   userController.updateUser
 );
