@@ -42,6 +42,10 @@ const RES = {
   NOT_FOUND: "not found",
 
   // VALIDATIONS
+  USERNAME_SHOULD_HAVE_MINIMUM_3_CHARACTERS:
+    "username should have at least 3 characters",
+  USERNAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS:
+    "username should have a maximum of 50 characters",
   ANOTHER: "another",
   PLEASE_CHOOSE: "please choose",
   DUPLICATE_VALUE_ENTERED_FOR: "duplicate value entered for",
@@ -57,6 +61,8 @@ const RES = {
     "please provide a valid password confirmation",
   PLEASE_PROVIDE_VALID_IMAGE: "please provide a valid image",
   PLEASE_PROVIDE_VALID_PHONE_NUMBER: "please provide a valid phone number",
+  PHONE_NUMBER_MUST_START_WITH:
+    "phone number must start with +62 or 62 and have 8 to 13 digits",
   NAME_SHOULD_HAVE_MINIMUM_3_CHARACTERS:
     "name should have at least 3 characters",
   NAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS:
@@ -107,6 +113,7 @@ const RES = {
   SEND_OTP_SUCCESS: "otp sent successfully",
   SIGN_UP_SUCCESS: "sign up successful",
   DATA_IS_NOT_FOUND: "data not found",
+  USERS_IS_NOT_FOUND: "user not found",
   CATEGORIES_IS_NOT_FOUND: "category not found",
   CLAIMS_IS_NOT_FOUND: "claim not found",
   CLAIM_ALREADY_EXISTS: "your claim already exists",
