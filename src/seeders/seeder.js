@@ -57,11 +57,9 @@ const importData = async () => {
     await Comment.insertMany(comments);
 
     claims[0].user_id = createdUser[0].id;
-    claims[0].to_user_id = createdUser[2].id;
-    claims[0].item_id = createdItems[0].id;
+    claims[0].item_id = createdItems[2].id;
     claims[1].user_id = createdUser[2].id;
-    claims[1].to_user_id = createdUser[0].id;
-    claims[1].item_id = createdItems[1].id;
+    claims[1].item_id = createdItems[0].id;
 
     const createdClaims = await Claim.insertMany(claims);
     notifications[0].user_id = createdUser[0].id;

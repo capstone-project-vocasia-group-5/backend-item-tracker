@@ -5,6 +5,7 @@ const categoryRoutes = require("./category_routes");
 const claimRoutes = require("./claim_routes");
 const donationRoutes = require("./donation_routes");
 const notificationRoutes = require("./notification_routes");
+const authRoutes = require("./auth_routes");
 
 const routes = express.Router();
 
@@ -25,5 +26,8 @@ routes.use(donationRoutes);
 
 // notification routes
 routes.use(notificationRoutes);
+
+// auth routes
+routes.use(authRoutes);
 
 module.exports = routes;

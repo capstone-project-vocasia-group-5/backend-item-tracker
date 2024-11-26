@@ -5,12 +5,13 @@ const RES = {
   SUCCESSFULLY_FETCHED: "berhasil diambil",
   SUCCESSFULLY_UPLOADED: "berhasil diunggah",
 
-  SUCCESS: "sukses",
-  ERROR: "kesalahan",
+  SUCCESS: true,
+  ERROR: false,
   FAILED: "gagal",
   FAILED_TO_GET_DATA: "gagal mendapatkan data",
 
   VALIDATION_ERROR: "kesalahan validasi",
+  UNAUTHORIZED_ERROR: "unauthorized",
 
   SOMETHING_WENT_WRONG: "terjadi kesalahan",
   SOMETHING_WENT_WRONG_TRY_AGAIN_LATER: "terjadi kesalahan, coba lagi nanti",
@@ -39,6 +40,13 @@ const RES = {
   NOT_FOUND: "tidak ditemukan",
 
   // VALIDATIONS
+  ANOTHER: "lain",
+  PLEASE_CHOOSE: "silahkan pilih",
+  DUPLICATE_VALUE_ENTERED_FOR: "value duplikat untuk",
+  DUPLICATE_VALUE: "conflict",
+  ALREADY_EXISTS: "sudah ada",
+  USERNAME_ALREADY_EXISTS: "username sudah ada",
+  EMAIL_IS_REQUIRED: "email diperlukan",
   PLEASE_PROVIDE_VALID_NAME: "silahkan berikan nama yang valid",
   PLEASE_PROVIDE_VALID_USERNAME: "silahkan berikan username yang valid",
   PLEASE_PROVIDE_VALID_EMAIL: "silahkan berikan email yang valid",
@@ -80,6 +88,23 @@ const RES = {
   PLEASE_PROVIDE_VALID_IMAGE_URL: "silahkan berikan url gambar yang valid",
   PLEASE_PROVIDE_VALID_USER_ID: "silahkan berikan id pengguna yang valid",
   PLEASE_PROVIDE_VALID_ITEM_ID: "silahkan berikan id barang yang valid",
+  PLEASE_PROVIDE_VALID_EMAIL: "silahkan berikan email yang valid",
+  CREDENTIAL_IS_WRONG: "kredensial salah",
+  PASSWORD_MUST_CONTAINT_AT_LEAST_6_CHARACTERS:
+    "password harus terdiri dari minimal 6 karakter",
+  YOUR_EMAIL_DOES_NOT_MATCH_WITH_ANY_ACCOUNT:
+    "email anda tidak cocok dengan akun manapun",
+  PLEASE_PROVIDE_VALID_OTP: "silahkan masukkan otp yang valid",
+
+  // AUTH
+  SIGN_IN_SUCCESS: "berhasil masuk",
+  INVALID_OTP: "otp salah",
+  YOUR_OTP_IS_EXPIRED: "otp anda telah kadaluarsa",
+  OTP_VERIFICATION_SUCCESS: "berhasil verifikasi otp",
+
+  // MESSAGE
+  SEND_OTP_SUCCESS: "berhasil mengirimkan otp",
+  SIGN_UP_SUCCESS: "berhasil mendaftar",
 };
 
 module.exports = RES;

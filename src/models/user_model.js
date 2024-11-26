@@ -18,6 +18,8 @@ const schemaOptions = {
       delete ret.otp;
       delete ret.password;
       delete ret.deleted_at;
+      delete ret.otp_expires_at;
+      delete ret.otp_status;
       return ret;
     },
   },
@@ -30,6 +32,8 @@ const schemaOptions = {
       delete ret.otp;
       delete ret.password;
       delete ret.deleted_at;
+      delete ret.otp_expires_at;
+      delete ret.otp_status;
       return ret;
     },
   },
@@ -91,6 +95,14 @@ const userSchema = new mongoose.Schema(
       default: null,
       select: false,
     },
+    otp_expires_at: {
+      type: Date,
+      default: null,
+    },
+    otp_status: {
+      type: Boolean,
+      default: false,
+    },
     is_verified: {
       type: Boolean,
       default: false,
@@ -127,8 +139,8 @@ const validateUser = {
           "string.pattern.base":
             RES.PASSWORD_MUST_CONTAINT_ONLY_LETTERS_AND_NUMBERS,
         }),
-      image_url: joi.string().allow(null),
-      role: joi.string().valid("user", "admin").default("user"),
+      // image_url: joi.string().allow(null),
+      // role: joi.string().valid("user", "admin").default("user"),
       phone_number: joi
         .string()
         .required()
@@ -150,6 +162,47 @@ const validateUser = {
         .string()
         .pattern(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im),
       image_url: joi.string().allow(null),
+    });
+    return schema.validate(user, { abortEarly: false });
+  },
+  login: (user) => {
+    const schema = joi.object({
+      email: joi.string().email().required().messages({
+        "string.email": RES.PLEASE_PROVIDE_VALID_EMAIL,
+        "any.required": RES.PLEASE_PROVIDE_VALID_EMAIL,
+      }),
+      password: joi
+        .string()
+        .min(6)
+        .required()
+        .pattern(new RegExp("^[a-zA-Z0-9]{6,30}$"))
+        .messages({
+          "string.pattern.base":
+            RES.PASSWORD_MUST_CONTAINT_ONLY_LETTERS_AND_NUMBERS,
+          "string.min": RES.PASSWORD_MUST_CONTAINT_AT_LEAST_6_CHARACTERS,
+          "any.required": RES.PLEASE_PROVIDE_VALID_PASSWORD,
+        }),
+    });
+    return schema.validate(user, { abortEarly: false });
+  },
+  forgotPassword: (user) => {
+    const schema = joi.object({
+      email: joi.string().email().required().messages({
+        "string.email": RES.PLEASE_PROVIDE_VALID_EMAIL,
+        "any.required": RES.PLEASE_PROVIDE_VALID_EMAIL,
+      }),
+    });
+    return schema.validate(user, { abortEarly: false });
+  },
+  otp: (user) => {
+    const schema = joi.object({
+      email: joi.string().email().required().messages({
+        "string.email": RES.PLEASE_PROVIDE_VALID_EMAIL,
+        "any.required": RES.PLEASE_PROVIDE_VALID_EMAIL,
+      }),
+      otp: joi.string().required().min(6).max(6).messages({
+        "any.required": RES.PLEASE_PROVIDE_VALID_OTP,
+      }),
     });
     return schema.validate(user, { abortEarly: false });
   },
@@ -192,11 +245,9 @@ userSchema.pre("save", async function (next) {
 });
 
 // Indexes
-userSchema.index({ username: 1, deleted_at: 1 }, { unique: true });
+userSchema.index({ email: 1, deleted_at: 1, is_verified: 1, role: 1 });
 userSchema.index({ email: 1, deleted_at: 1 }, { unique: true });
-userSchema.index({ name: 1 });
 userSchema.index({ deleted_at: 1 });
-userSchema.index({ name: 1, deleted_at: 1 });
 
 const User = mongoose.model("User", userSchema);
 
