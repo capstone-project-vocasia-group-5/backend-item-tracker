@@ -26,8 +26,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use("/api/v1/uploads", express.static("public/uploads"));
-
 app.use("/api/v1", routes);
 
 app.use(notFoundMiddleware);

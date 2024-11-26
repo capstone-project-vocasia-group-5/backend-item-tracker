@@ -1,52 +1,15 @@
 const multer = require("multer");
-const generateUUID = require("../utils/generate_uuid");
 const RES = require("../config/resMessage");
+const path = require("path");
+const { generateUUID } = require("../utils");
 
-const bookStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "public/uploads/books/");
-  },
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.originalname.split(".")[0] +
-        "-" +
-        generateUUID() +
-        "." +
-        file.mimetype.split("/")[1]
-    );
-  },
-});
-
-const authorStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "public/uploads/authors/");
-  },
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.originalname.split(".")[0] +
-        "-" +
-        generateUUID() +
-        "." +
-        file.mimetype.split("/")[1]
-    );
-  },
-});
-
-const uploadStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
     cb(null, "public/uploads/");
   },
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.originalname.split(".")[0] +
-        "-" +
-        generateUUID() +
-        "." +
-        file.mimetype.split("/")[1]
-    );
+  filename: (req, file, cb) => {
+    const uniqueSuffix = generateUUID();
+    cb(null, uniqueSuffix + path.extname(file.originalname));
   },
 });
 
@@ -67,27 +30,12 @@ const fileFilter = (req, file, cb) => {
     );
   }
 };
-const uploadMiddleware = (destination) => {
-  let storage;
-  switch (destination) {
-    case "book":
-      storage = bookStorage;
-      break;
-    case "author":
-      storage = authorStorage;
-      break;
-    default:
-      storage = uploadStorage;
-      break;
-  }
+const upload = multer({
+  storage,
+  limits: { fileSize: 10 * 1024 * 1024 }, // max 10MB
+  fileFilter: fileFilter,
+});
 
-  return multer({
-    storage: storage,
-    limits: {
-      fileSize: 10000000,
-    },
-    fileFilter: fileFilter,
-  });
-};
+const uploadMultiple = upload.array("images", 10);
 
-module.exports = uploadMiddleware;
+module.exports = { uploadMultiple };

@@ -15,6 +15,7 @@ const schemaOptions = {
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
+      delete ret.deleted_at;
       return ret;
     },
   },
@@ -24,6 +25,7 @@ const schemaOptions = {
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
+      delete ret.deleted_at;
       return ret;
     },
   },

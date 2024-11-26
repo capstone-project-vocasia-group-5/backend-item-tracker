@@ -2,6 +2,7 @@ const RES = require("../config/resMessage");
 const mongoose = require("mongoose");
 const joi = require("joi");
 const joiObjectId = require("joi-objectid")(joi);
+const { Item } = require("./item_model");
 
 // Schema Options
 const schemaOptions = {
@@ -15,6 +16,7 @@ const schemaOptions = {
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
+      delete ret.deleted_at;
       return ret;
     },
   },
@@ -24,6 +26,7 @@ const schemaOptions = {
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
+      delete ret.deleted_at;
       return ret;
     },
   },
@@ -38,12 +41,6 @@ const claimSchema = new mongoose.Schema(
       index: true,
       required: true,
     },
-    // to_user_id: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    //   index: true,
-    //   required: true,
-    // },
     item_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Item",
@@ -86,12 +83,6 @@ const validateClaim = {
    */
   create: (claim) => {
     const schema = joi.object({
-      user_id: joiObjectId().required().messages({
-        "string.empty": RES.PLEASE_PROVIDE_VALID_USER_ID,
-      }),
-      to_user_id: joiObjectId().required().messages({
-        "string.empty": RES.PLEASE_PROVIDE_VALID_USER_ID,
-      }),
       item_id: joiObjectId().required().messages({
         "string.empty": RES.PLEASE_PROVIDE_VALID_ITEM_ID,
       }),
