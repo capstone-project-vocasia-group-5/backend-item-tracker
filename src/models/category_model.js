@@ -14,6 +14,7 @@ const schemaOptions = {
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
+      delete ret.deleted_at;
       return ret;
     },
   },
@@ -23,6 +24,7 @@ const schemaOptions = {
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
+      delete ret.deleted_at;
       return ret;
     },
   },
@@ -62,6 +64,7 @@ const validateCategory = {
     const schema = joi.object({
       name: joi.string().required().max(50).messages({
         "string.empty": RES.PLEASE_PROVIDE_VALID_NAME,
+        "string.min": RES.NAME_SHOULD_HAVE_MINIMUM_3_CHARACTERS,
         "string.max": RES.NAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS,
       }),
     });
@@ -70,9 +73,9 @@ const validateCategory = {
 };
 
 // Indexes
-categorySchema.index({ name: 1 });
+categorySchema.index({ name: 1 }, { unique: true });
 categorySchema.index({ deleted_at: 1 });
-categorySchema.index({ name: 1, deleted_at: 1 });
+categorySchema.index({ name: 1, deleted_at: 1 }, { unique: true });
 
 const Category = mongoose.model("Category", categorySchema);
 

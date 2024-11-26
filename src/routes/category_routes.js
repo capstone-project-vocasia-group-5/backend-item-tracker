@@ -13,7 +13,7 @@ const CFG = require("../config/const");
 
 /**
  * @swagger
- * /admin/categories:
+ * /categories:
  *   get:
  *     tags: [Categories]
  *     summary: Get all categories
@@ -42,55 +42,7 @@ const CFG = require("../config/const");
  *                     example: "2023-01-01T00:00:00.000Z"
  */
 
-categoryRoutes.get(
-  "/admin/categories",
-  auth.authenticateUser,
-  categoryController.getAllCategories
-);
-
-/**
- * @swagger
- * /admin/categories/{id}:
- *   get:
- *     tags: [Categories]
- *     summary: Get a category by ID
- *     description: Retrieve a single category by its unique ID.
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: The category ID
- *         schema:
- *           type: string
- *           example: "category_id_123"
- *     responses:
- *       200:
- *         description: A single category object
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: string
- *                   example: "category_id_123"
- *                 name:
- *                   type: string
- *                   example: "Electronics"
- *                 created_at:
- *                   type: string
- *                   example: "2023-01-01T00:00:00.000Z"
- *                 updated_at:
- *                   type: string
- *                   example: "2023-01-01T00:00:00.000Z"
- *       404:
- *         description: Category not found
- */
-categoryRoutes.get(
-  "/admin/categories/:id",
-  auth.authenticateUser,
-  categoryController.getCategoryById
-);
+categoryRoutes.get("/categories", categoryController.getAllCategories);
 
 /**
  * @swagger
