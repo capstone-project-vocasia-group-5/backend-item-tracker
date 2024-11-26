@@ -2,6 +2,7 @@ const express = require("express");
 const claimRoutes = express.Router();
 const claimController = require("../controllers/claim_controller");
 const auth = require("../middlewares/auth");
+const { uploadMultiple } = require("../middlewares/multers");
 
 /**
  * @swagger
@@ -93,120 +94,125 @@ const auth = require("../middlewares/auth");
  *       400:
  *         description: Invalid input
  */
-claimRoutes.post("/claims", auth.authenticateUser, claimController.createClaim);
-
-/**
- * @swagger
- * /claims/{id}:
- *   put:
- *     tags: [Claims]
- *     summary: Update an existing claim by ID
- *     description: Update the details of an existing claim, including claim status, images, and claim text.
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: The claim ID
- *         schema:
- *           type: string
- *           example: "claim_id_123"
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               is_approved:
- *                 type: boolean
- *                 example: true
- *               images:
- *                 type: array
- *                 items:
- *                   type: string
- *                   example: "https://example.com/image2.jpg"
- *               claim_text:
- *                 type: string
- *                 example: "The item was repaired and returned"
- *     responses:
- *       200:
- *         description: Claim updated successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: boolean
- *                   example: true
- *                 message:
- *                   type: string
- *                   example: "Claim updated successfully"
- *                 data:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: string
- *                       example: "claim_id_123"
- *                     is_approved:
- *                       type: boolean
- *                       example: true
- *                     images:
- *                       type: array
- *                       items:
- *                         type: string
- *                         example: "https://example.com/image2.jpg"
- *                     claim_text:
- *                       type: string
- *                       example: "The item was repaired and returned"
- *       404:
- *         description: Claim not found
- *       400:
- *         description: Invalid input
- */
-claimRoutes.put(
-  "/claims/:id",
+claimRoutes.post(
+  "/claims",
   auth.authenticateUser,
-  claimController.updateClaim
+  uploadMultiple,
+  claimController.createClaim
 );
 
-/**
- * @swagger
- * /claims/{id}:
- *   delete:
- *     tags: [Claims]
- *     summary: Delete a claim by ID
- *     description: Delete a claim based on its unique ID.
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: The claim ID
- *         schema:
- *           type: string
- *           example: "claim_id_123"
- *     responses:
- *       200:
- *         description: Claim deleted successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: boolean
- *                   example: true
- *                 message:
- *                   type: string
- *                   example: "Claim deleted successfully"
- *       404:
- *         description: Claim not found
- */
-claimRoutes.delete(
-  "/claims/:id",
-  auth.authenticateUser,
-  claimController.deleteClaim
-);
+// /**
+//  * @swagger
+//  * /claims/{id}:
+//  *   put:
+//  *     tags: [Claims]
+//  *     summary: Update an existing claim by ID
+//  *     description: Update the details of an existing claim, including claim status, images, and claim text.
+//  *     parameters:
+//  *       - in: path
+//  *         name: id
+//  *         required: true
+//  *         description: The claim ID
+//  *         schema:
+//  *           type: string
+//  *           example: "claim_id_123"
+//  *     requestBody:
+//  *       required: true
+//  *       content:
+//  *         application/json:
+//  *           schema:
+//  *             type: object
+//  *             properties:
+//  *               is_approved:
+//  *                 type: boolean
+//  *                 example: true
+//  *               images:
+//  *                 type: array
+//  *                 items:
+//  *                   type: string
+//  *                   example: "https://example.com/image2.jpg"
+//  *               claim_text:
+//  *                 type: string
+//  *                 example: "The item was repaired and returned"
+//  *     responses:
+//  *       200:
+//  *         description: Claim updated successfully
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               type: object
+//  *               properties:
+//  *                 status:
+//  *                   type: boolean
+//  *                   example: true
+//  *                 message:
+//  *                   type: string
+//  *                   example: "Claim updated successfully"
+//  *                 data:
+//  *                   type: object
+//  *                   properties:
+//  *                     id:
+//  *                       type: string
+//  *                       example: "claim_id_123"
+//  *                     is_approved:
+//  *                       type: boolean
+//  *                       example: true
+//  *                     images:
+//  *                       type: array
+//  *                       items:
+//  *                         type: string
+//  *                         example: "https://example.com/image2.jpg"
+//  *                     claim_text:
+//  *                       type: string
+//  *                       example: "The item was repaired and returned"
+//  *       404:
+//  *         description: Claim not found
+//  *       400:
+//  *         description: Invalid input
+//  */
+// claimRoutes.put(
+//   "/claims/:id",
+//   auth.authenticateUser,
+//   claimController.updateClaim
+// );
+
+// /**
+//  * @swagger
+//  * /claims/{id}:
+//  *   delete:
+//  *     tags: [Claims]
+//  *     summary: Delete a claim by ID
+//  *     description: Delete a claim based on its unique ID.
+//  *     parameters:
+//  *       - in: path
+//  *         name: id
+//  *         required: true
+//  *         description: The claim ID
+//  *         schema:
+//  *           type: string
+//  *           example: "claim_id_123"
+//  *     responses:
+//  *       200:
+//  *         description: Claim deleted successfully
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               type: object
+//  *               properties:
+//  *                 status:
+//  *                   type: boolean
+//  *                   example: true
+//  *                 message:
+//  *                   type: string
+//  *                   example: "Claim deleted successfully"
+//  *       404:
+//  *         description: Claim not found
+//  */
+// claimRoutes.delete(
+//   "/claims/:id",
+//   auth.authenticateUser,
+//   claimController.deleteClaim
+// );
 
 /**
  * @swagger

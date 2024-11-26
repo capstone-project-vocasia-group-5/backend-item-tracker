@@ -12,4 +12,8 @@ module.exports = {
   isProduction: process.env.IS_PRODUCTION,
   serverKey: process.env.SERVER_KEY,
   clientKey: process.env.CLIENT_KEY,
+  ccname: process.env.CCNAME,
+  ccapikey: process.env.CCAPIKEY,
+  ccapisecret: process.env.CCAPISECRET,
+  ccfolder: process.env.CCFOLDER,
 };

@@ -3,7 +3,7 @@ const users = [
     name: "John Doe",
     username: "john_doe",
     email: "john@example.com",
-    password: "$2y$12$f.X.as7ucrEKQOL9LSYE8ODO62s516djb9xO/xfveaJ0DEzb1lA2O",
+    password: "$2a$12$m1Zkrw7/Ge0K3h7SVhPI8eDvnF.w0BuG1cSZ5WoKhjdzRnlSrldLW",
     image_url:
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     role: "user",
@@ -16,7 +16,7 @@ const users = [
     name: "Jane Smith",
     username: "jane_smith",
     email: "jane@example.com",
-    password: "$2y$12$f.X.as7ucrEKQOL9LSYE8ODO62s516djb9xO/xfveaJ0DEzb1lA2O",
+    password: "$2a$12$m1Zkrw7/Ge0K3h7SVhPI8eDvnF.w0BuG1cSZ5WoKhjdzRnlSrldLW",
     image_url:
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     role: "admin",
@@ -29,7 +29,7 @@ const users = [
     name: "Alice Johnson",
     username: "alice_johnson",
     email: "alice@example.com",
-    password: "$2y$12$f.X.as7ucrEKQOL9LSYE8ODO62s516djb9xO/xfveaJ0DEzb1lA2O",
+    password: "$2a$12$m1Zkrw7/Ge0K3h7SVhPI8eDvnF.w0BuG1cSZ5WoKhjdzRnlSrldLW",
     image_url:
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     role: "user",

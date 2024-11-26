@@ -100,12 +100,16 @@ const RES = {
   INVALID_OTP: "invalid otp",
   YOUR_OTP_IS_EXPIRED: "your otp has expired",
   OTP_VERIFICATION_SUCCESS: "otp verification successful",
+  UNAUTHORIZED: "unauthorized",
+  UNAUTHORIZED_ACCESS: "unauthorized access",
 
   // MESSAGE
   SEND_OTP_SUCCESS: "otp sent successfully",
   SIGN_UP_SUCCESS: "sign up successful",
   DATA_IS_NOT_FOUND: "data not found",
   CATEGORIES_IS_NOT_FOUND: "category not found",
+  CLAIMS_IS_NOT_FOUND: "claim not found",
+  CLAIM_ALREADY_EXISTS: "your claim already exists",
 };
 
 module.exports = RES;
