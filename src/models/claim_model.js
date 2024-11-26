@@ -38,12 +38,12 @@ const claimSchema = new mongoose.Schema(
       index: true,
       required: true,
     },
-    to_user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      index: true,
-      required: true,
-    },
+    // to_user_id: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "User",
+    //   index: true,
+    //   required: true,
+    // },
     item_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Item",

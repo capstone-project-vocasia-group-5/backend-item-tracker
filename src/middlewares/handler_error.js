@@ -2,7 +2,7 @@ const { StatusCodes } = require("http-status-codes");
 const RES = require("../config/resMessage");
 const errorHandlerMiddleware = (err, req, res, next) => {
   let customError = {
-    status: err.status || RES.ERROR,
+    success: err.success || RES.ERROR,
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
     message: err.message || RES.SOMETHING_WENT_WRONG,
     errors: err.errors || {},
@@ -17,9 +17,9 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   }
 
   if (err.code && err.code === 11000) {
-    customError.errors =
-      RES.DUPLICATE_VALUE_ENTERED_FOR +
-      ` ${Object.keys(err.keyValue)} field, please choose another value`;
+    customError.errors = ` ${Object.keys(err.keyValue)} ${
+      RES.ALREADY_EXISTS
+    }, ${RES.PLEASE_CHOOSE + ` ${Object.keys(err.keyValue)} `}${RES.ANOTHER}`;
     customError.statusCode = StatusCodes.BAD_REQUEST; // 400
     customError.message = RES.DUPLICATE_VALUE;
   }
@@ -31,7 +31,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   }
 
   return res.status(customError.statusCode).json({
-    status: customError.status,
+    success: customError.success,
     message: customError.message,
     errors: customError.errors,
   });
