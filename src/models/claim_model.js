@@ -61,6 +61,12 @@ const claimSchema = new mongoose.Schema(
       required: [true, RES.PLEASE_PROVIDE_VALID_CLAIM_TEXT],
       maxlength: 500,
     },
+    messages: {
+      type: String,
+      default: null,
+      trim: true,
+      maxlength: 500,
+    },
     deleted_at: {
       type: Date,
     },

@@ -75,6 +75,10 @@ const donationSchema = new mongoose.Schema(
       enum: ["pending", "success", "failed"],
       default: "pending",
     },
+    payment_method: {
+      type: String,
+      default: null,
+    },
     deleted_at: {
       type: Date,
       default: null,

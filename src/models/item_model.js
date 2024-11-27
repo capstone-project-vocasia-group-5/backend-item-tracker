@@ -109,7 +109,7 @@ const itemSchema = new mongoose.Schema(
       maxlength: 15,
       minlength: 10,
     },
-    rejection_reason: {
+    messages: {
       type: String,
       default: null,
       trim: true,
@@ -191,7 +191,7 @@ const validateItem = {
         .messages({
           "string.pattern.base": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
         }),
-      rejection_reason: joi.string().max(500),
+      messages: joi.string().max(500),
     });
     return schema.validate(item, { abortEarly: false });
   },

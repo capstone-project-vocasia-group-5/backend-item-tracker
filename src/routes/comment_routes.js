@@ -2,6 +2,7 @@ const express = require("express");
 const commentRoutes = express.Router();
 const commentController = require("../controllers/comment_controller");
 const auth = require("../middlewares/auth");
+const CFG = require("../config/const");
 
 /**
  * @swagger
@@ -12,7 +13,7 @@ const auth = require("../middlewares/auth");
 
 /**
  * @swagger
- * /comments:
+ * /comments/{item_id}:
  *   post:
  *     tags: [Comments]
  *     summary: Create a new comment
@@ -85,59 +86,10 @@ const auth = require("../middlewares/auth");
  *                   example: Invalid input data
  */
 commentRoutes.post(
-  "/comments",
+  "/comments/:item_id",
   auth.authenticateUser,
   auth.authorizeRoles(CFG.ROLES.USER),
   commentController.createComment
-);
-
-/**
- * @swagger
- * /comments:
- *   get:
- *     tags: [Comments]
- *     summary: Get all comments
- *     description: Retrieve a list of all comments.
- *     responses:
- *       200:
- *         description: Comments retrieved successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: boolean
- *                   example: true
- *                 message:
- *                   type: string
- *                   example: Comments retrieved successfully
- *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       id:
- *                         type: string
- *                         example: "comment_id"
- *                       user_id:
- *                         type: string
- *                         example: "user_id"
- *                       item_id:
- *                         type: string
- *                         example: "item_id"
- *                       comment_text:
- *                         type: string
- *                         example: "This is a great product!"
- *                       created_at:
- *                         type: string
- *                         example: "2022-01-01T00:00:00.000Z"
- */
-commentRoutes.get(
-  "/comments",
-  auth.authenticateUser,
-  auth.authorizeRoles(CFG.ROLES.USER),
-  commentController.getAllComment
 );
 
 /**
@@ -257,7 +209,7 @@ commentRoutes.get(
  *                         example: "2022-01-01T00:00:00.000Z"
  */
 commentRoutes.get(
-  "/comments/:item_id",
+  "/item/comments/:item_id",
   auth.authenticateUser,
   auth.authorizeRoles(CFG.ROLES.USER),
   commentController.getCommentByItemId
@@ -371,41 +323,6 @@ commentRoutes.delete(
   auth.authenticateUser,
   auth.authorizeRoles(CFG.ROLES.USER),
   commentController.deleteComment
-);
-
-/**
- * @swagger
- * /comments/total:
- *   get:
- *     tags: [Comments]
- *     summary: Get the total count of comments
- *     description: Retrieve the total number of comments.
- *     responses:
- *       200:
- *         description: Total number of comments retrieved
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: boolean
- *                   example: true
- *                 message:
- *                   type: string
- *                   example: Total comments count retrieved successfully
- *                 data:
- *                   type: object
- *                   properties:
- *                     total_comments:
- *                       type: integer
- *                       example: 100
- */
-commentRoutes.get(
-  "/admin/comments/total",
-  auth.authenticateUser,
-  auth.authorizeRoles(CFG.ROLES.ADMIN),
-  commentController.getAllTotalComment
 );
 
 /**
