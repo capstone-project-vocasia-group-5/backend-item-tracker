@@ -124,6 +124,10 @@ const RES = {
   CATEGORIES_IS_NOT_FOUND: "category not found",
   CLAIMS_IS_NOT_FOUND: "claim not found",
   CLAIM_ALREADY_EXISTS: "your claim already exists",
+
+  // MESSAGE IN BAHASA
+  ITEM_APPROVED: "Selamat Laporan Anda Disetujui",
+  ITEM_REJECTED: "Sayang Sekali Laporan Anda Ditolak",
 };
 
 module.exports = RES;
