@@ -104,10 +104,8 @@ const itemSchema = new mongoose.Schema(
     },
     phone_number: {
       type: String,
-      default: null,
+      required: [true, RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER],
       trim: true,
-      maxlength: 15,
-      minlength: 10,
     },
     messages: {
       type: String,
@@ -154,20 +152,22 @@ const validateItem = {
         "number.base": RES.PLEASE_PROVIDE_VALID_POSTAL_CODE,
         "number.integer": RES.PLEASE_PROVIDE_VALID_POSTAL_CODE,
       }),
-
       images: joi.array().items(joi.string().uri()).min(1).messages({
         "array.min": RES.IMAGE_IS_REQUIRED,
         "array.items": RES.IMAGE_MUST_BE_VALID_URI,
       }),
       phone_number: joi
         .string()
-        .allow(null)
-        .min(10)
-        .max(15)
-        .pattern(/^(?:\+62|62|0)(?:8[1-9])[0-9]{6,9}$/)
+        .required()
+        .pattern(/^\+?62[0-9]{8,13}$/)
         .messages({
-          "string.pattern.base": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
+          "string.pattern.base": RES.PHONE_NUMBER_MUST_START_WITH,
+          "any.required": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
         }),
+      categories: joi.array().items(joi.string()).required().messages({
+        "array.items": RES.CATEGORY_ID_MUST_BE_VALID,
+        "any.required": RES.PLEASE_PROVIDE_VALID_CATEGORY_ID,
+      }),
     });
     return schema.validate(item, { abortEarly: false });
   },
@@ -181,7 +181,6 @@ const validateItem = {
       subdistrict: joi.string().max(100),
       village: joi.string().max(100),
       postal_code: joi.number(),
-      images: joi.array(),
       phone_number: joi
         .string()
         .allow(null)
@@ -192,6 +191,13 @@ const validateItem = {
           "string.pattern.base": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
         }),
       messages: joi.string().max(500),
+      images: joi.array().items(joi.string().uri()).messages({
+        "any.required": RES.IMAGE_MUST_BE_VALID_URI,
+      }),
+      categories: joi.array().items(joi.string()).messages({
+        "array.items": RES.CATEGORY_ID_MUST_BE_VALID,
+        "any.required": RES.PLEASE_PROVIDE_VALID_CATEGORY_ID,
+      }),
     });
     return schema.validate(item, { abortEarly: false });
   },
