@@ -1,5 +1,6 @@
 const customError = require("../errors");
 const { isTokenValid } = require("../utils");
+const { User } = require("../models/user_model");
 
 const authenticateUser = async (req, res, next) => {
   try {
@@ -16,6 +17,12 @@ const authenticateUser = async (req, res, next) => {
     }
 
     const payload = isTokenValid({ token });
+
+    const user = await User.findOne({ _id: payload.userId }).select("+role");
+
+    if (!user) {
+      throw new customError.UnauthenticatedError("Authentication invalid");
+    }
 
     // Attach the user and his permissions to the req object
     req.user = {
