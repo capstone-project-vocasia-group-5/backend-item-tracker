@@ -53,7 +53,11 @@ const createClaim = async (req, res, next) => {
     });
   } catch (err) {
     if (req.files) {
-      req.files.forEach((file) => fs.unlinkSync(file.path));
+      req.files.forEach((file) => {
+        if (fs.existsSync(file.path)) {
+          fs.unlinkSync(file.path);
+        }
+      });
     }
     next(err);
   }
