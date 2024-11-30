@@ -106,7 +106,8 @@ const getNotificationByUserId = async (req, res, next) => {
           path: "claim_id",
         },
       ])
-      .lean();
+      .lean()
+      .sort({ created_at: -1 });
 
     if (resNotifications && resNotifications.length > 0) {
       notifications = resNotifications.map((notification) => {
