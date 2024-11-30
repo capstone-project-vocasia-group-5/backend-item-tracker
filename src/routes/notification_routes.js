@@ -13,54 +13,6 @@ const auth = require("../middlewares/auth");
 /**
  * @swagger
  * /notifications/{id}:
- *   delete:
- *     tags: [Notifications]
- *     summary: Delete a notification by ID
- *     description: Deletes the notification with the specified ID.
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: ID of the notification to delete
- *     responses:
- *       200:
- *         description: Notification deleted successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: boolean
- *                   example: true
- *                 message:
- *                   type: string
- *                   example: Notification deleted successfully
- *       404:
- *         description: Notification not found
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: error
- *                 message:
- *                   type: string
- *                   example: Notification not found
- */
-notificationRoutes.delete(
-  "/notifications/:id",
-  auth.authenticateUser,
-  notificatonController.deleteNotification
-);
-
-/**
- * @swagger
- * /notifications/{id}:
  *   put:
  *     tags: [Notifications]
  *     summary: Update the notification status by ID

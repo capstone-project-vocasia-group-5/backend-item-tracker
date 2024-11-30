@@ -22,7 +22,6 @@ const {
 
 const importData = async () => {
   try {
-    console.log(urlDb);
     await mongoose.connect(urlDb);
     await deleteData();
 
@@ -30,8 +29,7 @@ const importData = async () => {
     const createdCategories = await Category.create(categories);
 
     for (let i = 0; i < items.length; i++) {
-      const user = createdUser.find((user) => user.role === "user");
-      items[i].user_id = user ? user.id : createdUser[0].id;
+      items[i].user_id = createdUser[0].id;
       items[i].category_id = createdCategories[i]
         ? createdCategories[i].id
         : null;
@@ -49,23 +47,22 @@ const importData = async () => {
     }
 
     for (let i = 0; i < comments.length; i++) {
-      const user = createdUser.find((user) => user.role === "user");
-      comments[i].user_id = user ? user.id : createdUser[0].id;
-      comments[i].item_id = createdItems[i].id;
+      comments[i].user_id = createdUser[2].id;
+      comments[i].item_id = createdItems[0].id;
     }
 
-    await Comment.insertMany(comments);
+    const createdComments = await Comment.insertMany(comments);
 
-    claims[0].user_id = createdUser[0].id;
-    claims[0].item_id = createdItems[2].id;
-    claims[1].user_id = createdUser[2].id;
-    claims[1].item_id = createdItems[0].id;
+    claims[0].user_id = createdUser[2].id;
+    claims[0].item_id = createdItems[0].id;
 
     const createdClaims = await Claim.insertMany(claims);
     notifications[0].user_id = createdUser[0].id;
     notifications[0].claim_id = createdClaims[0].id;
-    notifications[1].user_id = createdUser[2].id;
-    notifications[1].claim_id = createdClaims[1].id;
+    notifications[1].user_id = createdUser[0].id;
+    notifications[1].item_id = createdItems[0].id;
+    notifications[2].user_id = createdUser[0].id;
+    notifications[2].comment_id = createdComments[0].id;
 
     await Notification.insertMany(notifications);
     await Donation.insertMany(donations);

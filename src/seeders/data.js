@@ -3,12 +3,14 @@ const users = [
     name: "John Doe",
     username: "john_doe",
     email: "john@example.com",
-    password: "$2a$12$m1Zkrw7/Ge0K3h7SVhPI8eDvnF.w0BuG1cSZ5WoKhjdzRnlSrldLW",
+    password: "password123",
     image_url:
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     role: "user",
     phone_number: "081234567890",
     otp: null,
+    otp_status: false,
+    otp_expires_at: null,
     is_verified: true,
     deleted_at: null,
   },
@@ -16,12 +18,14 @@ const users = [
     name: "Jane Smith",
     username: "jane_smith",
     email: "jane@example.com",
-    password: "$2a$12$m1Zkrw7/Ge0K3h7SVhPI8eDvnF.w0BuG1cSZ5WoKhjdzRnlSrldLW",
+    password: "password123",
     image_url:
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     role: "admin",
     phone_number: "082345678901",
     otp: null,
+    otp_status: false,
+    otp_expires_at: null,
     is_verified: true,
     deleted_at: null,
   },
@@ -29,12 +33,14 @@ const users = [
     name: "Alice Johnson",
     username: "alice_johnson",
     email: "alice@example.com",
-    password: "$2a$12$m1Zkrw7/Ge0K3h7SVhPI8eDvnF.w0BuG1cSZ5WoKhjdzRnlSrldLW",
+    password: "password123",
     image_url:
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     role: "user",
     phone_number: "083456789012",
     otp: null,
+    otp_status: false,
+    otp_expires_at: null,
     is_verified: true,
     deleted_at: null,
   },
@@ -72,7 +78,7 @@ const items = [
     village: "Sidomulyo",
     postal_code: 50123,
     phone_number: "081234567890",
-    rejection_reason: null,
+    messages: null,
     deleted_at: null,
   },
   {
@@ -91,7 +97,7 @@ const items = [
     village: "Suryatmajan",
     postal_code: 55211,
     phone_number: "087654321098",
-    rejection_reason: null,
+    messages: null,
     deleted_at: null,
   },
   {
@@ -111,7 +117,7 @@ const items = [
     village: "Pondok Labu",
     postal_code: 12560,
     phone_number: "089876543210",
-    rejection_reason: null,
+    messages: null,
     deleted_at: null,
   },
 ];
@@ -136,11 +142,18 @@ const comments = [
 
 const notifications = [
   {
-    is_read: true,
+    title: "this is title notification",
+    is_read: false,
     deleted_at: null,
   },
   {
-    is_read: true,
+    title: "this is title notification",
+    is_read: false,
+    deleted_at: null,
+  },
+  {
+    title: "this is title notification",
+    is_read: false,
     deleted_at: null,
   },
 ];
@@ -215,15 +228,6 @@ const claims = [
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     ],
     claim_text: "This item is damaged and needs replacement.",
-    deleted_at: null,
-  },
-  {
-    is_approved: true,
-    images: [
-      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
-      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
-    ],
-    claim_text: "Item was not as described and is being returned.",
     deleted_at: null,
   },
 ];

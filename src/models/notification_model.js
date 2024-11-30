@@ -1,5 +1,9 @@
 const RES = require("../config/resMessage");
 const mongoose = require("mongoose");
+const { Item } = require("./item_model");
+const { Claim } = require("./claim_model");
+const { Comment } = require("./comment_model");
+const { Donation } = require("./donation_model");
 
 // Schema Options
 const schemaOptions = {
@@ -38,6 +42,29 @@ const notificationSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Claim",
       index: true,
+      default: null,
+    },
+    comment_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment",
+      index: true,
+      default: null,
+    },
+    donation_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Donation",
+      index: true,
+      default: null,
+    },
+    item_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Item",
+      index: true,
+      default: null,
+    },
+    title: {
+      type: String,
+      default: null,
     },
     is_read: {
       type: Boolean,
