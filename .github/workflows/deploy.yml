@@ -15,9 +15,27 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            echo "🚀 Deploying to server..."
+
+            echo "📁 Changing directory..."
             cd /var/repositories/capstone-vocasia/be-capstone
+
+            echo "⬇️ Pulling latest changes..."
             git pull origin dev
+
+            echo "📦 Installing dependencies..."
             npm install
+
+            echo "🔄 Restarting main application..."
             pm2 restart be-capstone || pm2 start npm --name "be-capstone" -- run prod
+
+            echo "🔄 Restarting worker..."
             pm2 restart be-worker || pm2 start npm --name "be-worker" -- run worker
+
+            echo "💾 Saving PM2 configuration..."
             pm2 save
+
+            echo "✅ Deployment completed!"
+
+            echo "📊 Current PM2 status:"
+            pm2 list
