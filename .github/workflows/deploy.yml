@@ -14,7 +14,6 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          debug: true 
           script: |
             echo "🚀 Deploying to server..."
 
