@@ -14,16 +14,14 @@ const isTokenValid = ({ token }) => {
   try {
     const result = jwt.verify(token, jwtSecret);
     if (!result) {
-      throw new customError.UnauthenticatedError("failed to verify token");
+      throw new customError.UnauthenticatedError("invalid token");
     }
     return result;
   } catch (err) {
     if (err instanceof customError.UnauthenticatedError) {
       throw err;
     }
-    throw new customError.UnauthenticatedError(
-      "failed to verify token : " + err
-    );
+    throw new customError.UnauthenticatedError("invalid token");
   }
 };
 

@@ -4,6 +4,8 @@ const RES = {
   SUCCESSFULLY_UPDATED: "successfully updated",
   SUCCESSFULLY_FETCHED: "successfully fetched",
   SUCCESSFULLY_UPLOADED: "successfully uploaded",
+  SUCCESSFULLY_REJECTED: "successfully rejected",
+  SUCCESSFULLY_APPROVED: "successfully approved",
 
   SUCCESS: true,
   ERROR: false,
@@ -42,6 +44,7 @@ const RES = {
   NOT_FOUND: "not found",
 
   // VALIDATIONS
+  ITEM_NOT_FOUND: "item not found",
   USERNAME_SHOULD_HAVE_MINIMUM_3_CHARACTERS:
     "username should have at least 3 characters",
   USERNAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS:
@@ -100,6 +103,9 @@ const RES = {
   YOUR_EMAIL_DOES_NOT_MATCH_WITH_ANY_ACCOUNT:
     "your email does not match any account",
   PLEASE_PROVIDE_VALID_OTP: "please provide a valid otp",
+  CATEGORY_ID_MUST_BE_VALID: "category ID must be a valid",
+  PLEASE_PROVIDE_VALID_IS_ANONYMOUS: "please provide a valid isAnonymous",
+  PLEASE_PROVIDE_VALID_CATEGORY_ID: "please provide a valid category ID",
 
   // AUTH
   SIGN_IN_SUCCESS: "sign in successful",
@@ -113,6 +119,7 @@ const RES = {
   SEND_OTP_SUCCESS: "otp sent successfully",
   SIGN_UP_SUCCESS: "sign up successful",
   DATA_IS_NOT_FOUND: "data not found",
+  NOTIFICATION_NOT_FOUND: "notification not found",
   USERS_IS_NOT_FOUND: "user not found",
   CATEGORIES_IS_NOT_FOUND: "category not found",
   CLAIMS_IS_NOT_FOUND: "claim not found",

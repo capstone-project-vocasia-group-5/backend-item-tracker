@@ -25,8 +25,9 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   }
 
   if (err.name === "CastError") {
+    console.log(err);
     customError.message = RES.FAILED;
-    customError.errors = RES.ITEM_NOT_FOUND;
+    customError.errors = RES.DATA_IS_NOT_FOUND;
     customError.statusCode = StatusCodes.NOT_FOUND; // 404
   }
 
