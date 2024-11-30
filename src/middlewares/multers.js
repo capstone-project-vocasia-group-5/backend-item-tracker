@@ -36,6 +36,6 @@ const upload = multer({
   fileFilter: fileFilter,
 });
 
-const uploadMultiple = upload.array("images", 10);
+const uploadMultiple = upload.array("images", 5);
 
 module.exports = { uploadMultiple };
