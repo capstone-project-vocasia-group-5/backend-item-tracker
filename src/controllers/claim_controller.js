@@ -1,12 +1,24 @@
 const RES = require("../config/resMessage");
 const { Claim, validateClaim } = require("../models/claim_model");
+const { Item } = require("../models/item_model");
 const customError = require("../errors");
 const cloudinaryServices = require("../services/cloudinary");
 const fs = require("fs-extra");
+const notificationService = require("../services/mongoose/notification_service");
 
 const createClaim = async (req, res, next) => {
   const { item_id, claim_text } = req.body;
   try {
+    const item = await Item.findOne({
+      _id: item_id,
+      approved: true,
+      deleted_at: null,
+    });
+
+    if (!item) {
+      throw new customError.NotFoundError(RES.NOT_FOUND, RES.ITEM_NOT_FOUND);
+    }
+
     const checkClaim = await Claim.findOne({
       user_id: req.user.id,
       item_id: req.body.item_id,
@@ -43,6 +55,12 @@ const createClaim = async (req, res, next) => {
         RES.SOMETHING_WENT_WRONG_WHILE_CREATING
       );
     }
+
+    await notificationService.createNotification({
+      user_id: item.user_id,
+      title: RES.CLAIM_CREATED,
+      claim_id: claim.id,
+    });
 
     res.status(200).json({
       success: RES.SUCCESS,
