@@ -132,6 +132,7 @@ const RES = {
   ITEM_APPROVED: "Selamat Laporan Anda Disetujui",
   ITEM_REJECTED: "Sayang Sekali Laporan Anda Ditolak",
   DONATION_SUCCESS: "Ada Donasi Baru",
+  NEW_COMMENT: "Ada Komentar Baru",
 };
 
 module.exports = RES;
