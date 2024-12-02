@@ -1,10 +1,13 @@
 const customError = require("../errors");
 const { Comment, validateComment } = require("../models/comment_model");
+const { Item } = require("../models/item_model");
 const RES = require("../config/resMessage");
+const notificationService = require("../services/mongoose/notification_service");
 
 const createComment = async (req, res, next) => {
   const { comment_text } = req.body;
   const item_id = req.params.item_id;
+
   try {
     const { error } = validateComment.create(req.body);
     if (error) {
@@ -14,13 +17,13 @@ const createComment = async (req, res, next) => {
       );
     }
 
-    const isItemExist = await Comment.findOne({
-      item_id,
+    const item = await Item.findOne({
+      _id: item_id,
       approved: true,
       deleted_at: null,
     });
 
-    if (!isItemExist) {
+    if (!item) {
       throw new customError.NotFoundError(RES.NOT_FOUND, RES.DATA_IS_NOT_FOUND);
     }
 
@@ -36,6 +39,12 @@ const createComment = async (req, res, next) => {
         RES.SOMETHING_WENT_WRONG_WHILE_CREATING
       );
     }
+
+    await notificationService.createNotification({
+      user_id: item.user_id,
+      title: RES.NEW_COMMENT,
+      comment_id: comment.id,
+    });
 
     res.status(201).json({
       success: RES.SUCCESS,
