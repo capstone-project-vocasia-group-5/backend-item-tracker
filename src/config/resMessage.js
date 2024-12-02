@@ -133,6 +133,7 @@ const RES = {
   ITEM_REJECTED: "Sayang Sekali Laporan Anda Ditolak",
   DONATION_SUCCESS: "Ada Donasi Baru",
   NEW_COMMENT: "Ada Komentar Baru",
+  CLAIM_CREATED: "Ada Pengajuan Baru",
 };
 
 module.exports = RES;
