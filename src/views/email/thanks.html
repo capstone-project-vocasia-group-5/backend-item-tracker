@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You for Your Donation</title>
+  </head>
+
+  <body>
+    <div
+      style="
+        font-family: Helvetica, Arial, sans-serif;
+        min-width: 1000px;
+        overflow: auto;
+        line-height: 2;
+      "
+    >
+      <div style="margin: 50px auto; width: 70%; padding: 20px 0">
+        <div style="border-bottom: 1px solid #eee">
+          <a
+            href="#"
+            style="
+              font-size: 1.4em;
+              color: #00466a;
+              text-decoration: none;
+              font-weight: 600;
+            "
+            >Item Tracker</a
+          >
+        </div>
+        <p style="font-size: 1.1em">Hi {{name}},</p>
+        <p>
+          Kami sangat berterima kasih atas donasi Anda untuk mendukung
+          <strong>Item Tracker</strong>. Donasi Anda akan sangat membantu kami
+          dalam memberikan layanan yang lebih baik.
+        </p>
+        <p>Detail Donasi Anda:</p>
+        <div
+          style="
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: fit-content;
+            margin: 20px 0;
+          "
+        >
+          <p><strong>Nama:</strong> {{name}}</p>
+          <p><strong>Email:</strong> {{email}}</p>
+          <p><strong>Jumlah Donasi:</strong> {{amount}}</p>
+        </div>
+        <p>
+          Terima kasih sekali lagi atas kontribusi Anda. Jika Anda memiliki
+          pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi
+          kami.
+        </p>
+        <p style="font-size: 0.9em">Regards,<br />Item Tracker</p>
+        <hr style="border: none; border-top: 1px solid #eee" />
+        <div
+          style="
+            float: right;
+            padding: 8px 0;
+            color: #aaa;
+            font-size: 0.8em;
+            line-height: 1;
+            font-weight: 300;
+          "
+        >
+          <p>Item Tracker</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
