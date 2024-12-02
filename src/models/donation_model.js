@@ -50,16 +50,13 @@ const donationSchema = new mongoose.Schema(
       default: null,
       maxlength: [50, RES.NAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS],
       trim: true,
+      required: [true, RES.PLEASE_PROVIDE_VALID_NAME],
     },
     email: {
       type: String,
-      default: null,
-      match: [
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        RES.PLEASE_PROVIDE_VALID_EMAIL,
-      ],
       trim: true,
       lowercase: true,
+      required: [true, RES.PLEASE_PROVIDE_VALID_EMAIL],
     },
     amount: {
       type: Number,
@@ -91,10 +88,10 @@ const donationSchema = new mongoose.Schema(
 const validateDonation = {
   create: (donation) => {
     const schema = joi.object({
-      name: joi.string().max(50).allow(null).messages({
+      name: joi.string().max(50).required().messages({
         "string.max": "Name cannot exceed 50 characters",
       }),
-      email: joi.string().email().allow(null).messages({
+      email: joi.string().email().required().messages({
         "string.email": RES.PLEASE_PROVIDE_VALID_EMAIL,
       }),
       amount: joi.number().required().min(10000).messages({

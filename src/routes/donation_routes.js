@@ -44,6 +44,7 @@ const donationController = require("../controllers/donation_controller");
  *                 type: string
  *                 enum: ["pending", "success", "failed"]
  *                 example: "pending"
+
  *     responses:
  *       201:
  *         description: Donation successfully created
@@ -52,7 +53,7 @@ const donationController = require("../controllers/donation_controller");
  *             schema:
  *               type: object
  *               properties:
- *                 status:
+ *                 success:
  *                   type: boolean
  *                   example: true
  *                 message:
@@ -64,31 +65,9 @@ const donationController = require("../controllers/donation_controller");
  *                     donation:
  *                       type: object
  *                       properties:
- *                         id:
+ *                         payment_url:
  *                           type: string
- *                           example: "donation_id"
- *                         user_id:
- *                           type: string
- *                           example: "user_id"
- *                         name:
- *                           type: string
- *                           example: "John Doe"
- *                         email:
- *                           type: string
- *                           example: "johndoe@example.com"
- *                         amount:
- *                           type: number
- *                           example: 15000
- *                         is_anonymous:
- *                           type: boolean
- *                           example: false
- *                         status:
- *                           type: string
- *                           enum: ["pending", "success", "failed"]
- *                           example: "pending"
- *                         created_at:
- *                           type: string
- *                           example: "2022-01-01T00:00:00.000Z"
+ *                           example: "payment url"
  *       400:
  *         description: Bad Request - Validation error or missing fields
  *         content:
@@ -96,13 +75,15 @@ const donationController = require("../controllers/donation_controller");
  *             schema:
  *               type: object
  *               properties:
- *                 status:
- *                   type: string
- *                   example: error
+ *                 success:
+ *                   type: boolean
+ *                   example: false
  *                 message:
  *                   type: string
  *                   example: Invalid input data
  */
 
 donationRoutes.post("/donations", donationController.createDonation);
+
+donationRoutes.post("/midtrans-webhook", donationController.midtransWebHook);
 module.exports = donationRoutes;

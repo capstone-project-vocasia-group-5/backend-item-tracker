@@ -45,6 +45,8 @@ const RES = {
 
   // VALIDATIONS
   ITEM_NOT_FOUND: "item not found",
+  INVALID_TRANSACTION_DATA: "invalid transaction data",
+  INVALID_TRANSACTION_STATUS: "invalid transaction status",
   USERNAME_SHOULD_HAVE_MINIMUM_3_CHARACTERS:
     "username should have at least 3 characters",
   USERNAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS:
@@ -85,6 +87,7 @@ const RES = {
   PLEASE_PROVIDE_VALID_VILLAGE: "please provide a valid village",
   PLEASE_PROVIDE_VALID_POSTAL_CODE: "please provide a valid postal code",
   PLEASE_PROVIDE_VALID_AMOUNT: "please provide a valid amount",
+  PLEASE_PROVIDE_VALID_PAYMENT_METHOD: "please provide a valid payment method",
   DESCRIPTION_SHOULD_HAVE_MAXIMUM_500_CHARACTERS:
     "description should have a maximum of 500 characters",
   PLEASE_PROVIDE_VALID_SUBDISTRICT: "please provide a valid subdistrict",
@@ -128,6 +131,7 @@ const RES = {
   // MESSAGE IN BAHASA
   ITEM_APPROVED: "Selamat Laporan Anda Disetujui",
   ITEM_REJECTED: "Sayang Sekali Laporan Anda Ditolak",
+  DONATION_SUCCESS: "Ada Donasi Baru",
 };
 
 module.exports = RES;
