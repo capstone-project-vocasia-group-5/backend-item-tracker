@@ -28,8 +28,9 @@ const getAllUsersCMS = async (req, res, next) => {
   try {
     const { page = 1, limit = 10, search = "" } = req.query;
 
-    const validatedPage = Math.max(Number(page), 1);
-    const validatedLimit = Math.max(Number(limit), 1);
+    const validatedPage = !isNaN(page) && page > 0 ? parseInt(page, 10) : 1;
+    const validatedLimit =
+      !isNaN(limit) && limit > 0 ? parseInt(limit, 10) : 10;
 
     const skip = (validatedPage - 1) * validatedLimit;
 
@@ -50,7 +51,8 @@ const getAllUsersCMS = async (req, res, next) => {
     const users = await User.find(query)
       .sort({ created_at: -1 })
       .skip(skip)
-      .limit(Number(limit));
+      .limit(Number(limit))
+      .sort({ created_at: -1 });
 
     if (!users || users.length === 0) {
       throw new customError.NotFoundError(
