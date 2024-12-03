@@ -1,6 +1,7 @@
 const RES = require("../config/resMessage");
 const mongoose = require("mongoose");
 const joi = require("joi");
+const { User } = require("./user_model");
 
 // Schema Options
 const schemaOptions = {
