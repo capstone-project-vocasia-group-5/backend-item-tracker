@@ -337,7 +337,7 @@ const getAllItems = async (req, res, next) => {
     page = 1,
     limit = 10,
     type = "",
-    matched_status,
+    matched_status = "false",
     search = "",
     province = "",
     city = "",
@@ -359,6 +359,8 @@ const getAllItems = async (req, res, next) => {
       deleted_at: null,
     };
 
+    query.matched_status = matchedStatus;
+
     if (req.user?.id && req.user?.role === "user" && !ownCnv) {
       query.approved = true;
     } else if (req.user?.id && req.user?.role === "user" && ownCnv) {
@@ -372,14 +374,7 @@ const getAllItems = async (req, res, next) => {
       ];
     }
 
-    [
-      "type",
-      "matchedStatus",
-      "province",
-      "city",
-      "subdistrict",
-      "village",
-    ].forEach((field) => {
+    ["type", "province", "city", "subdistrict", "village"].forEach((field) => {
       if (req.query[field]) {
         query[field] = req.query[field];
       }
