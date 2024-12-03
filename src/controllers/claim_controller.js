@@ -5,6 +5,7 @@ const customError = require("../errors");
 const cloudinaryServices = require("../services/cloudinary");
 const fs = require("fs-extra");
 const notificationService = require("../services/mongoose/notification_service");
+const mongoose = require("mongoose");
 
 const createClaim = async (req, res, next) => {
   const { item_id, claim_text } = req.body;
@@ -19,8 +20,23 @@ const createClaim = async (req, res, next) => {
       throw new customError.NotFoundError(RES.NOT_FOUND, RES.ITEM_NOT_FOUND);
     }
 
+    if (item.matched_status) {
+      throw new customError.BadRequestError(
+        RES.BAD_REQUEST,
+        RES.ITEM_ALREADY_MATCHED
+      );
+    }
+
+    if (item.user_id.toString() === req.user.id) {
+      throw new customError.BadRequestError(
+        RES.BAD_REQUEST,
+        RES.YOU_CANNOT_CLAIM_YOUR_OWN_ITEM
+      );
+    }
+
     const checkClaim = await Claim.findOne({
       user_id: req.user.id,
+      to_user_id: item.user_id,
       item_id: req.body.item_id,
       deleted_at: null,
     });
@@ -44,6 +60,7 @@ const createClaim = async (req, res, next) => {
 
     const claim = await Claim.create({
       user_id: req.user.id,
+      to_user_id: item.user_id,
       item_id,
       claim_text,
       images: req.body.images,
@@ -99,10 +116,7 @@ const getClaimById = async (req, res, next) => {
       claim.user_id.toString() !== req.user.id &&
       claim.item_id.user_id.toString() !== req.user.id
     ) {
-      throw new customError.UnauthorizedError(
-        RES.UNAUTHORIZED,
-        RES.UNAUTHORIZED_ACCESS
-      );
+      throw new customError.NotFoundError(RES.NOT_FOUND, RES.DATA_IS_NOT_FOUND);
     }
 
     res.status(200).json({
@@ -118,10 +132,199 @@ const getClaimById = async (req, res, next) => {
 };
 
 const getAllClaims = async (req, res, next) => {
-  try {
-    const claims = await Claim.find({ user_id: req.user.id, deleted_at: null });
+  const { page = 1, limit = 10, own = "true" } = req.query;
 
-    if (!claims) {
+  try {
+    const validatedPage = !isNaN(page) && page > 0 ? parseInt(page, 10) : 1;
+    const validatedLimit =
+      !isNaN(limit) && limit > 0 ? parseInt(limit, 10) : 10;
+    const ownCnv = own === "true";
+
+    const filter = ownCnv
+      ? { user_id: req.user.id, deleted_at: null }
+      : { to_user_id: req.user.id, is_approved: null, deleted_at: null };
+
+    const totalClaims = await Claim.countDocuments(filter);
+
+    const claims = await Claim.find(filter)
+      .skip((validatedPage - 1) * validatedLimit)
+      .limit(validatedLimit)
+      .populate({
+        path: "item_id",
+        select: "-user_id -phone_number -messages",
+      })
+      .populate({
+        path: "user_id",
+        select: "-phone_number -email -role",
+      });
+
+    res.status(200).json({
+      success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_FETCHED,
+      data: {
+        claims,
+        pagination: {
+          currentPage: validatedPage,
+          totalPages: Math.ceil(totalClaims / validatedLimit),
+          totalItems: totalClaims,
+          pageSize: validatedLimit,
+        },
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const approveClaim = async (req, res, next) => {
+  const claim_id = req.params.claim_id;
+  const session = await mongoose.startSession();
+  try {
+    session.startTransaction();
+
+    const claim = await Claim.findOneAndUpdate(
+      {
+        _id: claim_id,
+        to_user_id: req.user.id,
+        is_approved: null,
+        deleted_at: null,
+      },
+      { is_approved: true },
+      { new: true, session }
+    );
+
+    if (!claim) {
+      throw new customError.NotFoundError(
+        RES.DATA_IS_NOT_FOUND,
+        RES.CLAIMS_IS_NOT_FOUND
+      );
+    }
+
+    const item = await Item.findOne(
+      {
+        _id: claim.item_id,
+        approved: true,
+        deleted_at: null,
+      },
+      null,
+      { session }
+    );
+
+    if (!item) {
+      throw new customError.NotFoundError(RES.NOT_FOUND, RES.ITEM_IS_NOT_FOUND);
+    }
+
+    if (item.matched_status) {
+      throw new customError.BadRequestError(
+        RES.BAD_REQUEST,
+        RES.ITEM_ALREADY_MATCHED
+      );
+    }
+
+    item.matched_status = true;
+    await item.save({ session });
+
+    const claimsToUpdate = await Claim.find(
+      { item_id: item.id, deleted_at: null, is_approved: null },
+      null,
+      { session }
+    );
+
+    const updatedClaims = await Claim.updateMany(
+      { item_id: item.id, deleted_at: null, is_approved: null },
+      { $set: { is_approved: false } },
+      { session }
+    );
+
+    if (!updatedClaims) {
+      throw new customError.InternalServerError(
+        RES.INTERNAL_SERVER_ERROR,
+        RES.SOMETHING_WENT_WRONG_WHILE_UPDATING
+      );
+    }
+
+    for (const claim of claimsToUpdate) {
+      await notificationService.createNotification({
+        user_id: claim.user_id,
+        title: RES.CLAIM_REJECTED,
+        claim_id: claim.id,
+      });
+    }
+
+    await notificationService.createNotification({
+      user_id: claim.user_id,
+      title: RES.CLAIM_APPROVED,
+      claim_id: claim.id,
+    });
+
+    await session.commitTransaction();
+
+    res.status(200).json({
+      success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_APPROVED,
+      data: {
+        claim,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const rejectClaim = async (req, res, next) => {
+  const claim_id = req.params.claim_id;
+  try {
+    const claim = await Claim.findOneAndUpdate(
+      {
+        _id: claim_id,
+        to_user_id: req.user.id,
+        is_approved: null,
+        deleted_at: null,
+      },
+      { is_approved: false },
+      { new: true }
+    );
+
+    if (!claim) {
+      throw new customError.NotFoundError(
+        RES.DATA_IS_NOT_FOUND,
+        RES.CLAIMS_IS_NOT_FOUND
+      );
+    }
+
+    await notificationService.createNotification({
+      user_id: claim.user_id,
+      title: RES.CLAIM_REJECTED,
+      claim_id: claim.id,
+    });
+
+    res.status(200).json({
+      success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_REJECTED,
+      data: {
+        claim,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const deleteClaim = async (req, res, next) => {
+  const claim_id = req.params.claim_id;
+  try {
+    const claim = await Claim.findOneAndUpdate(
+      {
+        _id: claim_id,
+        user_id: req.user.id,
+        is_approved: null,
+        deleted_at: null,
+      },
+      { deleted_at: Date.now() },
+      { new: true }
+    );
+
+    if (!claim) {
       throw new customError.NotFoundError(
         RES.DATA_IS_NOT_FOUND,
         RES.CLAIMS_IS_NOT_FOUND
@@ -130,9 +333,9 @@ const getAllClaims = async (req, res, next) => {
 
     res.status(200).json({
       success: RES.SUCCESS,
-      message: RES.SUCCESSFULLY_FETCHED,
+      message: RES.SUCCESSFULLY_DELETED,
       data: {
-        claims,
+        claim,
       },
     });
   } catch (err) {
@@ -144,4 +347,7 @@ module.exports = {
   createClaim,
   getClaimById,
   getAllClaims,
+  approveClaim,
+  rejectClaim,
+  deleteClaim,
 };

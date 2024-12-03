@@ -51,6 +51,8 @@ const { uploadMultiple } = require("../middlewares/multers");
  *               claim_text:
  *                 type: string
  *                 example: "The item was damaged during delivery"
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       201:
  *         description: Claim created successfully
@@ -101,119 +103,6 @@ claimRoutes.post(
   claimController.createClaim
 );
 
-// /**
-//  * @swagger
-//  * /claims/{id}:
-//  *   put:
-//  *     tags: [Claims]
-//  *     summary: Update an existing claim by ID
-//  *     description: Update the details of an existing claim, including claim status, images, and claim text.
-//  *     parameters:
-//  *       - in: path
-//  *         name: id
-//  *         required: true
-//  *         description: The claim ID
-//  *         schema:
-//  *           type: string
-//  *           example: "claim_id_123"
-//  *     requestBody:
-//  *       required: true
-//  *       content:
-//  *         application/json:
-//  *           schema:
-//  *             type: object
-//  *             properties:
-//  *               is_approved:
-//  *                 type: boolean
-//  *                 example: true
-//  *               images:
-//  *                 type: array
-//  *                 items:
-//  *                   type: string
-//  *                   example: "https://example.com/image2.jpg"
-//  *               claim_text:
-//  *                 type: string
-//  *                 example: "The item was repaired and returned"
-//  *     responses:
-//  *       200:
-//  *         description: Claim updated successfully
-//  *         content:
-//  *           application/json:
-//  *             schema:
-//  *               type: object
-//  *               properties:
-//  *                 status:
-//  *                   type: boolean
-//  *                   example: true
-//  *                 message:
-//  *                   type: string
-//  *                   example: "Claim updated successfully"
-//  *                 data:
-//  *                   type: object
-//  *                   properties:
-//  *                     id:
-//  *                       type: string
-//  *                       example: "claim_id_123"
-//  *                     is_approved:
-//  *                       type: boolean
-//  *                       example: true
-//  *                     images:
-//  *                       type: array
-//  *                       items:
-//  *                         type: string
-//  *                         example: "https://example.com/image2.jpg"
-//  *                     claim_text:
-//  *                       type: string
-//  *                       example: "The item was repaired and returned"
-//  *       404:
-//  *         description: Claim not found
-//  *       400:
-//  *         description: Invalid input
-//  */
-// claimRoutes.put(
-//   "/claims/:id",
-//   auth.authenticateUser,
-//   claimController.updateClaim
-// );
-
-// /**
-//  * @swagger
-//  * /claims/{id}:
-//  *   delete:
-//  *     tags: [Claims]
-//  *     summary: Delete a claim by ID
-//  *     description: Delete a claim based on its unique ID.
-//  *     parameters:
-//  *       - in: path
-//  *         name: id
-//  *         required: true
-//  *         description: The claim ID
-//  *         schema:
-//  *           type: string
-//  *           example: "claim_id_123"
-//  *     responses:
-//  *       200:
-//  *         description: Claim deleted successfully
-//  *         content:
-//  *           application/json:
-//  *             schema:
-//  *               type: object
-//  *               properties:
-//  *                 status:
-//  *                   type: boolean
-//  *                   example: true
-//  *                 message:
-//  *                   type: string
-//  *                   example: "Claim deleted successfully"
-//  *       404:
-//  *         description: Claim not found
-//  */
-// claimRoutes.delete(
-//   "/claims/:id",
-//   auth.authenticateUser,
-//   claimController.deleteClaim
-// );
-
 /**
  * @swagger
  * /claims/{id}:
@@ -229,6 +118,8 @@ claimRoutes.post(
  *         schema:
  *           type: string
  *           example: "claim_id_123"
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: A single claim object
@@ -276,6 +167,27 @@ claimRoutes.get(
  *     tags: [Claims]
  *     summary: Get all claims
  *     description: Retrieve a list of all claims in the system.
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           example: 1
+ *         description: The page number to retrieve.
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           example: 10
+ *         description: The number of claims to retrieve per page.
+ *       - in: query
+ *         name: own
+ *         schema:
+ *           type: boolean
+ *           example: true
+ *         description: Whether to retrieve claims for the current user.
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: List of all claims
@@ -314,6 +226,305 @@ claimRoutes.get(
   "/claims/",
   auth.authenticateUser,
   claimController.getAllClaims
+);
+
+/**
+ * @swagger
+ * /claims/{claim_id}/approve:
+ *   put:
+ *     tags: [Claims]
+ *     summary: Approve a claim
+ *     description: Approve a specific claim for a user by ID.
+ *     parameters:
+ *       - in: path
+ *         name: claim_id
+ *         required: true
+ *         description: The ID of the claim to approve.
+ *         schema:
+ *           type: string
+ *           example: "claim_id_123"
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successfully approved the claim.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Successfully approved the claim.
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     claim:
+ *                       type: object
+ *                       properties:
+ *                         _id:
+ *                           type: string
+ *                           example: "64e23b9a10fc024b2e18b234"
+ *                         to_user_id:
+ *                           type: string
+ *                           example: "64e23b9a10fc024b2e18b456"
+ *                         user_id:
+ *                           type: string
+ *                           example: "64e23b9a10fc024b2e18b789"
+ *                         approved:
+ *                           type: boolean
+ *                           example: true
+ *                         deleted_at:
+ *                           type: string
+ *                           nullable: true
+ *                           example: null
+ *       404:
+ *         description: Claim not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Claim not found.
+ *                 error:
+ *                   type: string
+ *                   example: Claims is not found.
+ *       401:
+ *         description: Unauthorized.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Unauthorized access.
+ *       500:
+ *         description: Internal Server Error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Something went wrong.
+ */
+claimRoutes.put(
+  "/claims/:claim_id/approve",
+  auth.authenticateUser,
+  claimController.approveClaim
+);
+
+/**
+ * @swagger
+ * /claims/{claim_id}/reject:
+ *   put:
+ *     tags: [Claims]
+ *     summary: Reject a claim
+ *     description: Reject a specific claim for a user by ID.
+ *     parameters:
+ *       - in: path
+ *         name: claim_id
+ *         required: true
+ *         description: The ID of the claim to reject.
+ *         schema:
+ *           type: string
+ *           example: "claim_id_123"
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successfully rejected the claim.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Successfully rejected the claim.
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     claim:
+ *                       type: object
+ *                       properties:
+ *                         _id:
+ *                           type: string
+ *                           example: "64e23b9a10fc024b2e18b234"
+ *                         to_user_id:
+ *                           type: string
+ *                           example: "64e23b9a10fc024b2e18b456"
+ *                         user_id:
+ *                           type: string
+ *                           example: "64e23b9a10fc024b2e18b789"
+ *                         approved:
+ *                           type: boolean
+ *                           example: false
+ *                         deleted_at:
+ *                           type: string
+ *                           nullable: true
+ *                           example: null
+ *       404:
+ *         description: Claim not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Claim not found.
+ *                 error:
+ *                   type: string
+ *                   example: Claims is not found.
+ *       401:
+ *         description: Unauthorized.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Unauthorized access.
+ *       500:
+ *         description: Internal Server Error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Something went wrong.
+ */
+claimRoutes.put(
+  "/claims/:claim_id/reject",
+  auth.authenticateUser,
+  claimController.rejectClaim
+);
+
+/**
+ * @swagger
+ * /claims/{claim_id}/delete:
+ *   put:
+ *     tags: [Claims]
+ *     summary: Soft delete a claim
+ *     description: Mark a specific claim as deleted by setting the `deleted_at` field.
+ *     parameters:
+ *       - in: path
+ *         name: claim_id
+ *         required: true
+ *         description: The ID of the claim to delete.
+ *         schema:
+ *           type: string
+ *           example: "claim_id_123"
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successfully deleted the claim.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Successfully deleted the claim.
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     claim:
+ *                       type: object
+ *                       properties:
+ *                         _id:
+ *                           type: string
+ *                           example: "64e23b9a10fc024b2e18b234"
+ *                         user_id:
+ *                           type: string
+ *                           example: "64e23b9a10fc024b2e18b789"
+ *                         deleted_at:
+ *                           type: string
+ *                           example: "2024-12-02T10:00:00.000Z"
+ *       404:
+ *         description: Claim not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Claim not found.
+ *                 error:
+ *                   type: string
+ *                   example: Claims is not found.
+ *       401:
+ *         description: Unauthorized.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Unauthorized access.
+ *       500:
+ *         description: Internal Server Error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Something went wrong.
+ */
+claimRoutes.put(
+  "/claims/:claim_id/delete",
+  auth.authenticateUser,
+  claimController.deleteClaim
 );
 
 module.exports = claimRoutes;
