@@ -44,6 +44,36 @@ const users = [
     is_verified: true,
     deleted_at: null,
   },
+  {
+    name: "Suga Kim",
+    username: "suga",
+    email: "suga@example.com",
+    password: "password123",
+    image_url:
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
+    role: "user",
+    phone_number: "083456789012",
+    otp: null,
+    otp_status: false,
+    otp_expires_at: null,
+    is_verified: true,
+    deleted_at: null,
+  },
+  {
+    name: "Suga Kim",
+    username: "agus",
+    email: "agus@example.com",
+    password: "password123",
+    image_url:
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
+    role: "user",
+    phone_number: "083456789012",
+    otp: null,
+    otp_status: false,
+    otp_expires_at: null,
+    is_verified: true,
+    deleted_at: null,
+  },
 ];
 
 const categories = [
@@ -70,7 +100,7 @@ const items = [
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     ],
-    approved: false,
+    approved: true,
     type: "lost",
     province: "Central Java",
     city: "Semarang",
@@ -109,7 +139,7 @@ const items = [
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     ],
-    approved: false,
+    approved: true,
     type: "found",
     province: "Jakarta",
     city: "Jakarta Selatan",
@@ -179,8 +209,8 @@ const donations = [
   },
   {
     user_id: null,
-    name: "Anonymous",
-    email: null,
+    name: "Suga Kim",
+    email: "suga@gmail.com",
     amount: 20000,
     is_anonymous: true,
     status: "success",
@@ -222,7 +252,7 @@ const items_categories = [
 
 const claims = [
   {
-    is_approved: false,
+    is_approved: null,
     images: [
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",

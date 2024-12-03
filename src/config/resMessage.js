@@ -109,6 +109,7 @@ const RES = {
   CATEGORY_ID_MUST_BE_VALID: "category ID must be a valid",
   PLEASE_PROVIDE_VALID_IS_ANONYMOUS: "please provide a valid isAnonymous",
   PLEASE_PROVIDE_VALID_CATEGORY_ID: "please provide a valid category ID",
+  ITEM_ALREADY_MATCHED: "item already matched",
 
   // AUTH
   SIGN_IN_SUCCESS: "sign in successful",
@@ -127,6 +128,8 @@ const RES = {
   CATEGORIES_IS_NOT_FOUND: "category not found",
   CLAIMS_IS_NOT_FOUND: "claim not found",
   CLAIM_ALREADY_EXISTS: "your claim already exists",
+  ITEM_IS_NOT_FOUND: "item not found",
+  YOU_CANNOT_CLAIM_YOUR_OWN_ITEM: "LOL, you cannot claim your own item",
 
   // MESSAGE IN BAHASA
   ITEM_APPROVED: "Selamat Laporan Anda Disetujui",
@@ -134,6 +137,8 @@ const RES = {
   DONATION_SUCCESS: "Ada Donasi Baru",
   NEW_COMMENT: "Ada Komentar Baru",
   CLAIM_CREATED: "Ada Pengajuan Baru",
+  CLAIM_APPROVED: "Selamat Pengajuan Anda Disetujui",
+  CLAIM_REJECTED: "Sayang Sekali Pengajuan Anda Ditolak",
 };
 
 module.exports = RES;

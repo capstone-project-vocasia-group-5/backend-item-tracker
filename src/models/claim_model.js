@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const joi = require("joi");
 const joiObjectId = require("joi-objectid")(joi);
 const { Item } = require("./item_model");
+const { User } = require("./user_model");
 
 // Schema Options
 const schemaOptions = {
@@ -41,6 +42,12 @@ const claimSchema = new mongoose.Schema(
       index: true,
       required: true,
     },
+    to_user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      index: true,
+      required: true,
+    },
     item_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Item",
@@ -49,7 +56,7 @@ const claimSchema = new mongoose.Schema(
     },
     is_approved: {
       type: Boolean,
-      default: false,
+      default: null,
     },
     images: {
       type: [String],
