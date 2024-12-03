@@ -3,18 +3,44 @@ const RES = require("../config/resMessage");
 const { Category, validateCategory } = require("../models/category_model");
 
 const getAllCategories = async (req, res, next) => {
+  const { page = 1, limit = 10, name = "" } = req.query;
   try {
-    const categories = await Category.find({ deleted_at: null });
+    const validatedPage = !isNaN(page) && page > 0 ? parseInt(page, 10) : 1;
+    const validatedLimit =
+      !isNaN(limit) && limit > 0 ? parseInt(limit, 10) : 10;
+
+    const query = {
+      deleted_at: null,
+    };
+
+    if (name) {
+      query.name = { $regex: name, $options: "i" };
+    }
+
+    const totalCategories = await Category.countDocuments(query);
+
+    const categories = await Category.find(query)
+      .skip((validatedPage - 1) * validatedLimit)
+      .limit(validatedLimit)
+      .sort({ created_at: -1 });
+
     if (!categories) {
       throw new customError.NotFoundError(
         RES.DATA_IS_NOT_FOUND,
         RES.CATEGORIES_IS_NOT_FOUND
       );
     }
+
     res.status(200).json({
       success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_FETCHED,
       data: {
         categories,
+      },
+      pagination: {
+        page: validatedPage,
+        limit: validatedLimit,
+        total: totalCategories,
       },
     });
   } catch (err) {
