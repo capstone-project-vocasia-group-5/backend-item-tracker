@@ -44,7 +44,7 @@ const thanksMail = async (email, data) => {
     let message = {
       from: gmail,
       to: email,
-      subject: "Terima Kasih",
+      subject: "Terima Kasih Atas Kontribusi Anda",
       html: Mustache.render(template, data),
     };
 
@@ -54,4 +54,24 @@ const thanksMail = async (email, data) => {
   }
 };
 
-module.exports = { otpMail, thanksMail };
+const sendMail = async (email, data) => {
+  try {
+    let template = fs.readFileSync(
+      path.join(__dirname, `../../views/email/${data.type}.html`),
+      "utf8"
+    );
+
+    let message = {
+      from: gmail,
+      to: email,
+      subject: data.subject,
+      html: Mustache.render(template, data),
+    };
+
+    return await transporter.sendMail(message);
+  } catch (ex) {
+    console.log(ex);
+  }
+};
+
+module.exports = { otpMail, thanksMail, sendMail };

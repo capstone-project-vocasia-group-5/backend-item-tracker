@@ -6,6 +6,8 @@ const cloudinaryServices = require("../services/cloudinary");
 const fs = require("fs-extra");
 const notificationService = require("../services/mongoose/notification_service");
 const mongoose = require("mongoose");
+const { EmailLogs } = require("../models/email_log_model");
+const { User } = require("../models/user_model");
 
 const createClaim = async (req, res, next) => {
   const { item_id, claim_text } = req.body;
@@ -200,6 +202,29 @@ const approveClaim = async (req, res, next) => {
       );
     }
 
+    const user = await User.findById(claim.user_id).session(session);
+    const emailLog = await EmailLogs.create(
+      [
+        {
+          claim_id: claim.id,
+          name: user.name,
+          email: user.email,
+          type: RES.CLAIM,
+          subject: RES.SUBJECT_CLAIM_APPROVED,
+          title: RES.CLAIM_APPROVED,
+          description: RES.DESCRIPTION_CLAIM_APPROVED,
+        },
+      ],
+      { session }
+    );
+
+    if (!emailLog) {
+      throw new customError.InternalServerError(
+        RES.INTERNAL_SERVER_ERROR,
+        RES.SOMETHING_WENT_WRONG_WHILE_CREATING
+      );
+    }
+
     const item = await Item.findOne(
       {
         _id: claim.item_id,
@@ -273,7 +298,14 @@ const approveClaim = async (req, res, next) => {
 
 const rejectClaim = async (req, res, next) => {
   const claim_id = req.params.claim_id;
+  const { messages } = req.body;
   try {
+    if (!messages) {
+      throw new customError.BadRequestError(
+        RES.BAD_REQUEST,
+        RES.MESSAGES_IS_REQUIRED
+      );
+    }
     const claim = await Claim.findOneAndUpdate(
       {
         _id: claim_id,
@@ -289,6 +321,30 @@ const rejectClaim = async (req, res, next) => {
       throw new customError.NotFoundError(
         RES.DATA_IS_NOT_FOUND,
         RES.CLAIMS_IS_NOT_FOUND
+      );
+    }
+
+    const user = await User.findById(claim.user_id);
+
+    const emailLog = await EmailLogs.create({
+      claim_id: claim.id,
+      name: user.name,
+      email: user.email,
+      type: RES.CLAIM,
+      subject: RES.SUBJECT_CLAIM_REJECTED,
+      title: RES.CLAIM_REJECTED,
+      description:
+        RES.DESCRIPTION_CLAIM_REJECTED +
+        " " +
+        "<strong>" +
+        messages +
+        "</strong>",
+    });
+
+    if (!emailLog) {
+      throw new customError.InternalServerError(
+        RES.INTERNAL_SERVER_ERROR,
+        RES.SOMETHING_WENT_WRONG_WHILE_CREATING
       );
     }
 
