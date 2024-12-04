@@ -192,8 +192,36 @@ const getAllDonations = async (req, res, next) => {
   }
 };
 
+const getTotalAmountDonation = async (req, res, next) => {
+  try {
+    const totalAmount = await Donation.aggregate([
+      {
+        $match: {
+          status: "success",
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          totalAmount: { $sum: "$amount" },
+        },
+      },
+    ]);
+    res.status(200).json({
+      success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_FETCHED,
+      data: {
+        totalAmount,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   createDonation,
   midtransWebHook,
   getAllDonations,
+  getTotalAmountDonation,
 };
