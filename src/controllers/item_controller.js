@@ -269,7 +269,7 @@ const deleteItem = async (req, res, next) => {
     session.startTransaction();
     const query = { _id: item_id, deleted_at: null };
 
-    if (req.user?.id && req.user?.role === "user") {
+    if (req.user?.id && req.user?.role === CFG.ROLES.USER) {
       query.user_id = req.user.id;
     }
 
@@ -299,6 +299,24 @@ const deleteItem = async (req, res, next) => {
         RES.SOMETHING_WENT_WRONG,
         RES.SOMETHING_WENT_WRONG_WHILE_UPDATING
       );
+    }
+
+    if (req.user?.id && req.user?.role === CFG.ROLES.ADMIN) {
+      const createdNotification = await notificationService.createNotification(
+        {
+          user_id: deletedItem.user_id,
+          title: RES.REPORT_IS_DELETED_BY_ADMIN,
+          item_id: deletedItem.id,
+        },
+        session
+      );
+
+      if (!createdNotification) {
+        throw new customError.InternalServerError(
+          RES.INTERNAL_SERVER_ERROR,
+          RES.SOMETHING_WENT_WRONG_WHILE_CREATING
+        );
+      }
     }
 
     await session.commitTransaction();
