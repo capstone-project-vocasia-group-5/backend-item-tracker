@@ -174,7 +174,26 @@ const createDonationLogs = async (donation_id, status_logs, session) => {
   return await donationLogs.save({ session });
 };
 
+const getAllDonations = async (req, res, next) => {
+  try {
+    const donations = await Donation.find({
+      is_anonymous: false,
+      status: "success",
+    });
+    res.status(200).json({
+      success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_FETCHED,
+      data: {
+        donations,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   createDonation,
   midtransWebHook,
+  getAllDonations,
 };
