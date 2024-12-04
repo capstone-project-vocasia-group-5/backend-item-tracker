@@ -1,6 +1,7 @@
 const { Notification } = require("../models/notification_model");
 const RES = require("../config/resMessage");
 const mongoose = require("mongoose");
+const CFG = require("../config/const");
 const getNotificationById = async (req, res, next) => {
   try {
     let modifiedNotification;
@@ -140,8 +141,38 @@ const getNotificationByUserId = async (req, res, next) => {
   }
 };
 
+const getNotificationByAdmin = async (req, res, next) => {
+  try {
+    const notifications = await Notification.find({
+      role: CFG.ROLES.ADMIN,
+      deleted_at: null,
+    })
+      .populate([
+        {
+          path: "item_id",
+        },
+        {
+          path: "donation_id",
+        },
+      ])
+      .lean()
+      .sort({ created_at: -1 });
+
+    res.status(200).json({
+      success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_FETCHED,
+      data: {
+        notifications,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getNotificationById,
   getNotificationByUserId,
   updateNotification,
+  getNotificationByAdmin,
 };

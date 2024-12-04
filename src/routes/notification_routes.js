@@ -2,6 +2,7 @@ const express = require("express");
 const notificationRoutes = express.Router();
 const notificatonController = require("../controllers/notification_controller");
 const auth = require("../middlewares/auth");
+const CFG = require("../config/const");
 
 /**
  * @swagger
@@ -199,6 +200,58 @@ notificationRoutes.get(
   "/notifications",
   auth.authenticateUser,
   notificatonController.getNotificationByUserId
+);
+
+/**
+ * @swagger
+ * /admin/notifications:
+ *   get:
+ *     tags: [Notifications]
+ *     summary: Get notifications for admin
+ *     description: Retrieve a list of notifications for admin.
+ *     responses:
+ *       200:
+ *         description: Notifications retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Notifications retrieved successfully
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     notification:
+ *                       type: array
+ *                       items:
+ *                         type: object
+ *                         properties:
+ *                           id:
+ *                             type: string
+ *                             example: "notification_id"
+ *                           user_id:
+ *                             type: string
+ *                             example: "user_id"
+ *                           claim_id:
+ *                             type: string
+ *                             example: "claim_id"
+ *                           is_read:
+ *                             type: boolean
+ *                             example: false
+ *                           created_at:
+ *                             type: string
+ *                             example: "2022-01-01T00:00:00.000Z"
+ */
+notificationRoutes.get(
+  "/admin/notifications",
+  auth.authenticateUser,
+  auth.authorizeRoles(CFG.ROLES.ADMIN),
+  notificatonController.getNotificationByAdmin
 );
 
 module.exports = notificationRoutes;

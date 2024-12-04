@@ -90,7 +90,7 @@ const createItem = async (req, res, next) => {
       {
         role: CFG.ROLES.ADMIN,
         title: RES.NEW_REPORT,
-        item_id: newItem.id,
+        item_id: newItem[0]?.id,
       },
       session
     );
