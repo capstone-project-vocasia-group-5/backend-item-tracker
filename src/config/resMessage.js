@@ -139,6 +139,7 @@ const RES = {
   DONATION_SUCCESS: "Ada Donasi Baru",
   NEW_COMMENT: "Ada Komentar Baru",
   NEW_REPORT: "Ada Laporan Baru",
+  REPORT_IS_DELETED_BY_ADMIN: "Laporan anda telah dihapus oleh Admin",
   CLAIM_CREATED: "Ada Pengajuan Baru",
   CLAIM_APPROVED: "Selamat Pengajuan Anda Disetujui",
   CLAIM_REJECTED: "Sayang Sekali Pengajuan Anda Ditolak",
