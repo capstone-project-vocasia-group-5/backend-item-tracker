@@ -333,12 +333,7 @@ const rejectClaim = async (req, res, next) => {
       type: RES.CLAIM,
       subject: RES.SUBJECT_CLAIM_REJECTED,
       title: RES.CLAIM_REJECTED,
-      description:
-        RES.DESCRIPTION_CLAIM_REJECTED +
-        " " +
-        "<strong>" +
-        messages +
-        "</strong>",
+      description: RES.DESCRIPTION_CLAIM_REJECTED + " " + messages,
     });
 
     if (!emailLog) {

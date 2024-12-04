@@ -6,6 +6,8 @@ const fs = require("fs-extra");
 const mongoose = require("mongoose");
 const { CategoryItems } = require("../models/category_items_model");
 const notificationService = require("../services/mongoose/notification_service");
+const { EmailLogs } = require("../models/email_log_model");
+const { User } = require("../models/user_model");
 
 const createItem = async (req, res, next) => {
   const {
@@ -522,6 +524,30 @@ const approveItemCMS = async (req, res, next) => {
       );
     }
 
+    const user = await User.findById(item.user_id).session(session);
+
+    const emailLog = await EmailLogs.create(
+      [
+        {
+          item_id: item.id,
+          name: user.name,
+          email: user.email,
+          type: RES.REPORT,
+          subject: RES.SUBJECT_REPORT_APPROVED,
+          title: RES.REPORT_APPROVED,
+          description: RES.DESCRIPTION_REPORT_APPROVED,
+        },
+      ],
+      { session }
+    );
+
+    if (!emailLog) {
+      throw new customError.InternalServerError(
+        RES.INTERNAL_SERVER_ERROR,
+        RES.SOMETHING_WENT_WRONG_WHILE_CREATING
+      );
+    }
+
     await session.commitTransaction();
 
     res.status(200).json({
@@ -544,6 +570,14 @@ const rejectItemCMS = async (req, res, next) => {
   const { messages } = req.body;
   try {
     session.startTransaction();
+
+    if (!messages) {
+      throw new customError.BadRequestError(
+        RES.VALIDATION_ERROR,
+        RES.MESSAGES_IS_REQUIRED
+      );
+    }
+
     const item = await Item.findOne({
       _id: req.params.id,
       approved: false,
@@ -559,9 +593,7 @@ const rejectItemCMS = async (req, res, next) => {
 
     item.approved = false;
     item.deleted_at = Date.now();
-    if (messages) {
-      item.messages = messages;
-    }
+    item.messages = messages;
     await item.save({ session });
 
     const createdNotification = await notificationService.createNotification(
@@ -574,6 +606,30 @@ const rejectItemCMS = async (req, res, next) => {
     );
 
     if (!createdNotification) {
+      throw new customError.InternalServerError(
+        RES.INTERNAL_SERVER_ERROR,
+        RES.SOMETHING_WENT_WRONG_WHILE_CREATING
+      );
+    }
+
+    const user = await User.findById(item.user_id).session(session);
+
+    const emailLog = await EmailLogs.create(
+      [
+        {
+          item_id: item.id,
+          name: user.name,
+          email: user.email,
+          type: RES.REPORT,
+          subject: RES.SUBJECT_REPORT_REJECTED,
+          title: RES.REPORT_REJECTED,
+          description: RES.DESCRIPTION_REPORT_REJECTED + " " + messages,
+        },
+      ],
+      { session }
+    );
+
+    if (!emailLog) {
       throw new customError.InternalServerError(
         RES.INTERNAL_SERVER_ERROR,
         RES.SOMETHING_WENT_WRONG_WHILE_CREATING

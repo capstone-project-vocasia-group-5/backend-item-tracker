@@ -57,7 +57,7 @@ const thanksMail = async (email, data) => {
 const sendMail = async (email, data) => {
   try {
     let template = fs.readFileSync(
-      path.join(__dirname, `../../views/email/${data.type}.html`),
+      path.join(__dirname, `../../views/email/claim_and_report.html`),
       "utf8"
     );
 

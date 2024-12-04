@@ -83,6 +83,10 @@ const emailLogSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    processing: {
+      type: Boolean,
+      default: false,
+    },
     deleted_at: {
       type: Date,
       default: null,
