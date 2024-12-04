@@ -8,6 +8,7 @@ const { CategoryItems } = require("../models/category_items_model");
 const notificationService = require("../services/mongoose/notification_service");
 const { EmailLogs } = require("../models/email_log_model");
 const { User } = require("../models/user_model");
+const CFG = require("../config/const");
 
 const createItem = async (req, res, next) => {
   const {
@@ -83,6 +84,22 @@ const createItem = async (req, res, next) => {
           RES.SOMETHING_WENT_WRONG_WHILE_CREATING
         );
       }
+    }
+
+    const createdNotification = await notificationService.createNotification(
+      {
+        role: CFG.ROLES.ADMIN,
+        title: RES.NEW_REPORT,
+        item_id: newItem.id,
+      },
+      session
+    );
+
+    if (!createdNotification) {
+      throw new customError.InternalServerError(
+        RES.INTERNAL_SERVER_ERROR,
+        RES.SOMETHING_WENT_WRONG_WHILE_CREATING
+      );
     }
 
     await session.commitTransaction();

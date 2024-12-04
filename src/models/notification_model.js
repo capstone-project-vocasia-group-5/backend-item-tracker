@@ -37,6 +37,7 @@ const notificationSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       index: true,
+      default: null,
     },
     claim_id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -69,6 +70,10 @@ const notificationSchema = new mongoose.Schema(
     is_read: {
       type: Boolean,
       default: false,
+    },
+    role: {
+      type: String,
+      default: null,
     },
     deleted_at: {
       type: Date,
