@@ -1,6 +1,8 @@
 const express = require("express");
 const donationRoutes = express.Router();
 const donationController = require("../controllers/donation_controller");
+const auth = require("../middlewares/auth");
+const CFG = require("../config/const");
 
 /**
  * @swagger
@@ -146,6 +148,44 @@ donationRoutes.post("/donations", donationController.createDonation);
  *                             example: "2023-06-01T10:00:00.000Z"
  */
 donationRoutes.get("/donations", donationController.getAllDonations);
+
+/**
+ * @swagger
+ * /donations/total-amount:
+ *   get:
+ *     tags: [Donations]
+ *     summary: Get total amount of donations
+ *     description: Retrieve the total amount of donations.
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Total amount successfully fetched
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Total amount fetched successfully
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     total_amount:
+ *                       type: number
+ *                       example: 15000
+ */
+
+donationRoutes.get(
+  "/donations/total-amount",
+  auth.authenticateUser,
+  auth.authorizeRoles(CFG.ROLES.ADMIN),
+  donationController.getTotalAmountDonation
+);
 
 donationRoutes.post("/midtrans-webhook", donationController.midtransWebHook);
 module.exports = donationRoutes;
