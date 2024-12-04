@@ -85,5 +85,67 @@ const donationController = require("../controllers/donation_controller");
 
 donationRoutes.post("/donations", donationController.createDonation);
 
+/**
+ * @swagger
+ * /donations:
+ *   get:
+ *     tags: [Donations]
+ *     summary: Get all donations
+ *     description: Retrieve a list of all donations.
+ *     responses:
+ *       200:
+ *         description: Donations successfully fetched
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Donations fetched successfully
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     donations:
+ *                       type: array
+ *                       items:
+ *                         type: object
+ *                         properties:
+ *                           id:
+ *                             type: string
+ *                             example: "donation_id"
+ *                           user_id:
+ *                             type: string
+ *                             example: "user_id"
+ *                           name:
+ *                             type: string
+ *                             example: "John Doe"
+ *                           email:
+ *                             type: string
+ *                             example: "johndoe@example.com"
+ *                           amount:
+ *                             type: number
+ *                             example: 15000
+ *                           is_anonymous:
+ *                             type: boolean
+ *                             example: false
+ *                           status:
+ *                             type: string
+ *                             enum: ["pending", "success", "failed"]
+ *                             example: "pending"
+ *                           created_at:
+ *                             type: string
+ *                             format: date-time
+ *                             example: "2023-06-01T10:00:00.000Z"
+ *                           updated_at:
+ *                             type: string
+ *                             format: date-time
+ *                             example: "2023-06-01T10:00:00.000Z"
+ */
+donationRoutes.get("/donations", donationController.getAllDonations);
+
 donationRoutes.post("/midtrans-webhook", donationController.midtransWebHook);
 module.exports = donationRoutes;
