@@ -44,6 +44,7 @@ const RES = {
   NOT_FOUND: "not found",
 
   // VALIDATIONS
+  MESSAGES_IS_REQUIRED: "messages is required",
   ITEM_NOT_FOUND: "item not found",
   INVALID_TRANSACTION_DATA: "invalid transaction data",
   INVALID_TRANSACTION_STATUS: "invalid transaction status",
@@ -61,6 +62,7 @@ const RES = {
   PLEASE_PROVIDE_VALID_NAME: "please provide a valid name",
   PLEASE_PROVIDE_VALID_USERNAME: "please provide a valid username",
   PLEASE_PROVIDE_VALID_EMAIL: "please provide a valid email",
+  PLEASE_PROVIDE_VALID_TITLE: "please provide a valid title",
   PLEASE_PROVIDE_VALID_PASSWORD: "please provide a valid password",
   PLEASE_PROVIDE_VALID_PASSWORD_CONFIRMATION:
     "please provide a valid password confirmation",
@@ -139,6 +141,14 @@ const RES = {
   CLAIM_CREATED: "Ada Pengajuan Baru",
   CLAIM_APPROVED: "Selamat Pengajuan Anda Disetujui",
   CLAIM_REJECTED: "Sayang Sekali Pengajuan Anda Ditolak",
+  SUBJECT_CLAIM_APPROVED: "Selamat, Pengajuan Anda Disetujui",
+  SUBJECT_CLAIM_REJECTED: "Sayang Sekali, Pengajuan Anda Ditolak",
+  DESCRIPTION_CLAIM_APPROVED:
+    "Kami ingin memberikan kabar gembira bahwa pengajuan anda telah disetujui. Selanjutnya, penemu barang akan segera menghubungi anda. Harap menunggu.",
+  DESCRIPTION_CLAIM_REJECTED:
+    "Sayang Sekali, Pengajuan Anda Ditolak. Dengan alasan",
+  CLAIM: "Pengajuan",
+  REPORT: "Laporan",
 };
 
 module.exports = RES;

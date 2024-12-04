@@ -30,7 +30,7 @@ const schemaOptions = {
 };
 
 // Schema Definition
-const donationSchema = new mongoose.Schema(
+const donationLogSchema = new mongoose.Schema(
   {
     donation_id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -50,7 +50,7 @@ const donationSchema = new mongoose.Schema(
   schemaOptions
 );
 
-const DonationLogs = mongoose.model("DonationLogs", donationSchema);
+const DonationLogs = mongoose.model("DonationLogs", donationLogSchema);
 
 module.exports = {
   DonationLogs,

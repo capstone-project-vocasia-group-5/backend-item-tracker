@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thank You for Your Donation</title>
+    <title>{{title}}</title>
   </head>
 
   <body>
@@ -31,12 +31,8 @@
           >
         </div>
         <p style="font-size: 1.1em">Hi {{name}},</p>
-        <p>
-          Kami sangat berterima kasih atas donasi Anda untuk mendukung
-          <strong>Item Tracker</strong>. Donasi Anda akan sangat membantu kami
-          dalam memberikan layanan yang lebih baik.
-        </p>
-        <p>Detail Donasi Anda:</p>
+        <p>{{description}}</p>
+        <p>Detail {{type}} Anda:</p>
         <div
           style="
             background: #f4f4f4;
@@ -47,14 +43,22 @@
             margin: 20px 0;
           "
         >
-          <p><strong>Nama:</strong> {{name}}</p>
-          <p><strong>Email:</strong> {{email}}</p>
-          <p><strong>Jumlah Donasi:</strong> {{amount}}</p>
+          <p><strong>Nama:</strong> {{ itemName }}</p>
+          <p><strong>Gambar:</strong></p>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap">
+            {{#images}}
+            <img
+              src="{{.}}"
+              alt="Gambar dari {{ itemName }}"
+              style="max-width: 300px; height: auto; border-radius: 8px"
+            />
+            {{/images}}
+          </div>
         </div>
+
         <p>
-          Terima kasih sekali lagi atas kontribusi Anda. Jika Anda memiliki
-          pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi
-          kami.
+          Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu
+          untuk menghubungi kami.
         </p>
         <p style="font-size: 0.9em">Regards,<br />Item Tracker</p>
         <hr style="border: none; border-top: 1px solid #eee" />
