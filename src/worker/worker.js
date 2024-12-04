@@ -16,10 +16,14 @@ async function processUsersWithOtp() {
     deleted_at: null,
     otp_expires_at: { $gt: new Date() },
     otp_status: false,
+    processing: false,
   }).select("+otp +otp_expires_at +otp_status");
 
   for (const user of users) {
     try {
+      user.processing = true;
+      await user.save();
+
       console.log(`Sending OTP to ${user.email}`);
       await otpMail(user.email, { otp: user.otp });
 
@@ -29,6 +33,9 @@ async function processUsersWithOtp() {
       await user.save();
     } catch (err) {
       console.log(`Error sending OTP to ${user.email}: ${err.message}`);
+    } finally {
+      user.processing = false;
+      await user.save();
     }
   }
 }
@@ -38,40 +45,47 @@ async function processEmailWithFalseSend() {
 
   const emailLogs = await EmailLogs.find({
     send_status: false,
-    deleted_at: null,
+    processing: false,
   })
     .populate("item_id")
     .populate("claim_id");
 
-  for (const email of emailLogs) {
+  for (const currEmailLogs of emailLogs) {
     try {
-      console.log(`Sending MAIL to ${email.email}`);
+      currEmailLogs.processing = true;
+      await currEmailLogs.save();
+
+      console.log(`Sending MAIL to ${currEmailLogs.email}`);
       let item;
-      if (email.type === RES.CLAIM) {
+      if (currEmailLogs.type === RES.CLAIM) {
         item = await Item.findOne({
-          _id: email.claim_id.item_id,
+          _id: currEmailLogs.claim_id.item_id,
         });
       } else {
         item = await Item.findOne({
-          _id: email.item_id.id,
+          _id: currEmailLogs.item_id.id,
         });
       }
 
-      await sendMail(email.email, {
-        type: email.type,
-        subject: email.subject,
-        description: email.description,
-        images: email.item_id?.images || email.claim_id?.images || [],
-        name: email.name,
+      await sendMail(currEmailLogs.email, {
+        type: currEmailLogs.type,
+        subject: currEmailLogs.subject,
+        description: currEmailLogs.description,
+        images:
+          currEmailLogs.item_id?.images || currEmailLogs.claim_id?.images || [],
+        name: currEmailLogs.name,
         itemName: item?.name || "",
       });
 
-      console.log(`EMAIL sent to ${email.email}`);
+      console.log(`EMAIL sent to ${currEmailLogs.email}`);
 
-      email.send_status = true;
-      await email.save();
+      currEmailLogs.send_status = true;
+      await currEmailLogs.save();
     } catch (err) {
       console.log(`Error sending OTP to ${email.email}: ${err.message}`);
+    } finally {
+      currEmailLogs.processing = false;
+      await currEmailLogs.save();
     }
   }
 }

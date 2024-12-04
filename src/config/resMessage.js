@@ -149,6 +149,14 @@ const RES = {
     "Sayang Sekali, Pengajuan Anda Ditolak. Dengan alasan",
   CLAIM: "Pengajuan",
   REPORT: "Laporan",
+  REPORT_APPROVED: "Selamat Laporan Anda Disetujui",
+  SUBJECT_REPORT_APPROVED: "Selamat, Laporan Anda Disetujui",
+  SUBJECT_REPORT_REJECTED: "Sayang Sekali, Laporan Anda Ditolak",
+  DESCRIPTION_REPORT_APPROVED:
+    "Kami ingin memberikan kabar gembira bahwa laporan anda telah disetujui.",
+  DESCRIPTION_REPORT_REJECTED:
+    "Sayang Sekali, Laporan Anda Ditolak. Dengan alasan",
+  REPORT_REJECTED: "Sayang Sekali, Laporan Anda Ditolak",
 };
 
 module.exports = RES;
