@@ -51,7 +51,7 @@ const RES = {
   USERNAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS:
     "username harus memiliki maksimal 50 karakter",
   ANOTHER: "lainnya",
-  PLEASE_CHOOSE: "silakan pilih",
+  PLEASE_CHOOSE: "silakan gunakan",
   DUPLICATE_VALUE_ENTERED_FOR: "nilai duplikat dimasukkan untuk",
   DUPLICATE_VALUE: "konflik",
   ALREADY_EXISTS: "sudah ada",

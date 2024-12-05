@@ -19,7 +19,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   if (err.code && err.code === 11000) {
     customError.errors = ` ${Object.keys(err.keyValue)} ${
       RES.ALREADY_EXISTS
-    }, ${RES.PLEASE_CHOOSE} ${RES.ANOTHER} ${Object.keys(err.keyValue)} `;
+    }, ${RES.PLEASE_CHOOSE} ${Object.keys(err.keyValue)} ${RES.ANOTHER}`;
     customError.statusCode = StatusCodes.CONFLICT; // 409
     customError.message = RES.DUPLICATE_VALUE;
   }
