@@ -842,12 +842,7 @@ itemRoutes.get("/items/:id", auth.authenticateUser, itemController.getItemById);
  *                   type: string
  *                   example: "Unauthorized"
  */
-itemRoutes.get(
-  "/items",
-  auth.authenticateUser,
-  auth.authorizeRoles(CFG.ROLES.USER),
-  itemController.getAllItems
-);
+itemRoutes.get("/items", itemController.getAllItems);
 
 // Get all items with optional filters
 /**
