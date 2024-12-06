@@ -402,9 +402,6 @@ const getAllItems = async (req, res, next) => {
 
     query.matched_status = matchedStatus;
 
-    // if (req.user?.id && req.user?.role === "user" && !ownCnv) {
-    //   query.approved = true;
-
     if (req.user?.id && req.user?.role === "user" && ownCnv) {
       query.user_id = user_id;
     } else {
@@ -431,7 +428,6 @@ const getAllItems = async (req, res, next) => {
 
     const items = await Item.aggregate([
       { $match: query },
-      { $addFields: { debugQuery: query } },
       { $sort: { created_at: -1 } },
       { $skip: skip },
       { $limit: validatedLimit },
