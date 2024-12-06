@@ -368,7 +368,7 @@ const items = [
   {
     name: "Kucing Putih",
     description:
-      "Nemu kucing ini di rumah, udah 3 harian. Kalo pemiliknya gak ketemu, mau dijual aja soalnya mukanya ngeselin",
+      "Nemu kucing ini di rumah, udah 3 harian. Kalo pemiliknya gak ketemu, mau dijual aja soalnya mukanya ngeselin.",
     matched_status: false,
     images: [
       "https://www.rukita.co/stories/wp-content/uploads/2023/10/Kucing_Persia_Flatnose-2021_10_07-10_34_36_7d7e78c999ca11ba390a8a9409a0bfd3-1.webp",
