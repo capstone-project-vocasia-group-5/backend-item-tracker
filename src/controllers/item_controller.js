@@ -390,7 +390,11 @@ const getAllItems = async (req, res, next) => {
     const skip = (validatedPage - 1) * validatedLimit;
     const ownCnv = own === "true" ? true : false;
     const matchedStatus = matched_status === "true" ? true : false;
-    const user_id = mongoose.Types.ObjectId.createFromHexString(req.user?.id);
+    let user_id;
+
+    if (req.user?.id) {
+      user_id = mongoose.Types.ObjectId.createFromHexString(req.user?.id);
+    }
 
     const query = {
       deleted_at: null,
@@ -398,10 +402,13 @@ const getAllItems = async (req, res, next) => {
 
     query.matched_status = matchedStatus;
 
-    if (req.user?.id && req.user?.role === "user" && !ownCnv) {
-      query.approved = true;
-    } else if (req.user?.id && req.user?.role === "user" && ownCnv) {
+    // if (req.user?.id && req.user?.role === "user" && !ownCnv) {
+    //   query.approved = true;
+
+    if (req.user?.id && req.user?.role === "user" && ownCnv) {
       query.user_id = user_id;
+    } else {
+      query.approved = true;
     }
 
     if (search) {
@@ -460,6 +467,7 @@ const getAllItems = async (req, res, next) => {
       {
         $project: {
           name: 1,
+          images: 1,
           description: 1,
           type: 1,
           approved: 1,
