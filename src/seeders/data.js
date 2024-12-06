@@ -140,7 +140,7 @@ const items = [
       "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
     ],
     approved: true,
-    type: "found",
+    type: "lost",
     province: "Jakarta",
     city: "Jakarta Selatan",
     subdistrict: "Cilandak",
