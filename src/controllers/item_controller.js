@@ -409,10 +409,7 @@ const getAllItems = async (req, res, next) => {
     }
 
     if (search) {
-      query.$or = [
-        { name: { $regex: search, $options: "i" } },
-        { description: { $regex: search, $options: "i" } },
-      ];
+      query.$or = [{ name: { $regex: search, $options: "i" } }];
     }
 
     ["type", "province", "city", "subdistrict", "village"].forEach((field) => {
