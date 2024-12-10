@@ -462,6 +462,7 @@ const getAllItems = async (req, res, next) => {
           name: 1,
           images: 1,
           description: 1,
+          matched_status: 1,
           type: 1,
           approved: 1,
           province: 1,
