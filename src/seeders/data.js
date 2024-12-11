@@ -98,7 +98,7 @@ const items = [
     matched_status: false,
     images: [
       "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2021/10/13/2120193204.jpg",
-      "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2021/10/13/2120193204.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -118,7 +118,7 @@ const items = [
     matched_status: false,
     images: [
       "https://astromesin.com/wp-content/uploads/2017/12/MESIN-KOPI-ESPRESSO-GETRA.jpg",
-      "https://astromesin.com/wp-content/uploads/2017/12/MESIN-KOPI-ESPRESSO-GETRA.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "found",
@@ -137,7 +137,7 @@ const items = [
     matched_status: false,
     images: [
       "https://cdn.antaranews.com/cache/1200x800/2017/09/20170914polaroid.jpg",
-      "https://cdn.antaranews.com/cache/1200x800/2017/09/20170914polaroid.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -157,7 +157,7 @@ const items = [
     matched_status: false,
     images: [
       "https://www.asus.com/media/Odin/Websites/global/ProductLine/20200824120814.jpg",
-      "https://www.asus.com/media/Odin/Websites/global/ProductLine/20200824120814.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "found",
@@ -176,7 +176,7 @@ const items = [
     matched_status: false,
     images: [
       "https://asset.kompas.com/crops/q4DJHhmXOvuosmTrZ1dhba3ugTE=/0x60:1152x828/1200x800/data/photo/2020/06/24/5ef2f765bacd6.jpeg",
-      "https://asset.kompas.com/crops/q4DJHhmXOvuosmTrZ1dhba3ugTE=/0x60:1152x828/1200x800/data/photo/2020/06/24/5ef2f765bacd6.jpeg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -195,7 +195,7 @@ const items = [
     matched_status: false,
     images: [
       "https://cdn.consina.com/wp-content/uploads/2024/10/SKARDU.jpg",
-      "https://cdn.consina.com/wp-content/uploads/2024/10/SKARDU.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -214,7 +214,7 @@ const items = [
     matched_status: false,
     images: [
       "https://www.charleskeith.co.id/dw/image/v2/BCWJ_PRD/on/demandware.static/-/Sites-id-products/default/dwd6e015c9/images/hi-res/2024-L7-CK2-80782509-1-J9-1.jpg?sw=504&sh=672",
-      "https://www.charleskeith.co.id/dw/image/v2/BCWJ_PRD/on/demandware.static/-/Sites-id-products/default/dwd6e015c9/images/hi-res/2024-L7-CK2-80782509-1-J9-1.jpg?sw=504&sh=672",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -233,7 +233,7 @@ const items = [
     matched_status: false,
     images: [
       "https://d1yutv2xslo29o.cloudfront.net/product/variant/photo/910005774_BLACK_1_2a0a.jpg",
-      "https://d1yutv2xslo29o.cloudfront.net/product/variant/photo/910005774_BLACK_1_2a0a.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "found",
@@ -252,7 +252,7 @@ const items = [
     matched_status: false,
     images: [
       "https://down-id.img.susercontent.com/file/04fb2c1300bc51bd193e9b918caf3233",
-      "https://down-id.img.susercontent.com/file/04fb2c1300bc51bd193e9b918caf3233",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -272,7 +272,7 @@ const items = [
     matched_status: false,
     images: [
       "https://png.pngtree.com/thumb_back/fw800/background/20230424/pngtree-hamster-video-images-free-download-image_2556615.jpg",
-      "https://png.pngtree.com/thumb_back/fw800/background/20230424/pngtree-hamster-video-images-free-download-image_2556615.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg,
     ],
     approved: true,
     type: "lost",
@@ -291,7 +291,7 @@ const items = [
     matched_status: false,
     images: [
       "https://i.pinimg.com/474x/80/b6/1a/80b61ae53b4dbd1e629471e656240c87.jpg",
-      "https://i.pinimg.com/474x/80/b6/1a/80b61ae53b4dbd1e629471e656240c87.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -310,7 +310,7 @@ const items = [
     matched_status: false,
     images: [
       "https://e0.pxfuel.com/wallpapers/80/733/desktop-wallpaper-animals-macro-kitty-kitten-beautiful-white-cat.jpg",
-      "https://e0.pxfuel.com/wallpapers/80/733/desktop-wallpaper-animals-macro-kitty-kitten-beautiful-white-cat.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "found",
@@ -329,7 +329,7 @@ const items = [
     matched_status: false,
     images: [
       "https://asset.kompas.com/crops/feBbLW-WhNixFW2K46ZtJ4USqcA=/0x0:1000x667/1200x800/data/photo/2022/10/25/63578895cbbd0.jpg",
-      "https://asset.kompas.com/crops/feBbLW-WhNixFW2K46ZtJ4USqcA=/0x0:1000x667/1200x800/data/photo/2022/10/25/63578895cbbd0.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "found",
@@ -348,7 +348,7 @@ const items = [
     matched_status: false,
     images: [
       "https://www.legatomusiccenter.com/wp-content/uploads/thumb-781-scaled.jpg",
-      "https://www.legatomusiccenter.com/wp-content/uploads/thumb-781-scaled.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -367,7 +367,7 @@ const items = [
     matched_status: false,
     images: [
       "https://www.elfs-shop.com/~img/trim_gunung_elfs_35l_backsupport_mc0-e3ecd-3073_10827-t2494_81.webp",
-      "https://www.elfs-shop.com/~img/trim_gunung_elfs_35l_backsupport_mc0-e3ecd-3073_10827-t2494_81.webp",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
@@ -387,7 +387,7 @@ const items = [
     matched_status: false,
     images: [
       "https://www.rukita.co/stories/wp-content/uploads/2023/10/Kucing_Persia_Flatnose-2021_10_07-10_34_36_7d7e78c999ca11ba390a8a9409a0bfd3-1.webp",
-      "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2021/10/13/2120193204.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svgg",
     ],
     approved: true,
     type: "found",
@@ -406,7 +406,7 @@ const items = [
     matched_status: false,
     images: [
       "https://glints.com/id/lowongan/wp-content/uploads/2021/12/keychron-k2-product_1400x.jpg",
-      "https://glints.com/id/lowongan/wp-content/uploads/2021/12/keychron-k2-product_1400x.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "found",
@@ -425,9 +425,9 @@ const items = [
     matched_status: false,
     images: [
       "https://asset.kompas.com/crops/0OX8wzC68_iM8f_bM80A678vKW4=/80x0:899x546/1200x800/data/photo/2022/01/27/61f229818ddbd.jpg",
-      "https://asset.kompas.com/crops/0OX8wzC68_iM8f_bM80A678vKW4=/80x0:899x546/1200x800/data/photo/2022/01/27/61f229818ddbd.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
-    approved: true,
+    approved: false,
     type: "found",
     province: "DKI Jakarta",
     city: "Kota Jakarta Barat",
@@ -444,9 +444,9 @@ const items = [
     matched_status: false,
     images: [
       "https://png.pngtree.com/png-vector/20240205/ourlarge/pngtree-three-colorful-suitcases-with-labels-3d-illustration-png-image_11624042.png",
-      "https://png.pngtree.com/png-vector/20240205/ourlarge/pngtree-three-colorful-suitcases-with-labels-3d-illustration-png-image_11624042.png",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
-    approved: true,
+    approved: false,
     type: "found",
     province: "DKI Jakarta",
     city: "Kota Jakarta Barat",
@@ -463,9 +463,9 @@ const items = [
     matched_status: false,
     images: [
       "https://upload.jaknot.com/2024/05/images/products/cf4580/original/rigai-topi-rimba-outdoor-anti-uv-waterproof-booonie-hat-polyester-yl-a09.jpg",
-      "https://upload.jaknot.com/2024/05/images/products/cf4580/original/rigai-topi-rimba-outdoor-anti-uv-waterproof-booonie-hat-polyester-yl-a09.jpg",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
-    approved: true,
+    approved: false,
     type: "found",
     province: "DKI Jakarta",
     city: "Kota Jakarta Barat",
