@@ -387,7 +387,7 @@ const items = [
     matched_status: false,
     images: [
       "https://www.rukita.co/stories/wp-content/uploads/2023/10/Kucing_Persia_Flatnose-2021_10_07-10_34_36_7d7e78c999ca11ba390a8a9409a0bfd3-1.webp",
-      "https://www.rukita.co/stories/wp-content/uploads/2023/10/Kucing_Persia_Flatnose-2021_10_07-10_34_36_7d7e78c999ca11ba390a8a9409a0bfd3-1.webp",
+      "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2021/10/13/2120193204.jpg",
     ],
     approved: true,
     type: "found",
