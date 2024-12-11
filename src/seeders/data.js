@@ -272,7 +272,7 @@ const items = [
     matched_status: false,
     images: [
       "https://png.pngtree.com/thumb_back/fw800/background/20230424/pngtree-hamster-video-images-free-download-image_2556615.jpg",
-      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg,
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svg",
     ],
     approved: true,
     type: "lost",
