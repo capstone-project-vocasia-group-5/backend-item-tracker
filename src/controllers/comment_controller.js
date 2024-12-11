@@ -169,12 +169,10 @@ const getCommentByItemId = async (req, res, next) => {
     const comment = await Comment.find({
       item_id,
       deleted_at: null,
-    })
-      .sort({ created_at: -1 })
-      .populate({
-        path: "user_id",
-        select: "-phone_number -email -role -is_verified",
-      });
+    }).populate({
+      path: "user_id",
+      select: "-phone_number -email -role -is_verified",
+    });
 
     if (!comment) {
       throw new customError.NotFoundError(RES.NOT_FOUND, RES.DATA_IS_NOT_FOUND);
