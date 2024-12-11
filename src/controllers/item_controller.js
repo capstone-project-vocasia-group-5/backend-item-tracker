@@ -371,7 +371,7 @@ const getAllItems = async (req, res, next) => {
     page = 1,
     limit = 10,
     type = "",
-    matched_status = "false",
+    matched_status = "",
     search = "",
     province = "",
     city = "",
@@ -379,6 +379,7 @@ const getAllItems = async (req, res, next) => {
     village = "",
     postal_code = "",
     own,
+    approved,
   } = req.query;
 
   try {
@@ -387,6 +388,7 @@ const getAllItems = async (req, res, next) => {
     const skip = (validatedPage - 1) * validatedLimit;
     const ownCnv = own === "true" ? true : false;
     const matchedStatus = matched_status === "true" ? true : false;
+    const approvedStatus = approved === "true" ? true : false;
     let user_id;
 
     if (req.user?.id) {
@@ -397,10 +399,16 @@ const getAllItems = async (req, res, next) => {
       deleted_at: null,
     };
 
-    query.matched_status = matchedStatus;
+    if (matched_status) {
+      query.matched_status = matchedStatus;
+    }
 
     if (req.user?.id && req.user?.role === "user" && ownCnv) {
       query.user_id = user_id;
+    } else if (req.user?.id && req.user?.role === "admin") {
+      if (approved) {
+        query.approved = approvedStatus;
+      }
     } else {
       query.approved = true;
     }
