@@ -340,21 +340,18 @@ const getItemById = async (req, res, next) => {
   const item_id = req.params.id;
 
   try {
-    let item;
-    if (req.user?.id && req.user?.role === "user") {
-      item = await Item.findOne({
-        _id: item_id,
-        deleted_at: null,
-      }).select("-phone_number -messages");
-    } else if (req.user?.id && req.user?.role === "admin") {
-      item = await Item.findOne({
-        _id: item_id,
-        deleted_at: null,
-      });
-    }
+    const item = await Item.findOne({
+      _id: item_id,
+      deleted_at: null,
+    }).lean();
 
     if (!item) {
       throw new customError.NotFoundError(RES.NOT_FOUND, RES.DATA_IS_NOT_FOUND);
+    }
+
+    if (req.user?.id && req.user?.role === "user" && item.type === "found") {
+      item.phone_number = null;
+      item.messages = null;
     }
 
     res.status(200).json({
@@ -462,6 +459,7 @@ const getAllItems = async (req, res, next) => {
           name: 1,
           images: 1,
           description: 1,
+          matched_status: 1,
           type: 1,
           approved: 1,
           province: 1,
