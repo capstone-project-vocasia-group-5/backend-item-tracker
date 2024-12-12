@@ -254,4 +254,45 @@ notificationRoutes.get(
   notificatonController.getNotificationByAdmin
 );
 
+/**
+ * @swagger
+ * /notifications/set-read:
+ *   put:
+ *     tags: [Notifications]
+ *     summary: Mark all notifications as read
+ *     description: Sets all notifications for the authenticated user as read.
+ *     responses:
+ *       200:
+ *         description: All notifications marked as read successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: All notifications marked as read successfully
+ *       401:
+ *         description: Unauthorized - User is not authenticated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: error
+ *                 message:
+ *                   type: string
+ *                   example: Unauthorized
+ */
+notificationRoutes.put(
+  "/notifications/all/set-read",
+  auth.authenticateUser,
+  notificatonController.setAllNotificationAsRead
+);
+
 module.exports = notificationRoutes;
