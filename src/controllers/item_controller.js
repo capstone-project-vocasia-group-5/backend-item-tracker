@@ -68,13 +68,30 @@ const createItem = async (req, res, next) => {
       );
     }
 
-    if (categories && categories.length > 0) {
+    if (typeof categories === "object") {
       const categoryItems = categories.map((category_id) => ({
         item_id: newItem[0].id,
         category_id,
       }));
       const createdCategoryItems = await CategoryItems.insertMany(
         categoryItems,
+        { session }
+      );
+
+      if (!createdCategoryItems) {
+        throw new customError.InternalServerError(
+          RES.SOMETHING_WENT_WRONG,
+          RES.SOMETHING_WENT_WRONG_WHILE_CREATING
+        );
+      }
+    } else {
+      const createdCategoryItems = await CategoryItems.create(
+        [
+          {
+            item_id: newItem[0].id,
+            category_id: categories,
+          },
+        ],
         { session }
       );
 
