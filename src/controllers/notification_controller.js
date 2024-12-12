@@ -236,9 +236,25 @@ const getNotificationByAdmin = async (req, res, next) => {
   }
 };
 
+const setAllNotificationAsRead = async (req, res, next) => {
+  try {
+    await Notification.updateMany(
+      { user_id: req.user.id, is_read: false },
+      { is_read: true }
+    );
+    res.status(200).json({
+      success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_UPDATED,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getNotificationById,
   getNotificationByUserId,
   updateNotification,
   getNotificationByAdmin,
+  setAllNotificationAsRead,
 };
