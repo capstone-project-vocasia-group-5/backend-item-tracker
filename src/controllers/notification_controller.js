@@ -90,12 +90,27 @@ const updateNotification = async (req, res, next) => {
 };
 
 const getNotificationByUserId = async (req, res, next) => {
+  const { page = 1, limit = 10, search = "" } = req.query;
+
   try {
-    let notifications;
-    const resNotifications = await Notification.find({
+    const validatedPage = !isNaN(page) && page > 0 ? parseInt(page, 10) : 1;
+    const validatedLimit =
+      !isNaN(limit) && limit > 0 ? parseInt(limit, 10) : 10;
+
+    const offset = (validatedPage - 1) * validatedLimit;
+
+    const filter = {
       user_id: req.user.id,
       deleted_at: null,
-    })
+    };
+
+    if (search.trim()) {
+      filter.$or = [{ title: { $regex: search, $options: "i" } }];
+    }
+
+    const totalDocuments = await Notification.countDocuments(filter);
+
+    const resNotifications = await Notification.find(filter)
       .populate([
         {
           path: "item_id",
@@ -108,10 +123,12 @@ const getNotificationByUserId = async (req, res, next) => {
         },
       ])
       .lean()
-      .sort({ created_at: -1 });
+      .sort({ created_at: -1 })
+      .skip(offset)
+      .limit(validatedLimit);
 
-    if (resNotifications && resNotifications.length > 0) {
-      notifications = resNotifications.map((notification) => {
+    const notifications =
+      resNotifications.map((notification) => {
         const modifiedNotification = {
           ...notification,
           item: notification.item_id,
@@ -126,14 +143,18 @@ const getNotificationByUserId = async (req, res, next) => {
         delete modifiedNotification.deleted_at;
 
         return modifiedNotification;
-      });
-    }
+      }) || [];
 
     res.status(200).json({
       success: RES.SUCCESS,
       message: RES.SUCCESSFULLY_FETCHED,
       data: {
         notifications,
+        pagination: {
+          total: totalDocuments,
+          page: validatedPage,
+          limit: validatedLimit,
+        },
       },
     });
   } catch (err) {
@@ -142,27 +163,68 @@ const getNotificationByUserId = async (req, res, next) => {
 };
 
 const getNotificationByAdmin = async (req, res, next) => {
+  const { page = 1, limit = 10, search = "" } = req.query;
+
   try {
-    const notifications = await Notification.find({
+    const validatedPage = !isNaN(page) && page > 0 ? parseInt(page, 10) : 1;
+    const validatedLimit =
+      !isNaN(limit) && limit > 0 ? parseInt(limit, 10) : 10;
+
+    const offset = (validatedPage - 1) * validatedLimit;
+
+    const filter = {
       role: CFG.ROLES.ADMIN,
       deleted_at: null,
-    })
+    };
+
+    if (search.trim()) {
+      filter.$or = [{ title: { $regex: search, $options: "i" } }];
+    }
+
+    const totalDocuments = await Notification.countDocuments(filter);
+
+    const resNotifications = await Notification.find(filter)
       .populate([
         {
           path: "item_id",
         },
         {
-          path: "donation_id",
+          path: "comment_id",
         },
       ])
       .lean()
-      .sort({ created_at: -1 });
+      .sort({ created_at: -1 })
+      .skip(offset)
+      .limit(validatedLimit);
+
+    const notifications =
+      resNotifications.map((notification) => {
+        const modifiedNotification = {
+          ...notification,
+          item: notification.item_id,
+          comment: notification.comment_id,
+          claim: notification.claim_id,
+        };
+
+        delete modifiedNotification.item_id;
+        delete modifiedNotification.comment_id;
+        delete modifiedNotification.claim_id;
+        delete modifiedNotification.__v;
+        delete modifiedNotification.deleted_at;
+
+        return modifiedNotification;
+      }) || [];
 
     res.status(200).json({
       success: RES.SUCCESS,
       message: RES.SUCCESSFULLY_FETCHED,
       data: {
         notifications,
+        pagination: {
+          total: totalDocuments,
+          page: validatedPage,
+          limit: validatedLimit,
+        },
       },
     });
   } catch (err) {
