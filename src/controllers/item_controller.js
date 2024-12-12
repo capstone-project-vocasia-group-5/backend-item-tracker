@@ -475,6 +475,13 @@ const getAllItems = async (req, res, next) => {
           subdistrict: 1,
           village: 1,
           postal_code: 1,
+          message: {
+            $cond: {
+              if: ownCnv || req.user?.role === "admin",
+              then: "$messages",
+              else: null,
+            },
+          },
           phone_number: {
             $cond: {
               if: ownCnv || req.user?.role === "admin",
