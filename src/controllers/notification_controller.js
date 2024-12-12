@@ -117,6 +117,10 @@ const getNotificationByUserId = async (req, res, next) => {
         },
         {
           path: "comment_id",
+          populate: {
+            path: "item_id",
+            select: "-user_id -phone_number -messages",
+          },
         },
         {
           path: "claim_id",
