@@ -67,7 +67,7 @@ const RES = {
   PLEASE_PROVIDE_VALID_IMAGE: "silakan berikan gambar yang valid",
   PLEASE_PROVIDE_VALID_PHONE_NUMBER: "silakan berikan nomor telepon yang valid",
   PHONE_NUMBER_MUST_START_WITH:
-    "nomor telepon harus dimulai dengan +62 atau 62 dan memiliki 8 hingga 13 digit",
+    "nomor telepon harus memiliki 8 hingga 13 digit",
   NAME_SHOULD_HAVE_MINIMUM_3_CHARACTERS:
     "nama harus memiliki minimal 3 karakter",
   NAME_SHOULD_HAVE_MAXIMUM_50_CHARACTERS:
