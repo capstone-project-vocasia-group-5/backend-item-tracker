@@ -164,8 +164,7 @@ const validateItem = {
           "string.pattern.base": RES.PHONE_NUMBER_MUST_START_WITH,
           "any.required": RES.PLEASE_PROVIDE_VALID_PHONE_NUMBER,
         }),
-      categories: joi.array().items(joi.string()).required().messages({
-        "array.items": RES.CATEGORY_ID_MUST_BE_VALID,
+      categories: joi.required().messages({
         "any.required": RES.PLEASE_PROVIDE_VALID_CATEGORY_ID,
       }),
     });
