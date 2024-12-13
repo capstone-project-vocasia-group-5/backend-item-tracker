@@ -157,7 +157,7 @@ const getAllClaims = async (req, res, next) => {
       })
       .populate({
         path: "user_id",
-        select: "-phone_number -email -role",
+        select: "-email -role",
       });
 
     res.status(200).json({
