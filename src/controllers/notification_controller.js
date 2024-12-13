@@ -251,10 +251,38 @@ const setAllNotificationAsRead = async (req, res, next) => {
   }
 };
 
+const getUnreadNotifications = async (req, res, next) => {
+  try {
+    let count;
+
+    if (req?.user?.role === CFG.ROLES.ADMIN) {
+      count = await Notification.countDocuments({
+        role: CFG.ROLES.ADMIN,
+        is_read: false,
+      });
+    } else {
+      count = await Notification.countDocuments({
+        user_id: req.user.id,
+        is_read: false,
+      });
+    }
+    res.status(200).json({
+      success: RES.SUCCESS,
+      message: RES.SUCCESSFULLY_FETCHED,
+      data: {
+        count,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getNotificationById,
   getNotificationByUserId,
   updateNotification,
   getNotificationByAdmin,
   setAllNotificationAsRead,
+  getUnreadNotifications,
 };
