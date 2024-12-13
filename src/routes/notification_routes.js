@@ -325,46 +325,8 @@ notificationRoutes.put(
  *                   example: Unauthorized
  */
 notificationRoutes.get(
-  "/user/notifications/unread",
+  "/notifications/unread/total",
   auth.authenticateUser,
-  notificatonController.getUnreadNotifications
-);
-
-/**
- * @swagger
- * /admin/notifications/unread:
- *   get:
- *     tags: [Notifications]
- *     summary: Get all unread notifications for admin
- *     description: Gets all unread notifications for the authenticated admin.
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       200:
- *         description: A list of unread notifications
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               example: []
- *       401:
- *         description: Unauthorized - User is not authenticated
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   example: error
- *                 message:
- *                   type: string
- *                   example: Unauthorized
- */
-notificationRoutes.get(
-  "/admin/notifications/unread",
-  auth.authenticateUser,
-  auth.authorizeRoles(CFG.ROLES.ADMIN),
   notificatonController.getUnreadNotifications
 );
 
