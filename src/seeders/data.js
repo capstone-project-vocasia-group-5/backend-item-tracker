@@ -580,10 +580,10 @@ const claims = [
   {
     is_approved: null,
     images: [
-      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
-      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1732515135/Logo/docayrzkio3myinip8ng.png",
+      "https://www.rukita.co/stories/wp-content/uploads/2023/10/Kucing_Persia_Flatnose-2021_10_07-10_34_36_7d7e78c999ca11ba390a8a9409a0bfd3-1.webp",
+      "https://res.cloudinary.com/dpb2qk5lf/image/upload/v1733927187/Logo/wptmbp6jm8jivetu9otb.svgg",
     ],
-    claim_text: "This item is damaged and needs replacement.",
+    claim_text: "Mohon ini barang saya.",
     deleted_at: null,
   },
 ];
