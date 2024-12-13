@@ -134,17 +134,17 @@ const getClaimById = async (req, res, next) => {
 };
 
 const getAllClaims = async (req, res, next) => {
-  const { page = 1, limit = 10, own = "true" } = req.query;
+  const { page = 1, limit = 10 } = req.query;
 
   try {
     const validatedPage = !isNaN(page) && page > 0 ? parseInt(page, 10) : 1;
     const validatedLimit =
       !isNaN(limit) && limit > 0 ? parseInt(limit, 10) : 10;
-    const ownCnv = own === "true";
 
-    const filter = ownCnv
-      ? { user_id: req.user.id, deleted_at: null }
-      : { to_user_id: req.user.id, is_approved: null, deleted_at: null };
+    const filter = {
+      $or: [{ user_id: req.user.id }, { to_user_id: req.user.id }],
+      deleted_at: null,
+    };
 
     const totalClaims = await Claim.countDocuments(filter);
 
@@ -169,7 +169,6 @@ const getAllClaims = async (req, res, next) => {
           currentPage: validatedPage,
           totalPages: Math.ceil(totalClaims / validatedLimit),
           totalItems: totalClaims,
-          pageSize: validatedLimit,
         },
       },
     });
