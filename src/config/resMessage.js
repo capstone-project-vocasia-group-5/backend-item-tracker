@@ -105,6 +105,9 @@ const RES = {
   PLEASE_PROVIDE_VALID_IS_ANONYMOUS: "silakan berikan isAnonymous yang valid",
   PLEASE_PROVIDE_VALID_CATEGORY_ID: "silakan berikan ID kategori yang valid",
   ITEM_ALREADY_MATCHED: "item sudah cocok",
+  PLEASE_PROVIDE_VALID_CLAIM_TEXT: "silakan berikan teks pengajuan yang valid",
+  CLAIM_TEXT_SHOULD_HAVE_MAXIMUM_500_CHARACTERS:
+    "teks pengajuan harus memiliki maksimal 500 karakter",
 
   // AUTH
   SIGN_IN_SUCCESS: "masuk berhasil",
