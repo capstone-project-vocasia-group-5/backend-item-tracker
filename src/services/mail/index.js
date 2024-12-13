@@ -74,4 +74,26 @@ const sendMail = async (email, data) => {
   }
 };
 
-module.exports = { otpMail, thanksMail, sendMail };
+const ourContactMail = async (data) => {
+  console.log(data.email);
+
+  try {
+    let template = fs.readFileSync(
+      path.join(__dirname, "../../views/email/our-contact.html"),
+      "utf8"
+    );
+
+    let message = {
+      from: data.email,
+      to: gmail,
+      subject: data.subject,
+      html: Mustache.render(template, data),
+    };
+
+    return await transporter.sendMail(message);
+  } catch (ex) {
+    console.log(ex);
+  }
+};
+
+module.exports = { otpMail, thanksMail, sendMail, ourContactMail };

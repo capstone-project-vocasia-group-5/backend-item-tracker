@@ -8,6 +8,7 @@ const notificationRoutes = require("./notification_routes");
 const authRoutes = require("./auth_routes");
 const commentRoutes = require("./comment_routes");
 const itemRoutes = require("./item_routes");
+const contactRoutes = require("./contact_routes");
 
 const routes = express.Router();
 
@@ -37,5 +38,8 @@ routes.use(commentRoutes);
 
 // item routes
 routes.use(itemRoutes);
+
+// contact routes
+routes.use(contactRoutes);
 
 module.exports = routes;

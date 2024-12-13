@@ -13,6 +13,7 @@ const RES = {
   FAILED_TO_GET_DATA: "gagal mengambil data",
 
   VALIDATION_ERROR: "kesalahan validasi",
+  ALL_FIELDS_REQUIRED: "semua field diperlukan",
   UNAUTHORIZED_ERROR: "tidak sah",
 
   SOMETHING_WENT_WRONG: "terjadi kesalahan",
