@@ -155,6 +155,7 @@ const updateItem = async (req, res, next) => {
     village,
     postal_code,
     phone_number,
+    matched_status,
     categories,
   } = req.body;
   const session = await mongoose.startSession();
@@ -204,6 +205,10 @@ const updateItem = async (req, res, next) => {
     }
     if (phone_number) {
       item.phone_number = phone_number;
+    }
+
+    if (matched_status) {
+      item.matched_status = matched_status;
     }
 
     if (req.files && req.files.length > 0) {

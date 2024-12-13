@@ -180,6 +180,7 @@ const validateItem = {
       subdistrict: joi.string().max(100),
       village: joi.string().max(100),
       postal_code: joi.number(),
+      matched_status: joi.boolean(),
       phone_number: joi
         .string()
         .allow(null)
