@@ -40,7 +40,6 @@ const createClaim = async (req, res, next) => {
       user_id: req.user.id,
       to_user_id: item.user_id,
       item_id: req.body.item_id,
-      deleted_at: null,
     });
 
     if (checkClaim) {
