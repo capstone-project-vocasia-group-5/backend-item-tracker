@@ -29,22 +29,40 @@ const importData = async () => {
     const createdCategories = await Category.create(categories);
 
     for (let i = 0; i < items.length; i++) {
-      items[i].user_id = createdUser[0].id;
-      items[i].category_id = createdCategories[i]
-        ? createdCategories[i].id
-        : null;
+      if (i < 14) {
+        items[i].user_id = createdUser[0].id;
+      } else if (i < 25) {
+        items[i].user_id = createdUser[2].id;
+      } else if (i < 51) {
+        items[i].user_id = createdUser[3].id;
+      } else if (i < 63) {
+        items[i].user_id = createdUser[3].id;
+      } else {
+        items[i].user_id = createdUser[4].id;
+      }
     }
 
     const createdItems = await Item.create(items);
 
+    const categoryItems = [];
+
     for (let i = 0; i < items.length; i++) {
-      if (createdCategories[i]) {
-        await CategoryItems.create({
-          category_id: createdCategories[i].id,
-          item_id: createdItems[i].id,
-        });
-      }
+      categoryItems.push({
+        item_id: createdItems[i],
+        category_id:
+          i < 14
+            ? createdCategories[0]
+            : i < 25
+            ? createdCategories[1]
+            : i < 51
+            ? createdCategories[2]
+            : i < 63
+            ? createdCategories[3]
+            : createdCategories[4],
+      });
     }
+
+    await CategoryItems.insertMany(categoryItems);
 
     for (let i = 0; i < comments.length; i++) {
       comments[i].user_id = createdUser[2].id;
