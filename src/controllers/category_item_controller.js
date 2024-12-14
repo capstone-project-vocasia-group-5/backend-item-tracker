@@ -26,10 +26,11 @@ const getAllCategoryWithTotalItems = async (req, res, next) => {
       {
         $project: {
           _id: 0,
-          category_id: "$_id",
+          id: "$_id",
           total: 1,
           name: { $arrayElemAt: ["$category.name", 0] },
-          created_at: "$category.created_at",
+          created_at: { $arrayElemAt: ["$category.created_at", 0] },
+          deleted_at: { $arrayElemAt: ["$category.deleted_at", 0] },
         },
       },
     ]);
