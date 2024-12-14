@@ -2,6 +2,7 @@ const { Notification } = require("../models/notification_model");
 const RES = require("../config/resMessage");
 const mongoose = require("mongoose");
 const CFG = require("../config/const");
+const customError = require("../errors");
 const getNotificationById = async (req, res, next) => {
   try {
     let modifiedNotification;
@@ -238,10 +239,32 @@ const getNotificationByAdmin = async (req, res, next) => {
 
 const setAllNotificationAsRead = async (req, res, next) => {
   try {
-    await Notification.updateMany(
-      { user_id: req.user.id, is_read: false },
-      { is_read: true }
-    );
+    if (req?.user?.role === CFG.ROLES.ADMIN) {
+      await Notification.updateMany(
+        {
+          role: CFG.ROLES.ADMIN,
+          is_read: false,
+        },
+        {
+          $set: {
+            is_read: true,
+          },
+        }
+      );
+    } else {
+      await Notification.updateMany(
+        {
+          user_id: req.user.id,
+          is_read: false,
+        },
+        {
+          $set: {
+            is_read: true,
+          },
+        }
+      );
+    }
+
     res.status(200).json({
       success: RES.SUCCESS,
       message: RES.SUCCESSFULLY_UPDATED,
