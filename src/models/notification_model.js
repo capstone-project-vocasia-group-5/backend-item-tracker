@@ -85,6 +85,7 @@ const notificationSchema = new mongoose.Schema(
 
 // Indexes
 notificationSchema.index({ user_id: 1, deleted_at: 1 });
+notificationSchema.index({ role: 1, deleted_at: 1 });
 
 const Notification = mongoose.model("Notification", notificationSchema);
 

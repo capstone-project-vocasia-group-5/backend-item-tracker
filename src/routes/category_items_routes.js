@@ -13,64 +13,55 @@ const CFG = require("../config/const");
 
 /**
  * @swagger
- * /category-items/{category_id}/{item_id}:
+ * /admin/category-items/total:
  *   get:
  *     tags: [Category Items]
- *     summary: Get category item by category ID and item ID
- *     description: Retrieve a specific category item by providing the category ID and item ID.
+ *     summary: Get all categories with total items
+ *     description: Retrieve all categories with the total items count.
  *     security:
- *       - bearerAuth: [] # Requires authentication
- *     parameters:
- *       - in: path
- *         name: category_id
- *         required: true
- *         schema:
- *           type: string
- *           example: "category_id_123"
- *         description: The category ID
- *       - in: path
- *         name: item_id
- *         required: true
- *         schema:
- *           type: string
- *           example: "item_id_123"
- *         description: The item ID
+ *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Category item retrieved successfully
+ *         description: Categories retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   category_id:
+ *                     type: string
+ *                     example: "category_id_123"
+ *                   name:
+ *                     type: string
+ *                     example: "Electronics"
+ *                   total:
+ *                     type: integer
+ *                     example: 10
+ *                 required:
+ *                   - id
+ *                   - name
+ *                   - totas
+ *       401:
+ *         description: Unauthorized - User not authenticated
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 status:
+ *                 success:
  *                   type: boolean
- *                   example: true
+ *                   example: false
  *                 message:
  *                   type: string
- *                   example: Category item retrieved successfully
- *                 data:
- *                   type: object
- *                   properties:
- *                     category_id:
- *                       type: string
- *                       example: "category_id_123"
- *                     item_id:
- *                       type: string
- *                       example: "item_id_123"
- *       401:
- *         description: Unauthorized - User is not authenticated
- *       403:
- *         description: Forbidden - User lacks the necessary permissions
- *       404:
- *         description: Not Found - Category item not found
+ *                   example: "Unauthorized"
  */
-
 categoryItemRoutes.get(
-  "/admin/category-items/:id/total",
+  "/admin/category-items/total",
   auth.authenticateUser,
   auth.authorizeRoles(CFG.ROLES.ADMIN),
-  categoryItemController.getTotalItemByCategory
+  categoryItemController.getAllCategoryWithTotalItems
 );
 
 module.exports = categoryItemRoutes;

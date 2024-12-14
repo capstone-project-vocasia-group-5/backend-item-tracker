@@ -22,7 +22,7 @@ const getAllCategories = async (req, res, next) => {
     const categories = await Category.find(query)
       .skip((validatedPage - 1) * validatedLimit)
       .limit(validatedLimit)
-      .sort({ created_at: -1 });
+      .sort({ created_at: 1 });
 
     if (!categories) {
       throw new customError.NotFoundError(

@@ -113,15 +113,6 @@ const validateClaim = {
   },
 };
 
-// Query Helpers
-claimSchema.query.notDeleted = function () {
-  return this.where({ deleted_at: null });
-};
-
-claimSchema.query.notApproved = function () {
-  return this.where({ is_approved: false });
-};
-
 // Indexes
 claimSchema.index({ user_id: 1, deleted_at: 1 });
 claimSchema.index({ to_user_id: 1, deleted_at: 1 });
