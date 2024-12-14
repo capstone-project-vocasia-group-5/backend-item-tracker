@@ -203,15 +203,6 @@ const validateItem = {
   },
 };
 
-// Query Helpers
-itemSchema.query.notDeleted = function () {
-  return this.where({ deleted_at: null });
-};
-
-itemSchema.query.notApproved = function () {
-  return this.where({ approved: false });
-};
-
 // Indexes
 itemSchema.index({ deleted_at: 1 });
 itemSchema.index({ name: 1, deleted_at: 1 });

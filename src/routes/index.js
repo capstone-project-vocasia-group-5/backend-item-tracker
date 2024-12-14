@@ -9,6 +9,7 @@ const authRoutes = require("./auth_routes");
 const commentRoutes = require("./comment_routes");
 const itemRoutes = require("./item_routes");
 const contactRoutes = require("./contact_routes");
+const categoryItemRoutes = require("./category_items_routes");
 
 const routes = express.Router();
 
@@ -41,5 +42,8 @@ routes.use(itemRoutes);
 
 // contact routes
 routes.use(contactRoutes);
+
+// category items routes
+routes.use(categoryItemRoutes);
 
 module.exports = routes;

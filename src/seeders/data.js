@@ -84,11 +84,11 @@ const users = [
 
 const categories = [
   {
-    name: "Animal",
+    name: "Hewan",
     deleted_at: null,
   },
   {
-    name: "Electronics",
+    name: "Elektronik",
     deleted_at: null,
   },
   {
@@ -96,11 +96,15 @@ const categories = [
     deleted_at: null,
   },
   {
-    name: "Tools",
+    name: "Alat",
     deleted_at: null,
   },
   {
-    name: "Home & Garden",
+    name: "Peralatan Rumah",
+    deleted_at: null,
+  },
+  {
+    name: "Lainnya",
     deleted_at: null,
   },
 ];

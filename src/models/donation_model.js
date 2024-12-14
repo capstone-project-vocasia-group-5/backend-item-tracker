@@ -119,23 +119,6 @@ donationSchema.virtual("formatted_amount").get(function () {
   }).format(this.amount);
 });
 
-// Query Helpers
-donationSchema.query.notDeleted = function () {
-  return this.where({ deleted_at: null });
-};
-
-donationSchema.query.byStatus = function (status) {
-  return this.where({ status });
-};
-
-// Statics
-donationSchema.statics.getTotalDonations = function () {
-  return this.aggregate([
-    { $match: { status: "success", deleted_at: null } },
-    { $group: { _id: null, total: { $sum: "$amount" } } },
-  ]);
-};
-
 // Indexes
 donationSchema.index({ user_id: 1, deleted_at: 1 });
 donationSchema.index({ status: 1, deleted_at: 1 });

@@ -241,29 +241,6 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
-// Query Helpers
-userSchema.query.notDeleted = function () {
-  return this.where({ deleted_at: null });
-};
-
-userSchema.query.byRole = function (role) {
-  return this.where({ role });
-};
-
-// Statics
-userSchema.statics.findByEmail = function (email) {
-  return this.findOne({ email, deleted_at: null });
-};
-
-userSchema.statics.isEmailTaken = async function (email, excludeUserId) {
-  const user = await this.findOne({
-    email,
-    deleted_at: null,
-    _id: { $ne: excludeUserId },
-  });
-  return !!user;
-};
-
 // Middleware/Hooks
 userSchema.pre("save", async function (next) {
   if (this.isModified("password")) {

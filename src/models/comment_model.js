@@ -81,15 +81,6 @@ const validateComment = {
   },
 };
 
-// Statics
-commentSchema.statics.getTotalComments = async function () {
-  const result = await this.aggregate([
-    { $match: { deleted_at: null } },
-    { $group: { _id: null, total: { $sum: 1 } } },
-  ]);
-  return result.length ? result[0].total : 0;
-};
-
 // Indexes
 commentSchema.index({ user_id: 1, deleted_at: 1 });
 commentSchema.index({ item_id: 1, deleted_at: 1 });
