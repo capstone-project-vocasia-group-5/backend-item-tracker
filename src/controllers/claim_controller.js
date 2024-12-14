@@ -311,7 +311,7 @@ const rejectClaim = async (req, res, next) => {
         is_approved: null,
         deleted_at: null,
       },
-      { is_approved: false },
+      { is_approved: false, messages },
       { new: true }
     );
 
