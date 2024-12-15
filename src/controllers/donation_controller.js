@@ -7,6 +7,7 @@ const { clientKey, serverKey } = require("../config/config");
 const mongoose = require("mongoose");
 const notificationService = require("../services/mongoose/notification_service");
 const emailService = require("../services/mail/index");
+const CFG = require("../config/const");
 
 const createDonation = async (req, res, next) => {
   const { name, email, amount, is_anonymous } = req.body;
@@ -133,8 +134,8 @@ const midtransWebHook = async (req, res, next) => {
 
     if (donation.status === "success") {
       await notificationService.createNotification({
-        user_id: donation.user_id,
-        title: RES.DONATION_SUCCESS,
+        role: CFG.ROLES.ADMIN,
+        title: RES.DONATION_SUCCESS + " Sebesar " + donation.formatted_amount,
         donation_id: donation.id,
       });
 
