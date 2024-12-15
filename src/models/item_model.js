@@ -148,7 +148,7 @@ const validateItem = {
       village: joi.string().required().max(100).messages({
         "string.empty": RES.PLEASE_PROVIDE_VALID_VILLAGE,
       }),
-      postal_code: joi.number().integer().max(99999).messages({
+      postal_code: joi.number().integer().min(10000).max(99999).messages({
         "number.base": RES.PLEASE_PROVIDE_VALID_POSTAL_CODE,
         "number.integer": RES.PLEASE_PROVIDE_VALID_POSTAL_CODE,
       }),
@@ -179,7 +179,7 @@ const validateItem = {
       city: joi.string().max(100),
       subdistrict: joi.string().max(100),
       village: joi.string().max(100),
-      postal_code: joi.number(),
+      postal_code: joi.number().min(10000).max(99999),
       matched_status: joi.boolean(),
       phone_number: joi
         .string()
