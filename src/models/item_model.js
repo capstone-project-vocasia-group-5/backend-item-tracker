@@ -31,7 +31,7 @@ const schemaOptions = {
   },
 };
 
-// Schema Definition
+// Schema Definition.
 const itemSchema = new mongoose.Schema(
   {
     user_id: {
@@ -58,7 +58,7 @@ const itemSchema = new mongoose.Schema(
     },
     matched_status: {
       type: Boolean,
-      default: null,
+      default: false,
     },
     images: {
       type: [String],
