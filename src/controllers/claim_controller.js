@@ -157,7 +157,8 @@ const getAllClaims = async (req, res, next) => {
       .populate({
         path: "user_id",
         select: "-email -role",
-      });
+      })
+      .sort({ created_at: -1 });
 
     res.status(200).json({
       success: RES.SUCCESS,
