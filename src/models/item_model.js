@@ -31,7 +31,7 @@ const schemaOptions = {
   },
 };
 
-// Schema Definition
+// Schema Definition.
 const itemSchema = new mongoose.Schema(
   {
     user_id: {
