@@ -663,7 +663,6 @@ const rejectItemCMS = async (req, res, next) => {
     }
 
     item.approved = false;
-    item.deleted_at = Date.now();
     item.messages = messages;
     await item.save({ session });
 
