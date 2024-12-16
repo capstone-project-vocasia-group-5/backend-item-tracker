@@ -66,7 +66,7 @@ const itemSchema = new mongoose.Schema(
     },
     approved: {
       type: Boolean,
-      default: null,
+      default: false,
     },
     type: {
       type: String,
