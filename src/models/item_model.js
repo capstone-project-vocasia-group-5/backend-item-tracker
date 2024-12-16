@@ -58,7 +58,7 @@ const itemSchema = new mongoose.Schema(
     },
     matched_status: {
       type: Boolean,
-      default: false,
+      default: null,
     },
     images: {
       type: [String],
@@ -66,7 +66,7 @@ const itemSchema = new mongoose.Schema(
     },
     approved: {
       type: Boolean,
-      default: false,
+      default: null,
     },
     type: {
       type: String,
