@@ -1,7 +1,7 @@
 const defaultImg = {
-  lost: "https://s3-alpha-sig.figma.com/img/2aa3/b1d9/54002f80bdb86a6c667a6105171fe847?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HG53RrWjkjUIQiv9uQx1W4rf~UD8t7oBfQoug5Up-y~NIPglqZhza9JBfqJ9IlZCTBns94~NP0jRUVr8G5ggxHjbySFXyUcdnb4-PtE4AP9kN5oSdvA7Ym3bTrCN7ragHuyP9gUBke~PWiJXFsmygmTv7VVmmIu0dVIlrIRCPXhEYnUwDM-CNV-MEQM8DTPBy2sDs121AHSVhFOI~XmoE3EvXYbA-zmSDefZ2U0DJbISmc6CD13aAxfcu007SkIeVfcfLxOG6ggQ6wp5-qbzNpwh8iI8gcLE2EdsML0ssSBoxhBjUNhq0Iyli~9uVm0KHtFP36yTf6oTWFqU9kvrLA__",
+  lost: "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449153/Tolong_Bantu_Cari_2_akdevs.png",
   found:
-    "https://s3-alpha-sig.figma.com/img/df9b/200e/63438f8174c464b55008e68ec98936bb?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cB-C4ZXy4K0ISkvpYIRhPJyxgpWYmajMApL-Bj4W9wORZOND-mBz-XdSUMMsEImCDZ5dZsX~-kEPZPmmLSSSsQLtkUqxieXvZNv89a5aPJ6rP6eqh4Yb8hivX6t~4tRPp0GYp7HwKaYgWNdbjHc4XCnrppX-bVh70TAC84rxsWJ-3UFM9ZoxZHwy4PxTFIeY4-JbanQ1UqBTuIeZKWwmqhkR4-gns2cZ-MR0kpbPge1hYj1TIjL2az0ILXwlFVP-jejqehc05~Ig4muMe9icjwLqupGyaCXr3eEEV1wF7NcXwuwhMWkQ0ragKuYLL9KXChzJcwj5u36t22pu6sBAZQ__",
+    "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449152/Tolong_Bantu_Cari_1_1_fod4ax.png",
 };
 
 const users = [
@@ -11,7 +11,7 @@ const users = [
     email: "john@example.com",
     password: "password123",
     image_url:
-      "https://s3-alpha-sig.figma.com/img/7e09/424f/0a821f2bfab7c755f43d3788ad4b49cb?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QyJ5wOwaz-OvOFpeEuDQwIGa-BOutzyGhXXw20Is-G49gquBrnCY91THB~GWcwnSlaMBHWjrxxt6M8CS61wbaYNIMltgdEy~wyVURzffcGWDF0qlBe5vXIFgAOtwBGCZ5cts7ndz1zpGhAAMT35RoMAag37mXP3zm0WzUbRiuH~D~9~hxmML9fIBA8iqrPlAtIBfwhkEb73LifGi9S8nu4smxbEtUiDhIoxz0wW8sCOTJlKcLGFbXEl4CrV2TTSiIQmjGevBQKQSjKbQruinjh4SVgJqw0WG7-39HhgTUURODwOewPmVej1U47tN4vXmfPnpcc7y-Zn~t1rswH1JtA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449990/ai-generated-8035998_1280_go5aa9.png",
     role: "user",
     phone_number: "+6281234567890",
     otp: null,
@@ -26,7 +26,7 @@ const users = [
     email: "jane@example.com",
     password: "password123",
     image_url:
-      "https://s3-alpha-sig.figma.com/img/3e14/f37e/e5e99fb3a5d0c9994e2e0bcaa91b8ced?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eX4XUOvzaQ0uhQQws1E9YAM74fbnr9nruRU49jVkrAt4APjYxcor77TAymr5NA9Mv-wM-b9VXXE7mDgUSsFG6ZLDg~KpUuucHdepJczv5XIOMqDl8mC69k1DREcrEAKEfR2u0FdMbeQ-e8VbcxRO0lvMa-QEbMFNoNe2GA2Xb7-zdHV0cR~yMiBH8rN7azp2OrUe0VRb03c~qDgUWxL4z0fP49rBZYFgM1jSuuwr~7SZSDG53gjcZQrfYyS5YO8msnkoyH6ErEw9li25yubeCN~yPZHTDulYgtTn6ADoHlJdZ2MRqqB3BD9g-miaf5ueXMteMway7X1kp-hWLal48g__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449992/girl-7736189_1920_j5zy6a.png",
     role: "admin",
     phone_number: "+6281234567890",
     otp: null,
@@ -41,7 +41,7 @@ const users = [
     email: "alice@example.com",
     password: "password123",
     image_url:
-      "https://s3-alpha-sig.figma.com/img/3e14/f37e/e5e99fb3a5d0c9994e2e0bcaa91b8ced?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eX4XUOvzaQ0uhQQws1E9YAM74fbnr9nruRU49jVkrAt4APjYxcor77TAymr5NA9Mv-wM-b9VXXE7mDgUSsFG6ZLDg~KpUuucHdepJczv5XIOMqDl8mC69k1DREcrEAKEfR2u0FdMbeQ-e8VbcxRO0lvMa-QEbMFNoNe2GA2Xb7-zdHV0cR~yMiBH8rN7azp2OrUe0VRb03c~qDgUWxL4z0fP49rBZYFgM1jSuuwr~7SZSDG53gjcZQrfYyS5YO8msnkoyH6ErEw9li25yubeCN~yPZHTDulYgtTn6ADoHlJdZ2MRqqB3BD9g-miaf5ueXMteMway7X1kp-hWLal48g__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449992/girl-7736189_1920_j5zy6a.png",
     role: "user",
     phone_number: "+6281234567890",
     otp: null,
@@ -56,7 +56,7 @@ const users = [
     email: "suga@example.com",
     password: "password123",
     image_url:
-      "https://s3-alpha-sig.figma.com/img/7e09/424f/0a821f2bfab7c755f43d3788ad4b49cb?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QyJ5wOwaz-OvOFpeEuDQwIGa-BOutzyGhXXw20Is-G49gquBrnCY91THB~GWcwnSlaMBHWjrxxt6M8CS61wbaYNIMltgdEy~wyVURzffcGWDF0qlBe5vXIFgAOtwBGCZ5cts7ndz1zpGhAAMT35RoMAag37mXP3zm0WzUbRiuH~D~9~hxmML9fIBA8iqrPlAtIBfwhkEb73LifGi9S8nu4smxbEtUiDhIoxz0wW8sCOTJlKcLGFbXEl4CrV2TTSiIQmjGevBQKQSjKbQruinjh4SVgJqw0WG7-39HhgTUURODwOewPmVej1U47tN4vXmfPnpcc7y-Zn~t1rswH1JtA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449990/ai-generated-8035998_1280_go5aa9.png",
     role: "user",
     phone_number: "+6281234567890",
     otp: null,
@@ -71,7 +71,7 @@ const users = [
     email: "agus@example.com",
     password: "password123",
     image_url:
-      "https://s3-alpha-sig.figma.com/img/7e09/424f/0a821f2bfab7c755f43d3788ad4b49cb?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QyJ5wOwaz-OvOFpeEuDQwIGa-BOutzyGhXXw20Is-G49gquBrnCY91THB~GWcwnSlaMBHWjrxxt6M8CS61wbaYNIMltgdEy~wyVURzffcGWDF0qlBe5vXIFgAOtwBGCZ5cts7ndz1zpGhAAMT35RoMAag37mXP3zm0WzUbRiuH~D~9~hxmML9fIBA8iqrPlAtIBfwhkEb73LifGi9S8nu4smxbEtUiDhIoxz0wW8sCOTJlKcLGFbXEl4CrV2TTSiIQmjGevBQKQSjKbQruinjh4SVgJqw0WG7-39HhgTUURODwOewPmVej1U47tN4vXmfPnpcc7y-Zn~t1rswH1JtA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449990/ai-generated-8035998_1280_go5aa9.png",
     role: "user",
     phone_number: "+6281234567890",
     otp: null,
@@ -233,7 +233,7 @@ const items = [
       "Nemu kucing ini di rumah, udah 3 harian. Kalo pemiliknya gak ketemu, mau dijual aja soalnya mukanya ngeselin.",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/48e5/502f/d16f6d6444845010784c5720b47b17f9?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZcjEko2NvO6vyXJVSeiZnJ-M0Ob97ScOtNtcLRpdEw8K23nNLYftta8ibdY9WPqLMEFoTMbJHXBEleoS4RkbPFtejiGv2eoJJ8F5X9icIcW5QJUnJyXpL4fksko~JK5C-sVw1yaD2CI5m7bR~~HCu2rAY1TvfR-xk6naweKqjj0NN6FshHivpsRMF~1GLAobb5oRFT8zgt4J5zTsmHxSXcJqtO4mWBnZ5~w83H7L2EcSvQHC9pYXyuL5CEt1wiffu1Yt70HqW0AKMmMjR3ZBmBuyFdspVAYIeGbGH2RUlpMMf5y~mzQ4F6sAd1S5rdQLzklwo~SUfyG9hhj4-eBneQ__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449992/anjing_botak_3_tmjren.png",
       defaultImg.found,
     ],
     approved: true,
@@ -253,7 +253,7 @@ const items = [
       "Nemu kucing ini di rumah, udah 3 harian. Kalo pemiliknya gak ketemu, mau dijual aja soalnya mukanya ngeselin.",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/3a57/f671/a4355b18c9c9f91913399a250f45dce5?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CNfTzy5~EuE7E8iUDE2mtY1SCBVMyZfjmR82NINHMMVxL819MWMvXkiyFn1PXC1C5k~jsRfHnC7De5oB~VMNpMYMRxVKDiQNWPXBPrCexbbD7l1jas5C1awnsoc4qMO99-wPZVtjymwOYtMhkWdT0X3r1b-o6TG6HEemm~dhj1CP2VYRIvYkfFCBAwOaDCQG8ZFVszX4zl~c80ZwdaA25UCbHJVB7rWdqogwjA2HP1jwopjL4JgUBc5H3ZKWtzYy1~W1RBGD~e8ySzZKdZKvfjpLLW1MIRixanTHoOf6oyJoRbbnj44cs3jA8u1VIqUjDpyN55QFodhvAJLtnihMKw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449994/anjing3_1_hm2g3l.png",
       defaultImg.found,
     ],
     approved: true,
@@ -273,7 +273,7 @@ const items = [
       "Nemu kucing ini di rumah, udah 3 harian. Kalo pemiliknya gak ketemu, mau dijual aja soalnya mukanya ngeselin.",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/98a0/33d9/39740fcf3c09cdfeee52f00128cd5158?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=U2U5ljr82CT2oZYipCxdruFZjXRdBHHvVqDGCKbWnnz1K33a1mmIvFucO7wXGeWKNO-QtEvDq2k2MsmUx~wsSL16gE3hXpGK8XnQZD~xRM66hNAWrE2VvY8QhCq1WzvAojlOvSTRb1Rkv-5b9ksGtU3KxvzM3XRYDasfQlmqmY76QvwfyXQzl9a6sKI9CZ48yG1DKf2BzrgVdBq2mbk85NHO1~RmlbuOlPk3RHYD4uZfzrIAjav2TFsMgkLvDQ-jIdFp9cOc8OSVQOo1947fxT1A5oNAMo65S0C7ZgqU4R9sg4yxyW~MNwyHF1ogGHiiCvVJvGPRwr4y~4fugLOoNg__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449996/anjing2_1_nljixm.png",
       defaultImg.found,
     ],
     approved: true,
@@ -292,7 +292,7 @@ const items = [
     description: "Hilang di aquarium",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/1e45/58ed/f184fd9c8aa5793f0249cb2beccd4660?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qxPIjtOpVXzWczhxKR2zpSfk9JB4KaJzyHP2BblmAo8FPxW5ai6dIlgHM6TyAT8NJ7SsgjyYqHezAuUL5br8bQusOq70-JpbhmcazbRLkL7cf6D5ebhylDdI9KLirL-4sVtC2UCjYUMlo7081CLlFaOPv2pbyHD7c-cubhj7Pn~SFtqcSKc2LLdUanig-WhcdxchZDOvKUKxrUC4FVqr4GSN6tZlj38acwn34CNnBMf0fRSYg3UyIoCyxo1E1krISH~vuVSSGnLJPGK-s6KhUcXNyM0tpekrBIidaU8uYCHuJlUJACbxCOm6i~dc3PGZBgMe0sZbsJpMLHSBp3bpow__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449996/ikan_cupang_1_j3ymmx.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -311,7 +311,7 @@ const items = [
     description: "Hilang di pasar rembang",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/1943/f975/2a8b9735055ac4e35ab7d8967e72e2ff?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=kv~zBGItRoekXA61go8tTusnIGvtnAPEKyQyyUS~mCjH8AHytSLKVK9pd-s7jwRrng2YUnjmFrNZp90uFwSUZ6ZNw2ThIiHFhbLOblU9X3rEU9oKDzSK5prRWMBQTer4FTUQI0U3e3~s3je2qVjNzUgXvdqeIPzwXnFrfv6zpAUKItcKccHdlgT-24gNm7OJZx67OO8XerFYviqUjDj4MrbdGi9KhN9Of1fgPS-VSBddwFRsSI~1M5M8d6Wpg0mTALG81v~IgQbCHtVuHvJctjWo5KQPxOhi~t3-mX0JiLEgfVyoyTG81xqhyuoY~fiGJYB2uEsTfGW0sslG-txaHQ__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449998/monyet_1_hbnzyl.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -330,7 +330,7 @@ const items = [
     description: "Nemu di jalan tol dari Jakarta ke Bogor",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/c718/1b03/f94fc11f28fa3176e7db3d18d63640bb?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Cvai4Sdkk1Ldh-XDliuWfiS2OHnNyGNNlSogA3fe14JOiWo~BQ9npHBzMvCoOAClF8w5gFetvQ8z~ijw2JhxezF1CinntdMUX9S4r0RCCaeR9KgrTuw6vZnb8fYUvsVQfdbc-4aJiL7pR7btAt7Jwk8JloawsfH2LtRL-tet0WfE2JANH6cN7lk9iw4clYiNP98uoVUxC8WqSGdCxsyweAANiZfoPRES4C2vJ7xC39AmOSs7G6fpLj1n-dz8rUQ4eVNLQl-Gl1G2qow9E4JhrFd-LwfLR4cc6w6m8ie~ojVTnNNYbL18DJSdt-Bfpl4b-V~q6ink6Tj4a1iqyXhFbw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734450000/image_16_uyb33k.png",
       defaultImg.found,
     ],
     approved: true,
@@ -349,7 +349,7 @@ const items = [
     description: "Hilang di pasar ikan",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/9254/5534/0481f0f6714e9d3a498d07f00f064df4?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hXw25Khbv3UIhJ58uWECfeEe~Xc2lqPJs3T56OdWDM8gvdzT9i0apJfEg8y7P~L2V98i1nZ04vY3N3RJgXo20H2QOClqXNJ3Kfr46XRhwV~p-NCZLOsUrcLdv4F3FjwvrLtV8zkmuzOgGexvcyYbE~6qAn8N7PrnEoReW85JBHFZD10vpIYRWEePccHvB~UfbdnkPWXEIZ0c1f1003WWrv67xI31tgRWhLhXuU1UeJjw~V7XoGyT3lIRSCmsBQd-~bvbmQ-0u9sT2y62rDm8-BaoXrsergNFfU16f0qIJh-BrSD0e-ihI2qNetnvO4xGXkrfGljQ9E84JpfBORRAAw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734450001/image_14_q39lun.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -368,7 +368,7 @@ const items = [
     description: "Hilang di pasar ayam",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/a1c8/59f9/73f7072fa1c084986266983b0f201dcb?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lggB7bbtjHym72dsyiagI0VlfNGCpZxX3o1LORXnlv-jwZdyGe6cB8XbRtu-RTFWL3ryELaJFzPtFKWyDKaCMATZWeL56vweWtkwXKHpld2h8TEPsA8uDPUq68dpS9F~~JaS5woTDBr4B30QOViE6k4TqZQ4932ssQWrikOgLyxhezday57Y3hTKaVs5lfk3Pnr5MTQ7coGtNSZHVndNYdTR7jxIykN88PS7miAbYOYMOx-tqrkaZrr-LzKwB0lNr2fZzo8kgS7vw4cNKH9lJaLn-1Bq7gEe8RYy7mvgtUEH2c~ow~m-JUCRpRlfS3IBwDH95dqmUqa1H6lI~S2sUg__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734450001/image_15_cxsupd.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -387,7 +387,7 @@ const items = [
     description: "Nemu di hutan",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/90db/0211/adc69b6e11c2d650bcdad468da32dafa?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RNmErCp08BFerdm7nue-tf-C9ZTCdXLGVAX7reiRqUZ~rVAA-ut0frzfvacowuoO3GW6kXPdmz8IAclc8yxwIpdxf-RrjQbO2Dbz9JxXAJx7aO9g6G8sL4DghKsRXFISo9zo1bDoaTGPHUMN5gk6L1pZSCKAPpTa-etAGvqHiSDJCqIBytjZoSxspgF9mVSizrxNG6DPM1snTvjuy5USY3Ao9yaJUSZ0ajVn2gkzpIoXqNe~MJ4y226kJVlE368OyaUDw9yupnJ0nsF3~Lrd9GdNAuFl20OLM4vC3KS7zuNpEHUe8i9n6MkHl~TyKcOto3e9mhcD8KWWDYN3SqVtAw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734450000/image_17_cd9bv3.png",
       defaultImg.found,
     ],
     approved: true,
@@ -408,8 +408,8 @@ const items = [
     description: "Hilang di bus sukabumi bogor",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/43bf/eebc/ef6b2099fe16138c342feeb3b4543d4c?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BXmkKFfpD~PaSCs3T-CNg6OI5n6sG-f~KhUcVRiORi0VMyimGIjP2dCyjrvC4iJ3UVM5LJ0ZD1Pvndgms6bjGkklcNR~7O-cXmeYHnzxx-SdhzxuPCWBShwcks8n2jJODmZ~y15aowdZKUZq7aBoRM1CZ2gNM0gADDj8VjAni~t1HqkHA7KGs5OQ4zseKksgRpCsXs~qNX6HHHb49WS-R44T1TCbZq68OAEGe35wkmzs2gMUF3l0zcCkSBoW72p9jIKFVCb~9W5~eLHS2nnd7j3tAJIGgFhwnCkfNose8-NJkYFSNpKzeo1VyLOpb-gFIKEaqRgv-IcgV1CpGG9-2A__",
-      "https://s3-alpha-sig.figma.com/img/75c9/ca76/1cb8188a3290c2ae902892856ef9aa43?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Kb7tF0ogrGaYa1qdy10ZVoeedsUfqIhuFV6FD~37EYiv-Q3VuBdkzg7nAb0IUM1rM~PtDgprhp9bGwLAbozzJfU8FLtaoUkLAQLoDPkLTHN6ns1TmWcW-qXC7mVcTepjJeTfRbP-3uBQV7FaC8KUPPRJCzpoLwIM3ec7BfyzfGTLUFyg-par~~qX5ryNBr2mCe103q58DXIL-2OPL~-ZiUUqPPUBaSgQcHGVsq0r6IOgupQR90yeQd2BzO6CVRrZBPxsUZdA-OuA2qTPBVSvLxi8wsnQhBp4kbtTcL4TVy0TtOKziMWbYIOGtloTNYD2vi57gQRMZYqc3VqZCnSG1Q__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449925/image_18_z4aul0.png",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449922/image_19_hrrkav.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -428,7 +428,7 @@ const items = [
     description: "Hilang di pasar rebo",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/20ab/3b62/16c849508ede545082e85a73112f46bc?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZzNsHJJZw54xJCExFob4QlkxWVA2BKxBzhLATMGokFZ6OWXwbUjNRE-nnQeCNCQphcKRnzIwFc5~RDYb64k~wiH9UNStdHeIxHKj8F0W~e4ANTAFvvAwYghnXAYBlaV6d~Qq8eWQBVme6DiosmzShz4mMK6F4gPZqYps5XnRPQKT9GgI2DtgirzuTauBjoAltqVCb4igiC8BsJ8NXrW4h7LjqFkN84GX9n5eQg8XLjsbZC5rLfcJxPKUAQ1Ve9btDWPscUAWFjJFwH3PmG3lAxcfs4qzEyvxtGxw~q65Pjxn6nEd3JPdN3Oke2caweiQDvCeG5h0O8CcFY4uKkwhtA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449919/hp_nokia_1_qp0mwa.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -447,7 +447,7 @@ const items = [
     description: "Nemu di jember",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/2f1e/5c14/e462a1e86429653e7457d186b4c77a0e?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dzzd1oBaSPmil6hJjwTBwedrVKMFCwKg0NTcZXLxwKmx-Aqpw25smy7FNPGmCpS0jsAepl4Ubb4C~iybS-CD29ouTcB5lHPT4VR9SDxwmz5vsyuA2878WUr-7PsoJHqhlkSinAzxM~KH8GkAGH8hFV-oHbeL-X8gagZiBw3WnHCvfSFdVOfufa5rAeeAQ0Ih68YajzEWs-5LsseqFpw9lZYfF8YAUBaOMst6bn6O2jV1g2gvqOJRmu1o2nz~7LkCsKMaUn5nkZrV~MKL4rYNw6DLxmBaLUlwkKc7PAWU7jdwaee9CtRJKnYCU-42WJWRWTnqYkkTcxt3gv-TgCzhiA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449924/image_13_iehu6u.png",
       defaultImg.found,
     ],
     approved: true,
@@ -466,7 +466,7 @@ const items = [
     description: "Nemu di jalan",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/8ab2/ec79/e01790ecb1238d50dbd98dac41552fe5?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T3QQIBB9anyeNgVxX5BX7kW~I2TeamKbwyfoENZU8Ycsw0uVBjW3QaHV5jRHNZ6ZTpW75D4-iP1WbWaaVWo75lZfJWlsLoaJ9rxMFWOSQW6~JaER~711o~tJppRUqEefTDUHJ-qivO9kyLc1SlCMF3fZzrC-ic3aYGxqWn8YLkBFMUbMvdsMmXo796fj2fkeGQ7fRekT04i81pJZfB8kPka2KiErRvQJms5ep0PleOP5UOUXEsOybScHSiLQcTPxduXcZt4IWNP1vYnPUFEqrgCqh0zQa~3jSHjxMlWR3uwMWD8Awe6yuRYvB--0eBbGvaZ9PvHUpMwBttjCp95AJg__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449903/image_34_zbznz3.png",
       defaultImg.found,
     ],
     approved: true,
@@ -601,7 +601,7 @@ const items = [
     description: "Hilang di laut",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/a05a/948c/49e8747f936f28bec4fa80d7fe909437?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZkcQB~P9Qnkmcnd2ZxsLo98lszItBbcCjbhL7ikQYLVfDnfpzWYTLrOpABiO3t5aP46ei0Cu0u9jd9hewx3j4Jcn0EBC8YQfmVFqHwK2DO49i703yAr63K03ylUKiWJIQE6lwnv7Yg0U0wfJYN3gllZJOLAXVeQBiSve5A-HLkHDiahTg0T-~o4lSh1nU9LHraZG0bxTHLr4-mJEAQwOAd~HyKkpCCBOZSfSAiihSB~QIjB85DY0byOPiRnUJ006iOj3A6lbGr2avIR1XaH7h8-HaLIIdSQtWhcbqtyegCYJuJ5YFW~kugQjHUptAR3JD2VUjJ4T8dWzv5qR3QqI2g__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449970/image_5_q0jq56.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -622,7 +622,7 @@ const items = [
     description: "Darurat ges tolong",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/ce80/93bb/73d51d3e50fa07194e81ec5ce55132af?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WU-7ZiMFRTUVLxVuF6xXSeG80Ea1Ztvm1VD2dOj5a9bMOLQH7DsDZHt21ZrXgx5CY-jx5dC3yujLd0mhp8rYcoAWKRcruwWHHSxjuxEJkxtzFrOVPJD0HVxt~lJW0hq~oKk3fXEPgS3PReJMaDOm7Wn3kYWAQKCRwTVkbwV4ZMx2VqTNGKfHzV4ySmkNsadQTJYWSS4sVKocJnW33-jHIq4Ld~VDtjlUUjNnCBaDjXp0v6JNi5k98Z14zgbhUzktfdGlkkZPkyzijObpOsnTXUgkTdwMg5MDXd3Sk3kj4gojGfNlSn8Cei~1G-B97KbzAeEw0UHtE~DTxNmas2mcGw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449910/image_26_nqpgru.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -641,7 +641,7 @@ const items = [
     description: "Darurat ges tolong",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/3d03/2b95/4ec8ac7d5065f88a2171e9a241d5e623?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dv-fm8u5W-OtQZCAGslwmziLH8R2JknjwEUp91xZQXRaz2greK2uFlL38QU1ctFb12i0BRkdpJfLGTn-Q2NVGn0H7aHIShdQva7KA3mJPYmxLFSm6wArkjk7mUNADvjaUOFNiem6f~YkC8CYChmi7N9TTjUwZTMbiQujxxnyomfUcna8nvR5tchmUKpw3GMgpk6SyGpENnOv5O-cwI-MjZTi3Ds5zVW-vf6h2D9o6ubarZ4yLe4jH8xQ41sMvW59W8npG48dfImePeSFV8bLZ6lApzVB9Q1N3Ety0tyPMvtFUDwfGqbEZ3aj61NjUFAIghLa3zh0RzvqUSxKtT74VQ__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449908/kalung4_1_jpiujj.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -660,7 +660,7 @@ const items = [
     description: "Darurat ges tolong",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/9148/78e9/254c859b136425d5bf712205fb4a5bae?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=gODS71hXq7DQ4zT89ohVjSjg55wr2OqJqNePU8E01eThftIh4hPl-oCDaQNow8tyuM5WhI9nsmEj0pR5VHF4rxiLA5vfbeO27XO0BjTtmsBhI3T0zFcxSd5SCFefzbj7GoM5ixO-d5~Mpm~znwv3qjwDQUOc1AS8wyiSkAyxMQi3l46YYxN82y~wbqvrWggkkqEwzgAhf6lzOq1lP1CXtveUif-jvJ~Jfp2ogDzwNxnhTfo8CGbN3sjDW5wsdeHa~boMOtKufeppzlMMNxd1UGTL7HypscWCPfaLJ5BNhFDGQeOj4uJeAmCykORk6FYDTNVqlyHmC3eWo88GNHz9Fw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449903/image_35_xisepm.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -679,7 +679,7 @@ const items = [
     description: "Nemu di toko emas",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/c971/955d/d2a47a2054bb733da9dfc8e80bd6e3cd?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z8yoPUQyaya6TBwuSLpfeTtKjyFzgD9WlFXnQtdXOfrXc9Zv8~Kv1fAmlLdR6vSBqmFOIFVZxkeT3r9fdcLsy5s~Xclt6UbCaNTDMwOGJCII82nHbjw7d4YIHuQVcogxbe3j41C5pLhtE5T25F~cEaNuQFnbtmYHTvYIYeDrmMfQPv1Xghv8XoK0pKSaYKlomIJn~ycfmmtuWPMxHT75OAzMVyq2gdnBV~f4Ir3UoZzukGbS~JdFrXaAZvzodIpFCDgqcbEbbReWrUMWS6jbE5~gSzLTRQGgg2yAApaIPIbzuGb5bP4DGgKyGGTX6P2vYlip-9-Pvp8v~IC0QXsEBA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449939/image_37_bspoku.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -698,7 +698,7 @@ const items = [
     description: "Nemu di toko emas",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/f8eb/ab37/e1595e1070fc176ceaec63ec8a27525b?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=gvt9B2IH3Itm0ZORuQrLAYaDNw2pUVeQBuGcsk3A7JiMAEpliYprQFt1361MAWt-ISVqa52Vfq6T8nXBUkqSkXME9RK9GEh~bSukvLBQR8ogImGiFQlet5hBiD-bw-E3ZqJgFdQZEQNbY8VXI27au5G~jV7W4Gi7Bvak~mloC4qOCmif2AuwSRxZ4-EAQpEwvnB~atW3cNnRdk9xPPeMFnDLDvfL0esinA3gfcKOot3nzj2dcwR5JOKreke9tKLptmKy-a0kvx9NtuCSuNn2WQktNK0ALsHWTMLrL7OXiq0i7CV5RMhdXeWAg2488t6OCQajxJaA~7l7dJvcCxGHug__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449922/image_22_zys3n5.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -717,7 +717,7 @@ const items = [
     description: "Nemu di toko emas",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/8cad/6449/410c2832ea0f5d7a662ffe553ed9a7b8?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EI~sDsBf5DH8vmj5fDKYy-EtdR6ZSyMja4i6ZutRxs9ay6SLwZiTruJNACG1BaIzcIJn2dUPKvllM~v7M9g~~rdrz9oJINzyEwMxPQgFAseD77cvKdcX8GjcGVsUoXj~6~SoXosfHpO~ZwCc7gZWWXKEBB~kb~PJlpdDbr6FSIUhjR1eWpx2MjojPAwcd5xu0PbHnJHuoC6sXDDkD2u4pxAJRSaYDl~9V0STVaHLjEtNZ9WY9akEHIOAJvPMWHjhhoNt8i0FoWIw6C~sX-PYw-OJSJzr~ZTm3abez7SLP4Cqf37zfsH5YgA3klvjbwBMyJ74uEayIteMRKyQoCPX~w__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449919/kalung3_1_i4yfbi.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -736,7 +736,7 @@ const items = [
     description: "Nemu di toko emas",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/30ff/7d9d/23071b938ae83b09d4983cdf51232714?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SwDb-YOW3Q9mykAqj4BByAO6QZ6lI9c~T5ORznKjoYoSvJSf3ollNq6H8MekLioJLwVLW15llQ5K7RQarUM~WKSzsy-4ZSjchrVH6Z0Uv7E68xBKE7vtWAXtCZMm9lYEnjJRAqueGGi8Ra0FWPRfrUyx9x6I-6dbjnoSa0W8HIPvWKJ6aC2ceGnnHPLnmhpKk67KGyKo0-J8v6daDykWVOYlixm34jepfcIV4ASSoJxKQ8cF1BkKnXduHxoNxmDHZbaQOWYuJXVmTMf~CrPuhkAAW7QsV8Wh8BJiP1Tz9DVX4M-4idaa1cCRZJCDlkpz11nZ8KcHMfp1BrmDsPc1Jg__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449917/kalung_1_sgco0a.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -755,7 +755,7 @@ const items = [
     description: "Nemu di toko emas",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/32fc/14de/c01db753e3d910d77909bfd4f7a79639?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=H0n3QMIbSqe1XGkkjOz5og4QuRAeceTnyLsSCG~dyYoJDS42ayrW7Uv~Y9PSCOsApRSKJ~M1PiP~Kd0eHEnMVP1EJlnmcefGlBm8Meop9ghw9No4-1R4Ah5nDgr-aEu8dUmLeKx6hJEsjYCk5cLffg21A8kZ-Nf8vC3diJUWQwXlRKQq9ki-GGYF6R6N3RAEcO3gS91ZwOZ8o3oKXh~gHEAhQRZGM5IMcYzXMkDgVpA~Kckh0vLMKMgMmShTB4VNlXBJ4KuOiA-YDq84ipLp3yKf-mg-7C7MZVBqcdrHYP-eSJcvk7xcnGx~Ievz8w41fbRbKuNR-z7f18EZ3GdEsw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449919/kalung2_1_w31f2q.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -774,7 +774,7 @@ const items = [
     description: "Hilang di sekitaran hotel lynn",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/d048/5a80/c96f476d6871db917302cdcabbcfd003?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qgC5ElgBXyO2EJ-iF97Zqkl8D1heYsrUyClvsdCQ4x~wAANMOxwDeprsYQKbUxKYavd6g~tujenl294rkziQmt3V~rfoY~1~lIw4tODqvT1jsdtMFNFUooXJYnHBfeV2VH8WM0n6iuapFaAderjiSx3hVhL69QVhXpVeprQ9aDwTj6pBDHEPs3nCLjTDp-7RF7d7gm-BJ1k7OfYHzGsx70Znr~rgV1DHeiLYD1Girc0O5P7Gd6iziU-Pjjmph9CEwjSk0GExmsIIiPPvvqXRUAdD3F22pe2SP66o47fpCKf-~Jz1wbWyCtHKloLole4~rsyb1hRl29SpRr8y2FjA-g__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449927/image_12_esnfgk.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -793,7 +793,7 @@ const items = [
     description: "Nemu di tempat gym jakarta pusat",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/3cc3/df4e/5ca1b85c8be90c9cc4e00a21680bafab?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CiKFESW9aNuA6hWwYzFHlYrZsi2ugsZrLTD0Jb8GcVrKwrirTh8KnzUxFOSgYmpW5I~k4~AgSPhNdmJskGjnwIFybMfD5G3VXrgEUEIK91AfG4WzL6me72~jCQ-iA4w9FI94pMlex2JRYiTeDG9imfgqjmmbdkRzkS5pXugp76uEoYm78lFDECcH2ZBN9A-v0dzzGureZx~Flm1QY0D1jRKy3e9wN-7VZqW4OdgX6rmOfyOj9BTacNJWPHiAAwiiIceuic-7GTmSEKYvH1RA09fTTh~XF4kL5OcL2vwEuS0W4uoxUW3lWBX84PCUyU1IpHdQl7z7snkxotMLu6kKQQ__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449925/image_11_e7paf9.png",
       defaultImg.found,
     ],
     approved: true,
@@ -812,7 +812,7 @@ const items = [
     description: "Nemu di tempat gym jakarta pusat",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/0ae5/d582/1adbf60defeccf85d00db21c9866ca86?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FNQunOqoBdDYmBwPesift9XmmTJBvw~X4M1TzwkmmrOG8A1fd1y567sGJx6gPhzuXxqHCPGzavzmMtUxUUhd0j4ZRmViL9sAb8Vugn0xeQilTGHQY~DXLWquxgccRqZc2i2Qtb7jwdSTyj0lckI-U0L8xY8PBtOnbN0SzfAZDD-4Q8VVYlh4MGNB0bt3S1WmY5xUuGBtu1H20n9DNDUrKkAsT50ZlDLNSySh7WSH5dzNLU-j2rrb1qBgaQVx~S58Wv~f8deMr2afKBhOR1gRg~qOZiAlZg4whdPJ7NZ56Y-s9tzCllSNbwdmmkzBZyGYvxJva8yOi7AF2xWkMfnS2Q__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449922/image_20_zwz5uz.png",
       defaultImg.found,
     ],
     approved: true,
@@ -831,7 +831,7 @@ const items = [
     description: "Nemu di tempat gym jakarta pusat",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/39af/50d1/ce5edbd2b6348327e961f9cbea2e6103?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hZQaVYuTRWEdZysukeOftYcRepv3iMNj4HfIsD8OKzXHMr-Jgn4jRZnnnfiNqv-xMwY0q-ud3W9j0ey9EuRDhh2ll3JRPTh9gxIGPi1Vn4cjIBt9KGROaEoUMCf97N-yJ4d1t53r7Ao9eA10qiGA6nAZJjYXOcUiyZhBjM4i-6RYRPwrDo6PmApQ4GWGvoJecNdJTpsevsfpg0aaYgamon4~tZ1YN3NBtVYyMpZaSuPKEUOwhQzYi4Sn2AACGE7DrPoLuwMkFKzWVkq1LNs-qoFO4BrG9T2HrB45LhPdiZeO04stHHRRjMtP8ts-ef3r8hy01aJMGnnwdYzWPQr8xw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449958/image_29_psvpaz.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -850,7 +850,7 @@ const items = [
     description: "Hilang di warkop kita",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/ced9/8630/72ee0ef6233ae04dae85bb8c0799ae20?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ADIRE5LyssjzE4Xe3zGtmDh37eGoRyZwiAaY0ljs6SMu~s35wD0WmqERPTncj-Q4tgzdKF5kkPkq-o9-l4jVJ0gMXD0IH3KHy9nqvkw57HDoO25ROBZqGa0c0sC1MT2-~tD2HgZsGQO-gRXKFjpQGbZOggyGyFlTg5MCn4FCVtsth6sJ2zU3V5KE~WzFlE9EB~Tp1ZzIFUjqQeXAs9mBmi9d2X0odotYCyrt0yXDDLKw-nSjEFpP6BK0-CpvqZhrPso~~aLV0LioSvAFtbF7XBVj7lMYd~yUdF3kgAYMPEqkD2QW5Rrad6KZypAI-8QsIdFvd0CHJ9twhoh~lwAJ9Q__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449958/image_29_psvpaz.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -869,7 +869,7 @@ const items = [
     description: "Hilang di masjid",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/cf34/8583/9196fff96f5f8b7056107ba0bfa8233d?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Wha5Ogs31LNkcGl5eOXxo7JGGBoB0KSqX9H1GrgchtZePLiL2bX30fSANNlvSYw-7MObZSovcHAhjKkhwFPZTw2IZmk4Hm2-tm8VAqRcwSJVMMt9q84HheH82L0oFLCyAf6j4jWz-OUZM4w3xBwFrSvCdAE6VzjEzYXjHOMkkELUpKIsNtB9l2SlGfjgY~p8njYBGbUF~v89GOFZz9uxGQViI6QXpQvKuZr57YWCBeKmm9lWWJzI60-xArPoGCpK2SDjbUOv0GFUlOfr8UFZNKYr2utG6Fi5wcUf1CNxzNgFu8vqi~~9OpnJyDCb1m6VkqF8mzP9yBVpp6228hKzkQ__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449957/sandal2_1_mztbvy.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -888,7 +888,7 @@ const items = [
     description: "Hilang di warung tegal",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/f9c0/528c/a6c85b65302158d86a323eed3913d67f?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=b2iYRMh4A3H~xNeyJEimzBcew0fQgNlQQNEzWWh1DNAT6ljZMJUH4syhbyX-QxVIkvmkUvbwGsN5zFD8Rf8PhLq9e8zixqlP7x1vOZhdprdQ82XCq2Qwgebdu102OtSafGt~9Gr-V3k03LmUXyhs6nIaOg3B98K9rFIDpByXbNkmQ1mII9BhVPRbDqS40xgMqRYHzaUXlfVD~2okvVcp5YhIHw8YB1Lu7TpJ9bbbnJBuneCW13bXLOabu7avbBNuH1mURceu9O9UuJe2szDN1dPg9jZ75H~Tcv79LPGmWDVpWXNy3zl5hZFVyxbaAAUmDKol-WXsZlWcXvb85PRJyQ__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449957/sandal3_1_buvlhq.png",
       defaultImg.found,
     ],
     approved: true,
@@ -907,7 +907,7 @@ const items = [
     description: "Hilang di lapangan lari",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/e5c1/8026/64535415372ff30f6e979933edbf91ea?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QcUW1byA-GRNwd1TYJEzADvQGv4Mb3A4HJEZTPftS2iZhZ5WSZph~p~h53rDMhXHfDU6zIVB2ly-sVxv3jrTMpFsPbxvKdnfcPj5LUywNjrrlCHPNWquE2WjIrM0Jyh759kiZT4RfnhHg9NNkqvD16aFU4vpCZc3hBzeMCQmW4e~27jDFpZfkeqMo3waHIj2PxQ98sc3fR6xY7LY2VPIRrvuQWneVtm6MKi7RmDQZDxeZDWbGdyc1yBiMJZWz5ksUaNbG28QR8ftLU2iBGdQwtvKNU0LaEY0qITeBDYMt~G6DibYsC-ip176k5Vg9GWl7zE-0ehKX7E3P-HQyCObIA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449961/sepatu2_1_pasu2d.png",
       defaultImg.found,
     ],
     approved: true,
@@ -926,7 +926,7 @@ const items = [
     description: "Hilang di kamar kost",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/6350/0fce/09e4e18da864df31617066ea9119fe68?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EPtX0XHKcwvWp7cizXEc6QSnmBJIVYZXiPn4j2Y-2IstmQyBg2X40fkRWO4olglO7ryE9hwlmSK48h~kYthPHsMR6feAURZIlqfLk-VYmnZkjsHS1Pe-aQIdRVHcHS0nqOoCD~pjh~o7b8OT25ekDTk0gX5upE~MYRyZAQi6X7Zwj6A3VLU5ELkJ17Md-Gkdf7-mjMAfFyHh2gOYmavTvQDiVF71FRws4rmleW0ALvg4pm9qlHnFL-8hwudYNSCrED0TiClH5NXSPQCJORD6glcCPZa5aWNxrBO4L3Ge7Mg1usmwPGwEghcR6hBmxArgF-EGQvcxoxNOwOSy1clG9Q__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449959/sepatu_4_vvqzkk.png",
       defaultImg.found,
     ],
     approved: true,
@@ -945,7 +945,7 @@ const items = [
     description: "Hilang di perpus UNSIKA",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/5dc8/6c58/92dcecce2428169ebfe933bfe77c6cca?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dr~-Eiq2zaXuqQ4bu5XtDJ52RdzKwXgBdM1PJzYdBjpmrAIXBm1OM0RU1U4FahiNltfQxBrAYYMvjYQxtu4kB2x~bV1qYswTsCOq6N8xHa8MSJtsgvuQb7E0CHJJrpMhb4rCGSYtBUjrKDcQte2ZlGxA9H0Ygs0HIImfp4dCXZ1Ky6Mk-qbchR8arjh2PAc6ttIXnq8JAk4MbSFAjcveTCvLTniLTWMzDWdj94HuWY3-SGP4hlS3N7gOQjE1TOFKkW37ogiOkgGq-BDgeTeylcPULlTJ8OZZfhGvs9tLeybYMa7BLuxGGOVvIYrUamBXCobftBg~0S0cJZxBESFXnQ__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449961/jaket_4_l5jlzh.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -964,7 +964,7 @@ const items = [
     description: "Nemu di perpus ITB",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/11b7/daa9/347116f8caf96652bcba927cb790ade5?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m5LpICvGrbxK32tU1mhuemdDcFC1TBd4erKrpVROZYtoJtuHauDlcqkl0nPXW-CFsm6sh8ckvNVa2q9pzGAHqp41BhaK1fszz-HRiwRP5BlmrrMIPr-usVLQ~jfoNwU2lYPIVy0mjIYsQbqK-6khf9pkRG7l8OSw~0e-v8EKgyCzFCp-58FRskSlFS1OPOImkKM159DLtv~O1VADZ8tDLM68ZtkcGkaMEUJfxxmaR0Pwn59Iw5pwOB-BGBhpKmG8vIXuPkzf7Nd1Pz4jo7QrfCHU5wArQZwignx-pjJrUYDwvT6YLamuwTpHYOT0itXFupeUs80TmGG1zoxw~wdXNA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449960/jaket3_1_i0pwnw.png",
       defaultImg.found,
     ],
     approved: true,
@@ -1040,7 +1040,7 @@ const items = [
     description: "Nemu di sekitar gunung gede jalur cianjur",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/ee66/b51e/269f131f6b57fc8d2526ebc9580141fd?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JVUIHE1keU0rfvAAq~SIMTGCCG1EnEEd--6LPxqUaETlua1BEErnTr0a3I91a4P67JgrHN5dMXkn1uneKPR34xXXNG6Q1Kc4-Yhv~0Dd3YddC7-wfOAQSiW68Q5TYqAMjwwL~1I5hTpqDXEYSbImYT5x0Uf-cIsJu2rhQFes~HjCwAwZM2wxS1TZ8~yQxmyTg0O~StpNtNzSlrxmpY4IWm5RERumapOQyTClOsWz5zErzuL39giBPGM701N-qNf32XQ6uWsvrx6uH5EOHuh1TZCkXi9bRLTUL-lgZowHRZvhw5SLDgoJEJO1l--bd6HAP3eIrHpHtxQCAq-jg0NWKA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449970/image_10_ywjubh.png",
       defaultImg.found,
     ],
     approved: true,
@@ -1059,7 +1059,7 @@ const items = [
     description: "Hilang di sekitar merapi",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/7713/6da1/d5ceac46af1a7c173eee82a38a7ed778?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=o9v5ntf1zu1RTGeOQv9ti2RHdt1a0YbVcp24I0TJZZKwYh1emi5Vn69Oo3IE62NcArxPbOyaRqPactvMnwfIvTNmbvOs362HFBuWMN4cGzAxyu-kTNq9F~rIBj3VCHF~4X~cTuTydoRrXkMbGvHmUTsk5OFu8q~BAx0CrR8OXZpulnghL-62V4siFNBOZptTu3RuMMCp3ShMMKnSqGDBvkyKYWYdqq3ipFcJJ3J0qhjRnOr-bOYL4x6UzO6qU8Sh4lcAqIg-jwDMZnthbgeGrLwG5HjbINhoTtDDh4ptDcvqLmsFob2oI4sLlxdrOno4IUxCQS3gyzNIQQNmTVkGAg__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449973/image_9_rdmfgr.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -1078,26 +1078,7 @@ const items = [
     description: "Nemu di sekitar merapi",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/463c/26c1/0cec036fa2d66a49c3df24aa9d3678a5?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fqPSaY5To5g-JkG9HAimqpsxZkn0f8NVNZdIw~Yyv4ECzQ6jkn3YA0JE7Pv8wdzJMpvgqQ3p5MlepG7fOZB5EhVCKrvrqPD30CFg1JdWK5NKca0mDln5wdVnWo3fLBjvf4hiXxMw5eFmPKqc2MB2B4jKgByBvDBsyGgM4SIfpqLxCIMyJVIg2y0YVKguVRcP2b0B9lqhuX0dDad67YC7l4Z93EDdWvMth93wIWvITGLb-Bxy~TgwgLUBTwDht~YTvVCrl8GdeU2NoGb074g-HHw6R2hnY4cz2vosTjBifqYnFxGwcGMVt4R82KgBAyQ3h17kyoZwMdaIZmtD5l9k2Q__",
-      defaultImg.found,
-    ],
-    approved: true,
-    type: "found",
-    province: "Jawa Tengah",
-    city: "Kota Tegal",
-    subdistrict: "Tegal Barat",
-    village: "Kemandungan",
-    postal_code: 52111,
-    phone_number: "+6281234567890",
-    messages: null,
-    deleted_at: null,
-  },
-  {
-    name: "Sleeping Bag Biru",
-    description: "Nemu di sekitar merapi",
-    matched_status: false,
-    images: [
-      "https://s3-alpha-sig.figma.com/img/463c/26c1/0cec036fa2d66a49c3df24aa9d3678a5?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fqPSaY5To5g-JkG9HAimqpsxZkn0f8NVNZdIw~Yyv4ECzQ6jkn3YA0JE7Pv8wdzJMpvgqQ3p5MlepG7fOZB5EhVCKrvrqPD30CFg1JdWK5NKca0mDln5wdVnWo3fLBjvf4hiXxMw5eFmPKqc2MB2B4jKgByBvDBsyGgM4SIfpqLxCIMyJVIg2y0YVKguVRcP2b0B9lqhuX0dDad67YC7l4Z93EDdWvMth93wIWvITGLb-Bxy~TgwgLUBTwDht~YTvVCrl8GdeU2NoGb074g-HHw6R2hnY4cz2vosTjBifqYnFxGwcGMVt4R82KgBAyQ3h17kyoZwMdaIZmtD5l9k2Q__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449969/image_8_wtoscv.png",
       defaultImg.found,
     ],
     approved: true,
@@ -1118,7 +1099,7 @@ const items = [
     description: "Hilang di jalan",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/adef/60a3/e1cd4e758cd25d9f555e091a34c5879c?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=f77tfe4IZEvGAU3A1Dhkj-P87oXkAdjYlPdxUy7h3a5d71wrhCwLDeBD~bpC4jZ6PbNBnvv6nmKJ21Ms9-t-NLQUKgmhx2WDwmxlJAIjPgvPlM5PZiMbNQaTMH4AJpxSMeynLlUkExiYc~29dwbgxhmMTVdHfHKs~ERLv2bH6-I6e66njhFhE4YMQPgpypozPgDdDzlZqgiw8HsUV8Rg0OQauNTrE~WQuFnZ1ZbA~96veJgmirIiaSUBFQ82G0DubvUS3jrxVBmh-vA9h7lyELgW~Kt6j3Ao8wxGT9q~XX4WpxZMI6V6ivKdHU~l19LSATLLbVH0IVUocfq1l4OjBw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449906/image_27_ozp0ir.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -1137,7 +1118,7 @@ const items = [
     description: "Hilang di jalan",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/4665/28a5/f05795d96a6b21161ecb98a4cbce6513?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hDVOV-sg4yHc~dkM8hsVGBONDnGs-G-gSQz0Sl7H-PjjDYhJICzAh29RJOqQJvppaIZxt4O0YV0KfhmgsLsB37AqKWVd2O-Ns5T8iY4Gg0Ef7e2keOVaq00DHWkEG4BZFzbieRLmwb9ysjUjdNT~5hMpJD3nfCYepC-6bQAWEHJXqFke9ETzyM6BalDOT30bsyeKK6JG0zzYvl5hDpFqM7hWPDdB84ATFULRFfWUJ6Q4-8W8mGqLebzufi2oQIJ20qCH0DvgMtQrqrqExTftQVtSjKUyxDPN0AU~4g7OGjrumHUpNj4eq2cCH1h96DW-810lGCmfZeTt4bYDLP41zA__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449904/image_30_szh00h.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -1156,7 +1137,7 @@ const items = [
     description: "Hilang di jalan",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/b6cc/4771/728b94eccc3f5d70a7fdf2502f9bcb2a?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DSy7QjBZgPSU9xqgIrIQqbdWa6~cZg75i1msv31SH9NoAndRcpXplr2AEfoH44RQkCMlJR0mzUW8oaQpBPpt6UwX1TAE3TLrxmB5pKWUYkqE0Rw2FA4f0GeZPVwDud-vnwiowtK9HU9Wgz4GkfWH447YNqo2CFn5VrC2EyirgS3yffokvJC9w-qzzQYHT4YipbBuljbw0-rfSjpXW6xbTfEvD5aS3cToY-vHgLzxuNQ43CDRa7xW25uZrd9gNrRp5TsJ2CHNX-GY0PP9VW8pGc~V7Y~p7gj0-0rd3PIbRM12M3rolq1ez-wbawf4N3bcIDsHugsKSHfB0owiWzUkCg__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449905/image_32_jejbhx.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -1175,7 +1156,7 @@ const items = [
     description: "Hilang di jalan",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/8125/6b2b/1b7be148ee52e69ece6c9717675bc753?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZRfjoWYj5DGgmrfSx0N30lCaqORP9dxNMNGY1QHTKoLUZw9x19AzVQBAWRDq2ohQlnbRHLNjulmkAJDquCj8pusXTnYxHdytHTHWdtC2NuUFhaVwUQMf-86X2aBznYBJczt5FaWN0HtTPYFHoZrrQID~FKtaVQ8aLU06IT8iQekUy1HFDE-ae-VjgKQPi8IQXyPJBXndWw1ejNNAaiRrc7p05sxDiWAPQ6Zzi6kc5FWXStk4S2ET2arr4~Zemt534YSM~YzskWStdVSqD~~MKNjZMsqtzEKEgIj~0b3miAaY4SHslhQWYWpaAHReyknn72FGjD3jE9YtShP05t0IZw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734450800/image_4_zkvwgi.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -1194,7 +1175,7 @@ const items = [
     description: "Hilang di parkiran merapi",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/8536/919f/7bd545fb6d32536841f6aa25a6895783?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PTh6C6pvLXs0tHp4FZbXppP1KUJHcUMTOL-tVLwbbCbTb8wKse3ei8h1nn3F4XL8ogbaeaRxNcG5Hvc5v5RZyXRUTXfm~w52SfTY8MbW-jER-sHqDWwu3HQSoAXg8rus~96r78rYA5rN~uTOYBi66PWRGJkCPsdO3ZgpJBvGgCLRs4TvDz2Hk-GnDzv0z1zrsuE5pAUu8nuJq4XPQdJrGvU9OVrz3faXcEjvvz5dtKe6IwoGvULGbK6ctT~FvduyrPEUfycoD7f0JAcr-FBe9PyeqOlOnluZfVfRA0xRQebAHFQKYSfe~NUUOJAw9SqeikE-dDpYMUxoGUWEvfGSsw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734450798/image_3_xswpno.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -1213,7 +1194,7 @@ const items = [
     description: "Hilang di perpus AMIKOM",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/27fb/3462/bd9454ad7ecac71ebbcead7c97feb5a5?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=KI50-28V-Eyn-obNWpKKV0~LbZyjpdBuukRbrRViF3H96MESPfeQMYWERigO7TYgHBFu8sDQUzinD3XQaJI5oCr7DEXBXuJsxY4sJNcDkdmLyYD3zMIYx3qH9IxSzDcrB3HKxjh7hjUMq6lPuXY07NOHuCcGVq~kLldpCKC34DY7dpk4oK~eaMPoACqt6X7LAFMeV6cncllzd9GdvkCkWhpvKVV95l7ai9uXIYPVeBA~CAo60hqiDh2QirGHR9TcWTHRaZ0-EuTB2N228gjybpp77Fq17V-tZrhXeebH~b2tRk8dXHMkGNF2Ukbo4vHFnpId99j0riEBqvPVm7epzg__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734450801/image_1_ydy5eq.png",
       defaultImg.lost,
     ],
     approved: true,
@@ -1232,7 +1213,7 @@ const items = [
     description: "Hilang di perpus AMIKOM",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/5008/7653/dfedb5191f1531a7452f6e3de545d59a?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dUUCd009e1CFY5BFPKkUNTgUVpAFI9Rub7nCnzmFhJpXH8kSq4ydoBH-t7zxnT5lbodfPGGgLf8I~pfkDDeI41HVDQcrIB85V3MGJpd-RbWupECZ98fAd9o6~GaNXJ0sq9MtaOe5m502uqOJLxMYsXw2kqB2CLS5yqidK7cXKtIX5G3OQPIwzeFuNfN1YhR0jpX6M5-4Z1HfEf5FqaUnQF0y8U7Q-rpNGNjhGeC8-Lh5rQmubuaI8hrZ-EKdTu0qtu99yuHuoHj0ktRge9IHMeS0cvSM~EpPI2MNKgrzomC4HIxV28bRZ4-Pcdh8mfdvMZvuvQLAXrSYovFsSoCs-w__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734450800/image_7_syn7sx.png",
       defaultImg.found,
     ],
     approved: true,
@@ -1251,7 +1232,7 @@ const items = [
     description: "Nemu di perpus AMIKOM",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/54f8/0d8b/e00d91aed9fb7f06dec0b215163d5e0e?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=F3J~64dlhQM5~RV3B1M9a9HCibqbBqfL7uiXqoUMfV2iU9xQNSiMZiH8Qug2TttCcRDkCHmyyVPFSJve0v5vALDK6PRnzA0PWo6LjBG3GZsp-bCGYw0RcV6o-ZkQRg6oIfLTfEJAhdQ8jUN2q2GfsSGOhN08pVaAHEuiQ3mD2MdA-6B4JjrchwGUOAUYUQm-jIkf7zfPjo9nA8gBdiAau0n1Jbt3My2WaTnBJyELIdVYlqaWQwL4-qMXwZvdIcZ2HlbUiGCjQD9hykKtTCrYd3TlTUubQi-tvfl2CmSiQxPrU4I0rItIPml9Lsn~yFNkzMP-v81mElgN6ULDjsdvnw__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449977/image_6_onvgfe.png",
       defaultImg.found,
     ],
     approved: true,
@@ -1308,7 +1289,7 @@ const items = [
     description: "Sendal gunung merapi",
     matched_status: false,
     images: [
-      "https://s3-alpha-sig.figma.com/img/ce40/fe6f/d8df907535dc9e227234c0a3c0c8ae4b?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HDPqO0V4ASmnaGPLB6NP3uoxGBJGXYaJptOv9mKtPZuCuqUIXyp5hpQAFfXY-cEFZdTi-lCaEBPp~UgYn7QuTzeimq85XKs4BFW49yGqrC3PbSNP3yYYrUIf-j6N~FHcCknIdC8~Y7Bdy1gvohkJvUBdi7ef0fWAg4muFbuh0qgGMb1muWlbct~~-Y35xwxoaCPxYutKDKNVPIIkxWpPhAkYCik8O7ncEmOJc6XsapyPMkdkrvWhzbBsU0iLw~1cml6QnAr5ot5l9YRnox8nxnewgfG-esxnNqAZ~FlRVJrPyryGT5AC9HH~bcRj8buIcQyEcRonbepZ0fjpqIREeg__",
+      "https://res.cloudinary.com/dukylmpmy/image/upload/v1734449962/sandal_gunung_1_m8vr7n.png",
       defaultImg.found,
     ],
     approved: true,
