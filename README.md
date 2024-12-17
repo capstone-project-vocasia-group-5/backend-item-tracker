@@ -178,8 +178,8 @@ Link Project: <br>
 </a>
 <br>
 API Documentation: <br>
-<a href="https://api.greeve.store/#/">
-<img src="https://img.shields.io/badge/ItemTracker-purple?logo=swagger&logoColor=white" alt="Postman Badge">
+<a href="https://documenter.getpostman.com/view/32137512/2sAYBViXZJ">
+<img src="https://img.shields.io/badge/ItemTracker-purple?logo=postman&logoColor=white" alt="Postman Badge">
 </a>
 
 ## Contributor
