@@ -390,8 +390,8 @@ const getItemById = async (req, res, next) => {
 
 const getAllItems = async (req, res, next) => {
   const {
-    page = 1,
-    limit = 10,
+    page,
+    limit,
     type = "",
     matched_status = "",
     search = "",
@@ -405,9 +405,20 @@ const getAllItems = async (req, res, next) => {
   } = req.query;
 
   try {
-    const validatedPage = Math.max(Number(page), 1);
-    const validatedLimit = Math.max(Number(limit), 1);
-    const skip = (validatedPage - 1) * validatedLimit;
+    const validatedPage = page ? Math.max(Number(page), 1) : undefined;
+    let validatedLimit = limit ? Math.max(Number(limit), 1) : undefined;
+    let skip = validatedLimit
+      ? (validatedPage - 1) * validatedLimit
+      : undefined;
+
+    if (isNaN(validatedLimit)) {
+      validatedLimit = undefined;
+    }
+
+    if (isNaN(skip)) {
+      skip = undefined;
+    }
+
     const ownCnv = own === "true" ? true : false;
     const matchedStatus = matched_status === "true" ? true : false;
     const approvedStatus = approved === "true" ? true : false;
@@ -437,6 +448,8 @@ const getAllItems = async (req, res, next) => {
 
     if (search) {
       query.$or = [{ name: { $regex: search, $options: "i" } }];
+      skip = undefined;
+      validatedLimit = undefined;
     }
 
     ["type", "province", "city", "subdistrict", "village"].forEach((field) => {
@@ -445,16 +458,31 @@ const getAllItems = async (req, res, next) => {
       }
     });
 
+    if (province) {
+      if (
+        typeof skip !== "undefined" ||
+        typeof validatedLimit !== "undefined"
+      ) {
+        validatedLimit = undefined;
+        skip = undefined;
+      }
+    }
+
     const postalCodeNumber = parseInt(postal_code, 10);
     if (!isNaN(postalCodeNumber)) {
       query.postal_code = postalCodeNumber;
     }
 
-    const items = await Item.aggregate([
-      { $match: query },
-      { $sort: { created_at: -1 } },
-      { $skip: skip },
-      { $limit: validatedLimit },
+    const pipeline = [{ $match: query }];
+    if (typeof skip !== "undefined") {
+      pipeline.push({ $skip: skip });
+    }
+
+    if (typeof validatedLimit !== "undefined") {
+      pipeline.push({ $limit: validatedLimit });
+    }
+
+    pipeline.push(
       {
         $lookup: {
           from: "categoryitems",
@@ -516,8 +544,10 @@ const getAllItems = async (req, res, next) => {
             name: 1,
           },
         },
-      },
-    ]);
+      }
+    );
+
+    const items = await Item.aggregate(pipeline);
 
     const total_items = await Item.countDocuments(query);
 
