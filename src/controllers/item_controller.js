@@ -473,7 +473,10 @@ const getAllItems = async (req, res, next) => {
       query.postal_code = postalCodeNumber;
     }
 
-    const pipeline = [{ $match: query }];
+    const pipeline = [
+      { $match: query },
+      { $sort: { created_at: -1, _id: -1 } },
+    ];
     if (typeof skip !== "undefined") {
       pipeline.push({ $skip: skip });
     }
